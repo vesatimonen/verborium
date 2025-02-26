@@ -57,38 +57,38 @@ function uiCellRedraw(board, x, y) {
 
 function uiElementsRedraw(board) {
     var canvas = document.getElementById('game-canvas');
-    var context = canvas.getContext('2d');
+    var canvasContext = canvas.getContext('2d');
 
     /* Set canvas size and clear it */
     const pixelRation = 2.0;
     canvas.width = gameGrid.clientWidth * pixelRation;
     canvas.height = gameGrid.clientHeight * pixelRation;
-    context.scale(pixelRation, pixelRation);
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    canvasContext.scale(pixelRation, pixelRation);
+    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
     /* Draw dots */
     var dotRadius = 3;
     for (y = 0; y <= board.height; y++) {
         for (x = 0; x <= board.width; x++) {
-            context.beginPath();
-            context.arc(gameGridCellSize * x, gameGridCellSize * y, dotRadius, 0, 2 * Math.PI, false);
-            context.fillStyle = "#202020";
-            context.fill();
+            canvasContext.beginPath();
+            canvasContext.arc(gameGridCellSize * x, gameGridCellSize * y, dotRadius, 0, 2 * Math.PI, false);
+            canvasContext.fillStyle = "#202020";
+            canvasContext.fill();
         }
     }
 
     /* Draw walls */
     var lineWidth = 3;
-    context.beginPath();
-    context.lineWidth = lineWidth;
-    context.strokeStyle = "#202020";
+    canvasContext.beginPath();
+    canvasContext.lineWidth = lineWidth;
+    canvasContext.strokeStyle = "#202020";
 
     /* Draw vertical walls */
     for (let x = 0; x < board.width + 1; x++) {
         for (let y = 0; y < board.height; y++) {
             if (board.getVerticalWall(x, y) > 0) {
-                context.moveTo(gameGridCellSize * x, gameGridCellSize * y);
-                context.lineTo(gameGridCellSize * x, gameGridCellSize * (y + 1));
+                canvasContext.moveTo(gameGridCellSize * x, gameGridCellSize * y);
+                canvasContext.lineTo(gameGridCellSize * x, gameGridCellSize * (y + 1));
             }
         }
     }
@@ -97,13 +97,13 @@ function uiElementsRedraw(board) {
     for (let y = 0; y < board.height + 1; y++) {
         for (let x = 0; x < board.width; x++) {
             if (board.getHorizontalWall(x, y) > 0) {
-                context.moveTo(gameGridCellSize * x, gameGridCellSize * y);
-                context.lineTo(gameGridCellSize * (x + 1), gameGridCellSize * y);
+                canvasContext.moveTo(gameGridCellSize * x, gameGridCellSize * y);
+                canvasContext.lineTo(gameGridCellSize * (x + 1), gameGridCellSize * y);
             }
         }
     }
 
-    context.stroke();
+    canvasContext.stroke();
 }
 
 function uiBoardRedraw(board) {
