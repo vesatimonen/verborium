@@ -112,17 +112,6 @@ function uiElementsRedraw(board) {
 }
 
 function uiBoardRedraw(board) {
-    /* Redraw cells */
-    uiCellsRedraw(board);
-
-    /* Redraw dots and walls */
-    uiElementsRedraw(board);
-
-    /* Redraw info */
-    uiInfoRedraw(game);
-
-    /* Redraw buttons */
-    uiButtonsRedraw(game);
 }
 
 
@@ -187,8 +176,18 @@ function uiGridAnimationEnd(event) {
 }
 
 function uiGameRefresh(game) {
-    /* Redraw game board */
-    uiBoardRedraw(game.board);
+    /* Redraw cells */
+    uiCellsRedraw(game.board);
+
+    /* Redraw dots and walls */
+    uiElementsRedraw(game.board);
+
+    /* Redraw info */
+    uiInfoRedraw(game);
+
+    /* Redraw buttons */
+    uiButtonsRedraw(game);
+
 
     /* Check if end of level */
     if (game.board.solved()) {
