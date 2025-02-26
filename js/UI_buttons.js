@@ -25,8 +25,8 @@ function uiRestart(event) {
         }
     }
 
-    /* Setup board and refresh UI */
-    uiBoardSetup(game.board);
+    /* Refresh board */
+    uiGameRefresh(game);
 
     return false;
 }
