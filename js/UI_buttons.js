@@ -11,8 +11,8 @@ function uiUndo(event) {
         return false;
     }
 
-    /* Refresh board */
-    uiGameRefresh(game);
+    /* Redraw game */
+    uiGameRedraw();
 
     return false;
 }
@@ -25,8 +25,8 @@ function uiRestart(event) {
         }
     }
 
-    /* Refresh board */
-    uiGameRefresh(game);
+    /* Redraw game */
+    uiGameRedraw();
 
     return false;
 }

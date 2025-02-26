@@ -152,7 +152,7 @@ function uiBoardSetup(board) {
 }
 
 
-function uiGameRefresh(game) {
+function uiGameRedraw() {
     /* Setup board elements */
     uiBoardSetup(game.board);
 

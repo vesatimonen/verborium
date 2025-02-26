@@ -55,7 +55,7 @@ function uiClick(event) {
             /* Vertical wall */
             if (Xwall > 0 && Xwall < game.board.width) {
                 game.makeMove("vertical", Xwall, Ycell);
-                uiGameRefresh(game);
+                uiGameRedraw();
             }
         }
     } else {
@@ -63,7 +63,7 @@ function uiClick(event) {
             /* Horizontal wall */
             if (Ywall > 0 && Ywall < game.board.height) {
                 game.makeMove("horizontal", Xcell, Ywall);
-                uiGameRefresh(game);
+                uiGameRedraw();
             }
         }
     }

@@ -100,7 +100,7 @@ function gameStart(level) {
     localStorage.setItem(options.storage, JSON.stringify(game.level));
 
     /* Redraw game */
-    uiGameRefresh(game);
+    uiGameRedraw();
 }
 
 
