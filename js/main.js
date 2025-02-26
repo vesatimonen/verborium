@@ -14,60 +14,46 @@ var defaultChallengeSet = [
     {info: "INFO: V15-08-02-08-03 C02-13-34 D0012020001000 T000003 E062 S00.109 >6x6=4-113040300402033302110100400310003131"},
 ];
 
-var gameChallenges = defaultChallengeSet;
-
-var manualChallenges = [];
 
 /*****************************************************************************
  * Parse URL options
  *****************************************************************************/
-var level_option = undefined;
-var set_option   = undefined;
+var gameChallenges = defaultChallengeSet;
+var manualChallenges = [];
 var storageName  = "verborium/game-level";
 var level = 0;
 function parseOptions() {
-    let URL_option_string = window.location.href.split("?")[1];
-    if (URL_option_string != undefined) {
-        /* Convert URL special characters */
-        URL_option_string = URL_option_string.replace("%3E",'>');
+    /* Get URL */
+    const url = new URL(window.location.href);
 
-        var URL_options = URL_option_string.split("&");
-
-        /* Go through options */
-        for (let i = 0; i < URL_options.length; i++) {
-            /* Level option */
-            if (URL_options[i].match(/L[0-9]*$/) != null) {
-                level_option = URL_options[i].split("L")[1];
-            }
-
-            /* Challenge set option */
-            if (URL_options[i].match(/S[0-9]*$/) != null) {
-                set_option = URL_options[i].split("S")[1];
-            }
-
-            if (URL_options[i].match(/>.*$/) != null) {
-                level_option = 1;
-                set_option   = "#";
-                manualChallenges.push({info: URL_options[i]});
-            }
-        }
-    }
-
-    /* Option fallbacks */
-    if (set_option == undefined || set_option == 0) {
-        gameChallenges = defaultChallengeSet;
-    } else {
-        gameChallenges = manualChallenges;
-        storageName    = storageName + "-#";
-    }
-
-    if (level_option == undefined) {
+    /* Level option */
+    const levelOption = url.searchParams.get("level");
+    if (levelOption == null) {
         /* Read from storage */
         level = JSON.parse(localStorage.getItem(storageName));
     } else {
-        level = Number(level_option) - 1;
+        level = Number(levelOption - 1);
     }
 
+    /* Challenge option */
+    var challengeOption = url.searchParams.getAll("challenge");
+    if (challengeOption == null) {
+    } else {
+        if (challengeOption.length > 0) {
+            for (let index = 0; index < challengeOption.length; index++) {
+                /* Convert URL special characters */
+                challengeOption[index] = challengeOption[index].replace("%3E",'>');
+
+                /* Insert it to manual challenges table */
+                manualChallenges.push({info: challengeOption[index]});
+            }
+
+            /* Set manual challenges to be played */
+            gameChallenges = manualChallenges;
+            storageName    = storageName + "-manual";
+            level = 0;
+        }
+    }
 }
 
 
