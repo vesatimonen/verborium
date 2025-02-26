@@ -3668,7 +3668,7 @@ var manualChallenges = [];
  *****************************************************************************/
 var level_option = undefined;
 var set_option   = undefined;
-var storageName  = "divisium-4/game-level";
+var storageName  = "verborium/game-level";
 var level = 0;
 function parseOptions() {
     let URL_option_string = window.location.href.split("?")[1];
