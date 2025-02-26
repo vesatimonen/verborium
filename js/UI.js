@@ -166,8 +166,8 @@ function uiBoardSetup(board) {
         }
     }
 
-    /* Redraw board */
-    uiBoardRedraw(board);
+    /* Redraw game */
+    uiGameRefresh(game);
 }
 
 /*****************************************************************************
