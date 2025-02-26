@@ -38,20 +38,25 @@ function uiInfoRedraw(game) {
 /*****************************************************************************
  * Redraw cell
  *****************************************************************************/
-function uiCellRedraw(board, x, y) {
-    /* Get DOM element for counter */
-    let cell = document.getElementById("cell-" + x + "-" + y);
+function uiCellsRedraw(board) {
+    /* Redraw cell content */
+    for (y = 0; y < board.height; y++) {
+        for (x = 0; x < board.width; x++) {
+            /* Get DOM element for counter */
+            let cell = document.getElementById("cell-" + x + "-" + y);
 
-    /* Set value on board */
-    cell.innerHTML = board.values[x][y];
+            /* Set value on board */
+            cell.innerHTML = board.values[x][y];
 
-    /* Set background */
-    if (board.resolved(x, y)) {
-        cell.style.background = "#67BFEC";
-    } else {
-        cell.style.background = "none";
+            /* Set background */
+            if (board.resolved(x, y)) {
+                cell.style.background = "#67BFEC";
+            } else {
+                cell.style.background = "none";
+            }
+
+        }
     }
-
 }
 
 
@@ -107,13 +112,8 @@ function uiElementsRedraw(board) {
 }
 
 function uiBoardRedraw(board) {
-    /* Redraw cell content */
-    for (y = 0; y < board.height; y++) {
-        for (x = 0; x < board.width; x++) {
-            /* Redraw item image */
-            uiCellRedraw(board, x ,y);
-        }
-    }
+    /* Redraw cells */
+    uiCellsRedraw(board);
 
     /* Redraw dots and walls */
     uiElementsRedraw(board);
