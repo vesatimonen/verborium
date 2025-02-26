@@ -1,4 +1,6 @@
+/* Globals */
 var gameOverModal = document.getElementById("game-over-modal");
+var game          = undefined;
 
 
 /*****************************************************************************
@@ -102,7 +104,6 @@ function gameStart(level) {
 }
 
 
-var game = undefined;
 window.onload = function () {
     /* Parse options */
     parseOptions();
