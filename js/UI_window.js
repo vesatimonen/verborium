@@ -2,7 +2,7 @@
  * Game window handling
  *****************************************************************************/
 function windowResize() {
-    uiBoardSetup(game.board);
+    uiGameRefresh(game);
 
     return false;
 }

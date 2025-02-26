@@ -111,30 +111,6 @@ function uiElementsRedraw(board) {
     canvasContext.stroke();
 }
 
-function uiGameRefresh(game) {
-    /* Redraw cells */
-    uiCellsRedraw(game.board);
-
-    /* Redraw dots and walls */
-    uiElementsRedraw(game.board);
-
-    /* Redraw info */
-    uiInfoRedraw(game);
-
-    /* Redraw buttons */
-    uiButtonsRedraw(game);
-
-    /* Check if end of level */
-    if (game.board.solved()) {
-        /* Start animation */
-        gameBoard.addEventListener("animationend", uiGridAnimationEnd);
-        gameBoard.style.animation = "none";
-        gameBoard.offsetHeight; /* trigger reflow */
-        gameBoard.style.animation = "image-appear 0.5s ease-in 0.2s 1 reverse";
-    }
-}
-
-
 /*****************************************************************************
  * Setup board elements
  *****************************************************************************/
@@ -173,10 +149,36 @@ function uiBoardSetup(board) {
             newRow.appendChild(newCell);
         }
     }
-
-    /* Redraw game */
-    uiGameRefresh(game);
 }
+
+
+function uiGameRefresh(game) {
+    /* Setup board elements */
+    uiBoardSetup(game.board);
+
+    /* Redraw cells */
+    uiCellsRedraw(game.board);
+
+    /* Redraw dots and walls */
+    uiElementsRedraw(game.board);
+
+    /* Redraw info */
+    uiInfoRedraw(game);
+
+    /* Redraw buttons */
+    uiButtonsRedraw(game);
+
+    /* Check if end of level */
+    if (game.board.solved()) {
+        /* Start animation */
+        gameBoard.addEventListener("animationend", uiGridAnimationEnd);
+        gameBoard.style.animation = "none";
+        gameBoard.offsetHeight; /* trigger reflow */
+        gameBoard.style.animation = "image-appear 0.5s ease-in 0.2s 1 reverse";
+    }
+}
+
+
 
 /*****************************************************************************
  * Refresh board elements and check if game over

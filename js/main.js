@@ -99,8 +99,8 @@ function gameStart(level) {
     /* Save game point */
     localStorage.setItem(options.storage, JSON.stringify(game.level));
 
-    /* Setup board */
-    uiBoardSetup(game.board);
+    /* Redraw game */
+    uiGameRefresh(game);
 }
 
 
