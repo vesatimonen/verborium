@@ -18,10 +18,12 @@ var defaultChallengeSet = [
 /*****************************************************************************
  * Parse URL options
  *****************************************************************************/
-var storageName  = "verborium/game-level";
-var gameChallenges   = defaultChallengeSet;
-var gameLevel = 0;
-const level = 7;
+var options = {
+    storage:    "verborium/game-level",
+    challenges: defaultChallengeSet,
+    level:      0
+};
+
 function parseOptions() {
     /* Get URL */
     const url = new URL(window.location.href);
@@ -30,9 +32,9 @@ function parseOptions() {
     const levelOption = url.searchParams.get("level");
     if (levelOption == null) {
         /* Read from storage */
-        gameLevel = JSON.parse(localStorage.getItem(storageName));
+        options.level = JSON.parse(localStorage.getItem(options.storage));
     } else {
-        gameLevel = Number(levelOption - 1);
+        options.level = Number(levelOption - 1);
     }
 
     /* Challenge option */
@@ -40,18 +42,18 @@ function parseOptions() {
     if (challengeOption == null) {
     } else {
         if (challengeOption.length > 0) {
-            gameChallenges = [];
+            options.challenges = [];
             for (let index = 0; index < challengeOption.length; index++) {
                 /* Convert URL special characters */
                 challengeOption[index] = challengeOption[index].replace("%3E",'>');
 
                 /* Insert it to manual challenges table */
-                gameChallenges.push({info: challengeOption[index]});
+                options.challenges.push({info: challengeOption[index]});
             }
 
             /* Set manual challenges to be played */
-            storageName = storageName + "-manual";
-            gameLevel   = 0;
+            options.storage = options.storage + "-manual";
+            options.level   = 0;
         }
     }
 }
@@ -82,18 +84,18 @@ function gameStart(level) {
         level = 0;
     }
 
-    if (level >= gameChallenges.length) {
-        level = gameChallenges.length - 1;
+    if (level >= options.challenges.length) {
+        level = options.challenges.length - 1;
     }
 
     /* Use predefined challenges */
-    game.init(level, gameChallenges[level].info);
+    game.init(level, options.challenges[level].info);
 
 /* Debug text */
-document.getElementById("debug-text").innerHTML = gameChallenges[level].info.split("#")[0];
+document.getElementById("debug-text").innerHTML = options.challenges[level].info.split("#")[0];
 
     /* Save game point */
-    localStorage.setItem(storageName, JSON.stringify(game.level));
+    localStorage.setItem(options.storage, JSON.stringify(game.level));
 
     /* Setup board */
     uiBoardSetup(game.board);
@@ -107,7 +109,7 @@ window.onload = function () {
 
     /* Start game */
     game = new Game();
-    gameStart(gameLevel);
+    gameStart(options.level);
 
     /* Show window */
     document.getElementById("game-screen").style.visibility = "visible";
