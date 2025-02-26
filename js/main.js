@@ -18,10 +18,10 @@ var defaultChallengeSet = [
 /*****************************************************************************
  * Parse URL options
  *****************************************************************************/
-var gameChallenges = defaultChallengeSet;
-var manualChallenges = [];
 var storageName  = "verborium/game-level";
-var level = 0;
+var gameChallenges   = defaultChallengeSet;
+var gameLevel = 0;
+const level = 7;
 function parseOptions() {
     /* Get URL */
     const url = new URL(window.location.href);
@@ -30,9 +30,9 @@ function parseOptions() {
     const levelOption = url.searchParams.get("level");
     if (levelOption == null) {
         /* Read from storage */
-        level = JSON.parse(localStorage.getItem(storageName));
+        gameLevel = JSON.parse(localStorage.getItem(storageName));
     } else {
-        level = Number(levelOption - 1);
+        gameLevel = Number(levelOption - 1);
     }
 
     /* Challenge option */
@@ -40,18 +40,18 @@ function parseOptions() {
     if (challengeOption == null) {
     } else {
         if (challengeOption.length > 0) {
+            gameChallenges = [];
             for (let index = 0; index < challengeOption.length; index++) {
                 /* Convert URL special characters */
                 challengeOption[index] = challengeOption[index].replace("%3E",'>');
 
                 /* Insert it to manual challenges table */
-                manualChallenges.push({info: challengeOption[index]});
+                gameChallenges.push({info: challengeOption[index]});
             }
 
             /* Set manual challenges to be played */
-            gameChallenges = manualChallenges;
-            storageName    = storageName + "-manual";
-            level = 0;
+            storageName = storageName + "-manual";
+            gameLevel   = 0;
         }
     }
 }
@@ -107,7 +107,7 @@ window.onload = function () {
 
     /* Start game */
     game = new Game();
-    gameStart(level);
+    gameStart(gameLevel);
 
     /* Show window */
     document.getElementById("game-screen").style.visibility = "visible";
