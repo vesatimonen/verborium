@@ -92,7 +92,7 @@ function gameStart(level) {
     game.init(level, options.challenges[level].info);
 
 /* Debug text */
-document.getElementById("debug-text").innerHTML = options.challenges[level].info.split("#")[0];
+//document.getElementById("debug-text").innerHTML = options.challenges[level].info.split("#")[0];
 
     /* Save game point */
     localStorage.setItem(options.storage, JSON.stringify(game.level));
