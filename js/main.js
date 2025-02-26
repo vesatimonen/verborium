@@ -5,13 +5,13 @@ var gameOverModal = document.getElementById("game-over-modal");
  * Game levels
  *****************************************************************************/
 var defaultChallengeSet = [
-    {info: "INFO: V04-02-00-02-01 C00-00-06 D0000 T000001 E010 S00.000 $3x3=4-103130400"},
-    {info: "INFO: V02-03-03-01-00 C00-00-06 D0000 T000001 E006 S00.026 $3x3=4-013012221"},
-    {info: "INFO: V03-02-03-00-01 C00-00-06 D0000 T000001 E009 S00.000 $3x3=4-210210204"},
+    {info: "INFO: V04-02-00-02-01 C00-00-06 D0000 T000001 E010 S00.000 >3x3=4-103130400"},
+    {info: "INFO: V02-03-03-01-00 C00-00-06 D0000 T000001 E006 S00.026 >3x3=4-013012221"},
+    {info: "INFO: V03-02-03-00-01 C00-00-06 D0000 T000001 E009 S00.000 >3x3=4-210210204"},
 
-    {info: "INFO: V10-13-06-05-02 C00-00-36 D0000000000000 T000001 E043 S00.146 $6x6=4-122014211130001320232111011030103140"},
-    {info: "INFO: V13-11-01-09-02 C00-22-36 D0100000000000 T000001 E079 S00.135 $6x6=4-301300101031303103210431113000104013"},
-    {info: "INFO: V15-08-02-08-03 C02-13-34 D0012020001000 T000003 E062 S00.109 $6x6=4-113040300402033302110100400310003131"},
+    {info: "INFO: V10-13-06-05-02 C00-00-36 D0000000000000 T000001 E043 S00.146 >6x6=4-122014211130001320232111011030103140"},
+    {info: "INFO: V13-11-01-09-02 C00-22-36 D0100000000000 T000001 E079 S00.135 >6x6=4-301300101031303103210431113000104013"},
+    {info: "INFO: V15-08-02-08-03 C02-13-34 D0012020001000 T000003 E062 S00.109 >6x6=4-113040300402033302110100400310003131"},
 ];
 
 var gameChallenges = defaultChallengeSet;
@@ -29,7 +29,7 @@ function parseOptions() {
     let URL_option_string = window.location.href.split("?")[1];
     if (URL_option_string != undefined) {
         /* Convert URL special characters */
-        URL_option_string = URL_option_string.replace("%24",'$').replace("%23",'#');
+        URL_option_string = URL_option_string.replace("%3E",'>');
 
         var URL_options = URL_option_string.split("&");
 
@@ -45,20 +45,10 @@ function parseOptions() {
                 set_option = URL_options[i].split("S")[1];
             }
 
-            if (URL_options[i].match(/#.*$/) != null) {
+            if (URL_options[i].match(/>.*$/) != null) {
                 level_option = 1;
                 set_option   = "#";
                 manualChallenges.push({info: URL_options[i]});
-
-                /* Remove hash sign from URL */
-                window.history.pushState({}, null, window.location.href.replace('#', '$'));
-            }
-
-            if (URL_options[i].match(/\$.*$/) != null) {
-                level_option = 1;
-                set_option   = "#";
-
-                manualChallenges.push({info: URL_options[i].replace('$', '#')});
             }
         }
     }
