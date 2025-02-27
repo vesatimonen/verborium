@@ -5,7 +5,7 @@ var gameGridCellSize;
  * Calculate board grid size
  *****************************************************************************/
 function uiBoardCellSize() {
-    return Math.floor((elements.screen.clientWidth) / consts.boardMaxSize);
+    return Math.floor((elements.screen.clientWidth) / globals.boardMaxSize);
 }
 
 
