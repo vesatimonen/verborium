@@ -10,7 +10,7 @@ const colorBackground = "#B0DDFF";
  * Calculate board cell size
  *****************************************************************************/
 function uiBoardCellSize() {
-    return Math.floor((elements.screen.clientWidth) / globals.boardMaxSize);
+    return Math.floor(elements.screen.clientWidth / globals.boardMaxSize);
 }
 
 
@@ -51,7 +51,9 @@ function uiBoardRedraw(board) {
     /* Center the board */
     elements.board.style.width  = cellSize * board.width + "px";
     elements.board.style.height = cellSize * board.height + "px";
-    elements.board.style.left   = Math.floor((cellSize * (9 - board.width)) / 2) + "px";
+    elements.board.style.left   = elements.screen.clientWidth / 2
+                                - cellSize * (board.width / 2)
+                                + "px";
 
     /* Set canvas size and clear it */
     const pixelRatio = 2.0;
@@ -99,19 +101,6 @@ function uiBoardRedraw(board) {
             boardContext.fillText(board.values[x][y], middleX, middleY + cellSize / 4);
         }
     }
-
-if (false) {
-    /* Draw dots */
-    var dotRadius = 3;
-    for (y = 0; y <= board.height; y++) {
-        for (x = 0; x <= board.width; x++) {
-            boardContext.beginPath();
-            boardContext.arc(cellSize * x, cellSize * y, dotRadius, 0, 2 * Math.PI, false);
-            boardContext.fillStyle = colorBorder;
-            boardContext.fill();
-        }
-    }
-}
 
     /* Draw walls */
     var lineWidth = 3;
