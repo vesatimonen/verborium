@@ -2,11 +2,11 @@
  * Game globals
  *****************************************************************************/
 var globals = {
-    game: undefined
+    game: undefined,
+    storage:    "verborium/game-level"
 };
 
 var options = {
-    storage:    "verborium/game-level",
     challenges: [],
     level:      0
 };
@@ -37,7 +37,7 @@ function parseOptions() {
     const levelOption = url.searchParams.get("level");
     if (levelOption == null) {
         /* Read from storage */
-        options.level = JSON.parse(localStorage.getItem(options.storage));
+        options.level = JSON.parse(localStorage.getItem(globals.storage));
     } else {
         options.level = Number(levelOption - 1);
     }
@@ -58,7 +58,7 @@ function parseOptions() {
             }
 
             /* Set manual challenges to be played */
-            options.storage = options.storage + "-manual";
+            globals.storage = globals.storage + "-manual";
             options.level   = 0;
         }
     }
@@ -101,7 +101,7 @@ function gameStart(level) {
 //document.getElementById("debug-text").innerHTML = options.challenges[level].info.split("#")[0];
 
     /* Save game point */
-    localStorage.setItem(options.storage, JSON.stringify(globals.game.level));
+    localStorage.setItem(globals.storage, JSON.stringify(globals.game.level));
 
     /* Redraw game */
     uiGameRedraw();
