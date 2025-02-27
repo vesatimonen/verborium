@@ -31,10 +31,13 @@ function randomOwn() {
 class Board {
     constructor() {
         /* Board configuration */
-        this.width     = undefined;
-        this.height    = undefined;
-        this.targetSum = undefined;
-        this.values    = [[undefined]];
+        this.width      = undefined;
+        this.height     = undefined;
+        this.languageDB = undefined;
+        this.fragments  = [[undefined]];
+
+            this.targetSum = undefined;
+            this.values    = [[undefined]];
 
         /* Board walls */
         this.horizontalWalls = [undefined];
@@ -181,7 +184,8 @@ class Board {
 
     /* Initialize game */
     init(info) {
-        /* Parse board configuration */
+
+        /* Parse board configuration (divisium) */
         var boardInfo   = info.split('>')[1];
         this.width      = parseInt(boardInfo.substr(0,1));
         this.height     = parseInt(boardInfo.substr(2,1));
@@ -215,6 +219,21 @@ class Board {
         for (let x = 0; x < this.width; x++) {
             for (let y = 0; y < this.height; y++) {
                 this.values[x][y] = parseInt(boardValues[y * this.width + x]);
+            }
+        }
+
+        /* Parse board configuration (verborum) */
+        var boardInfo   = info.split('>')[2];
+        var infoValues  = boardInfo.split('-');
+
+        this.width      = parseInt(infoValues[0].substr(0,1));
+        this.height     = parseInt(infoValues[0].substr(2,1));
+        this.languageDB = infoValues[1];
+
+        this.fragments = array2D(this.width, this.height, 0);
+        for (let x = 0; x < this.width; x++) {
+            for (let y = 0; y < this.height; y++) {
+                this.fragments[x][y] = infoValues[2 + y * this.width + x];
             }
         }
 

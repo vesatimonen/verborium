@@ -3,13 +3,9 @@
  * Game challenges (levels)
  *****************************************************************************/
 const defaultChallenges = [
-    {info: "INFO: V04-02-00-02-01 C00-00-06 D0000 T000001 E010 S00.000 >3x3=4-103130400"},
-    {info: "INFO: V02-03-03-01-00 C00-00-06 D0000 T000001 E006 S00.026 >3x3=4-013012221"},
-    {info: "INFO: V03-02-03-00-01 C00-00-06 D0000 T000001 E009 S00.000 >3x3=4-210210204"},
-
-    {info: "INFO: V10-13-06-05-02 C00-00-36 D0000000000000 T000001 E043 S00.146 >6x6=4-122014211130001320232111011030103140"},
-    {info: "INFO: V13-11-01-09-02 C00-22-36 D0100000000000 T000001 E079 S00.135 >6x6=4-301300101031303103210431113000104013"},
-    {info: "INFO: V15-08-02-08-03 C02-13-34 D0012020001000 T000003 E062 S00.109 >6x6=4-113040300402033302110100400310003131"},
+    {info: "INFO: V10-13-06-05-02 C00-00-36 D0000000000000 T000001 E043 S00.146 >6x6=4-122014211130001320232111011030103140 >6x6-FIN-ti-sep-le-kuu-ma-lei-ar-re-mmik-ti-ta-huol-as-ti-ki-sen-att-im-iha-jou-ko-it-oma-sti-il-aan-ll-ta-lu-tte-la-re-mpa-in-ke-ino"},
+    {info: "INFO: V13-11-01-09-02 C00-22-36 D0100000000000 T000001 E079 S00.135 >6x6=4-301300101031303103210431113000104013 >6x6-FIN-ti-sep-le-kuu-ma-lei-ar-re-mmik-ti-ta-huol-as-ti-ki-sen-att-im-iha-jou-ko-it-oma-sti-il-aan-ll-ta-lu-tte-la-re-mpa-in-ke-ino"},
+    {info: "INFO: V15-08-02-08-03 C02-13-34 D0012020001000 T000003 E062 S00.109 >6x6=4-113040300402033302110100400310003131 >6x6-FIN-ti-sep-le-kuu-ma-lei-ar-re-mmik-ti-ta-huol-as-ti-ki-sen-att-im-iha-jou-ko-it-oma-sti-il-aan-ll-ta-lu-tte-la-re-mpa-in-ke-ino"},
 ];
 
 
