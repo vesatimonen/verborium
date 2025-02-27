@@ -2,7 +2,7 @@
  * Game window handling
  *****************************************************************************/
 function windowResize() {
-    uiGameRedraw();
+    uiRedraw();
 
     return false;
 }

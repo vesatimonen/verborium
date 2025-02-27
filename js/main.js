@@ -103,8 +103,8 @@ function gameStart(level) {
     /* Save game point */
     localStorage.setItem(globals.storage, JSON.stringify(globals.game.level));
 
-    /* Redraw game */
-    uiGameRedraw();
+    /* Redraw UI */
+    uiRedraw();
 }
 
 
