@@ -2,8 +2,8 @@
  * Game globals
  *****************************************************************************/
 var globals = {
-    game: undefined,
-    storage:    "verborium/game-level"
+    game:     undefined,
+    storage:  "verborium/game-level"
 };
 
 /*****************************************************************************

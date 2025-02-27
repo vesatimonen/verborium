@@ -59,7 +59,7 @@ function modalClick(event) {
     event.preventDefault();
 
     elements.gameOver.style.visibility = "hidden";
-    elements.board.style.visibility     = "visible";
+    elements.board.style.visibility    = "visible";
 
     gameStart(globals.game.level);
 }
