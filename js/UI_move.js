@@ -14,7 +14,7 @@ function uiMovePosition(event) {
             return undefined;
     }
 
-    const rect     = elements.grid.getBoundingClientRect();
+    const rect     = elements.canvas.getBoundingClientRect();
     const cellSize = uiBoardCellSize();
     X -= rect.left;
     Y -= rect.top;

@@ -47,8 +47,7 @@ function uiCellsRedraw(board) {
 
 
 function uiBoardRedraw(board) {
-    const boardCanvas   = document.getElementById('game-canvas');
-    const boardContext = boardCanvas.getContext('2d');
+    const boardContext = elements.canvas.getContext('2d');
 
     /* Get board cell size */
     const cellSize = uiBoardCellSize();
@@ -61,10 +60,10 @@ function uiBoardRedraw(board) {
     /* Set canvas size and clear it */
 // ??? Miksi
     const pixelRation = 2.0;
-    boardCanvas.width  = cellSize * board.width * pixelRation;
-    boardCanvas.height = cellSize * board.height * pixelRation;
+    elements.canvas.width  = cellSize * board.width * pixelRation;
+    elements.canvas.height = cellSize * board.height * pixelRation;
     boardContext.scale(pixelRation, pixelRation);
-    boardContext.clearRect(0, 0, boardCanvas.width, boardCanvas.height);
+    boardContext.clearRect(0, 0, elements.canvas.width, elements.canvas.height);
 
 
     /* Redraw cell content */
