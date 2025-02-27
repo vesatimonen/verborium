@@ -1,8 +1,13 @@
+var gameGridCellSize;
+
 
 /*****************************************************************************
- * Board size variables
+ * Calculate board grid size
  *****************************************************************************/
-var gameGridCellSize;
+function uiBoardCellSize() {
+    return Math.floor((elements.screen.clientWidth) / consts.boardMaxSize);
+}
+
 
 /*****************************************************************************
  * Redraw buttons
@@ -111,7 +116,7 @@ function uiElementsRedraw(board) {
 function uiBoardSetup(board) {
 
     /* Calculate board grid size */
-    gameGridCellSize = Math.floor((elements.screen.clientWidth) / consts.boardMaxSize);
+    gameGridCellSize = uiBoardCellSize();
 
     /* Clear elements in board */
     while (elements.grid.firstChild) {
