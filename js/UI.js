@@ -97,7 +97,6 @@ function uiBoardRedraw(board) {
             boardContext.fillStyle    = colorBorder;
             boardContext.fillText(board.fragments[x][y], middleX, middleY);
             boardContext.fillText(board.values[x][y], middleX, middleY + cellSize / 4);
-//            boardContext.fillText("test", middleX, middleY);
         }
     }
 
