@@ -54,15 +54,15 @@ function uiBoardRedraw(board) {
     elements.board.style.left   = Math.floor((cellSize * (9 - board.width)) / 2) + "px";
 
     /* Set canvas size and clear it */
-    const pixelRatio = 1.0;
+    const pixelRatio = 2.0;
     elements.canvas.width  = cellSize * board.width * pixelRatio;
     elements.canvas.height = cellSize * board.height * pixelRatio;
     boardContext.scale(pixelRatio, pixelRatio);
     boardContext.clearRect(0, 0, elements.canvas.width, elements.canvas.height);
 
-    const textRatio   = 0.75;
+    const textRatio   = 0.30;
     const circleRatio = 0.75;
-    const borderWidth = 3;
+    const borderWidth = 1.5;
 
 
     /* Redraw cell content */
@@ -95,7 +95,8 @@ function uiBoardRedraw(board) {
             boardContext.textBaseline = "middle";
             boardContext.textAlign    = "center";
             boardContext.fillStyle    = colorBorder;
-            boardContext.fillText(board.values[x][y], middleX, middleY);
+//            boardContext.fillText(board.values[x][y], middleX, middleY);
+            boardContext.fillText("test", middleX, middleY);
         }
     }
 
