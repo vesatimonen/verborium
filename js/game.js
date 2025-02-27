@@ -183,7 +183,7 @@ class Board {
     }
 
     /* Initialize game */
-    init(info) {
+    async init(info) {
         /* Parse board configuration (divisium) */
         var boardInfo   = info.split('>')[1];
         this.width      = parseInt(boardInfo.substr(0,1));
@@ -241,11 +241,8 @@ class Board {
         }
 
         /* Read word database */
-        // Oma luokkansa?
-        // DB boardin sisällä?
-
-        /* Read only once somehow */
-        dbReadFile(this.dbName);
+        let stringSet = await dbReadFile(this.dbName);
+        console.log(stringSet);
     }
 }
 

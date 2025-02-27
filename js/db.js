@@ -15,6 +15,8 @@ async function dbReadFile(fileName) {
 
         /* Convert array to set (faster) */
         let stringSet = new Set(filtered);
+
+        return stringSet;
     } catch (error) {
         console.error("Error loading file:", error);
     }
