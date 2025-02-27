@@ -38,6 +38,9 @@ function uiCellsRedraw(board) {
     /* Redraw cell content */
     for (y = 0; y < board.height; y++) {
         for (x = 0; x < board.width; x++) {
+
+
+
             /* Get DOM element for counter */
             let cell = document.getElementById("cell-" + x + "-" + y);
 
@@ -56,7 +59,7 @@ function uiCellsRedraw(board) {
 }
 
 
-function uiElementsRedraw(board) {
+function uiBoardRedraw(board) {
     var canvas = document.getElementById('game-canvas');
     var canvasContext = canvas.getContext('2d');
 
@@ -158,8 +161,8 @@ function uiRedraw() {
     /* Redraw cells */
     uiCellsRedraw(globals.game.board);
 
-    /* Redraw dots and walls */
-    uiElementsRedraw(globals.game.board);
+    /* Redraw board */
+    uiBoardRedraw(globals.game.board);
 
     /* Redraw info */
     uiInfoRedraw(globals.game);
