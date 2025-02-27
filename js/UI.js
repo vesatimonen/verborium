@@ -155,22 +155,22 @@ function uiBoardSetup(board) {
 
 function uiGameRedraw() {
     /* Setup board elements */
-    uiBoardSetup(game.board);
+    uiBoardSetup(globals.game.board);
 
     /* Redraw cells */
-    uiCellsRedraw(game.board);
+    uiCellsRedraw(globals.game.board);
 
     /* Redraw dots and walls */
-    uiElementsRedraw(game.board);
+    uiElementsRedraw(globals.game.board);
 
     /* Redraw info */
-    uiInfoRedraw(game);
+    uiInfoRedraw(globals.game);
 
     /* Redraw buttons */
-    uiButtonsRedraw(game);
+    uiButtonsRedraw(globals.game);
 
     /* Check if end of level */
-    if (game.board.solved()) {
+    if (globals.game.board.solved()) {
         /* Start animation */
         gameBoard.addEventListener("animationend", uiGridAnimationEnd);
         gameBoard.style.animation = "none";
@@ -187,13 +187,14 @@ function uiGameRedraw() {
 function uiGridAnimationEnd(event) {
     event.stopPropagation();
 
-    if (game.level + 1 >= options.challenges.length) {
+    if (globals.game.level + 1 >= options.challenges.length) {
         /* Show game over modal */
         gameOverModal.style.visibility = "visible";
         gameBoard.style.visibility = "hidden";
     }
 
-    gameStart(game.level + 1); /* Start new level */
+    gameStart(globals.game.level + 1); /* Start new level */
+
     return false;
 }
 

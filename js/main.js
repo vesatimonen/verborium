@@ -1,10 +1,21 @@
-/* Globals */
-var game          = undefined;
+/*****************************************************************************
+ * Game globals
+ *****************************************************************************/
+var globals = {
+    game: undefined
+};
+
+var options = {
+    storage:    "verborium/game-level",
+    challenges: [],
+    level:      0
+};
+
 
 /*****************************************************************************
- * Game levels
+ * Game challenges (levels)
  *****************************************************************************/
-var defaultChallengeSet = [
+var defaultChallenges = [
     {info: "INFO: V04-02-00-02-01 C00-00-06 D0000 T000001 E010 S00.000 >3x3=4-103130400"},
     {info: "INFO: V02-03-03-01-00 C00-00-06 D0000 T000001 E006 S00.026 >3x3=4-013012221"},
     {info: "INFO: V03-02-03-00-01 C00-00-06 D0000 T000001 E009 S00.000 >3x3=4-210210204"},
@@ -18,12 +29,6 @@ var defaultChallengeSet = [
 /*****************************************************************************
  * Parse URL options
  *****************************************************************************/
-var options = {
-    storage:    "verborium/game-level",
-    challenges: defaultChallengeSet,
-    level:      0
-};
-
 function parseOptions() {
     /* Get URL */
     const url = new URL(window.location.href);
@@ -39,7 +44,8 @@ function parseOptions() {
 
     /* Challenge option */
     var challengeOption = url.searchParams.getAll("challenge");
-    if (challengeOption == null) {
+    if (challengeOption.length == 0) {
+        options.challenges = defaultChallenges;
     } else {
         if (challengeOption.length > 0) {
             options.challenges = [];
@@ -68,7 +74,7 @@ function modalClick(event) {
     gameOverModal.style.visibility = "hidden";
     gameBoard.style.visibility     = "visible";
 
-    gameStart(game.level);
+    gameStart(globals.game.level);
 }
 
 gameOverModal.addEventListener("click",      modalClick);
@@ -89,13 +95,13 @@ function gameStart(level) {
     }
 
     /* Use predefined challenges */
-    game.init(level, options.challenges[level].info);
+    globals.game.init(level, options.challenges[level].info);
 
 /* Debug text */
 //document.getElementById("debug-text").innerHTML = options.challenges[level].info.split("#")[0];
 
     /* Save game point */
-    localStorage.setItem(options.storage, JSON.stringify(game.level));
+    localStorage.setItem(options.storage, JSON.stringify(globals.game.level));
 
     /* Redraw game */
     uiGameRedraw();
@@ -107,7 +113,7 @@ window.onload = function () {
     parseOptions();
 
     /* Start game */
-    game = new Game();
+    globals.game = new Game();
     gameStart(options.level);
 
     /* Show window */
