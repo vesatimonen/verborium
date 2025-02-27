@@ -31,10 +31,10 @@ function randomOwn() {
 class Board {
     constructor() {
         /* Board configuration */
-        this.width      = undefined;
-        this.height     = undefined;
-        this.languageDB = undefined;
-        this.fragments  = [[undefined]];
+        this.width     = undefined;
+        this.height    = undefined;
+        this.dbName    = undefined;
+        this.fragments = [[undefined]];
 
             this.targetSum = undefined;
             this.values    = [[undefined]];
@@ -228,7 +228,7 @@ class Board {
 
         this.width      = parseInt(infoValues[0].substr(0,1));
         this.height     = parseInt(infoValues[0].substr(2,1));
-        this.languageDB = infoValues[1];
+        this.dbName     = infoValues[1];
 
         this.fragments = array2D(this.width, this.height, 0);
         for (let x = 0; x < this.width; x++) {
