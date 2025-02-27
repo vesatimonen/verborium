@@ -1,7 +1,5 @@
 /* Globals */
-var gameOverModal = document.getElementById("game-over-modal");
 var game          = undefined;
-
 
 /*****************************************************************************
  * Game levels

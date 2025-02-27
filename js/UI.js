@@ -1,9 +1,10 @@
 /*****************************************************************************
  * UI elements
  *****************************************************************************/
-const gameScreen = document.getElementById("game-screen");
-const gameBoard = document.getElementById("game-board");
-const gameGrid  = document.getElementById("game-grid");
+const gameScreen    = document.getElementById("game-screen");
+const gameBoard     = document.getElementById("game-board");
+const gameGrid      = document.getElementById("game-grid");
+const gameOverModal = document.getElementById("game-over-modal");
 
 /*****************************************************************************
  * Board size variables
