@@ -54,11 +54,10 @@ function uiBoardRedraw(board) {
     elements.board.style.left   = Math.floor((cellSize * (9 - board.width)) / 2) + "px";
 
     /* Set canvas size and clear it */
-// ??? Miksi
-    const pixelRation = 2.0;
-    elements.canvas.width  = cellSize * board.width * pixelRation;
-    elements.canvas.height = cellSize * board.height * pixelRation;
-    boardContext.scale(pixelRation, pixelRation);
+    const pixelRatio = 1.0;
+    elements.canvas.width  = cellSize * board.width * pixelRatio;
+    elements.canvas.height = cellSize * board.height * pixelRatio;
+    boardContext.scale(pixelRatio, pixelRatio);
     boardContext.clearRect(0, 0, elements.canvas.width, elements.canvas.height);
 
 
