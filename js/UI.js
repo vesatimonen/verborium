@@ -7,7 +7,7 @@ const colorBackground = "#B0DDFF";
 
 
 /*****************************************************************************
- * Calculate board grid size
+ * Calculate board cell size
  *****************************************************************************/
 function uiBoardCellSize() {
     return Math.floor((elements.screen.clientWidth) / globals.boardMaxSize);
@@ -50,15 +50,22 @@ function uiBoardRedraw(board) {
     const boardCanvas   = document.getElementById('game-canvas');
     const boardContext = boardCanvas.getContext('2d');
 
+    /* Get board cell size */
+    const cellSize = uiBoardCellSize();
+
+    /* Center the board */
+    elements.board.style.width  = cellSize * board.width + "px";
+    elements.board.style.height = cellSize * board.height + "px";
+    elements.board.style.left   = Math.floor((cellSize * (9 - board.width)) / 2) + "px";
+
     /* Set canvas size and clear it */
+// ??? Miksi
     const pixelRation = 2.0;
-    boardCanvas.width  = elements.grid.clientWidth * pixelRation;
-    boardCanvas.height = elements.grid.clientHeight * pixelRation;
+    boardCanvas.width  = cellSize * board.width * pixelRation;
+    boardCanvas.height = cellSize * board.height * pixelRation;
     boardContext.scale(pixelRation, pixelRation);
     boardContext.clearRect(0, 0, boardCanvas.width, boardCanvas.height);
 
-    /* Get board cell size */
-    const cellSize = uiBoardCellSize();
 
     /* Redraw cell content */
     for (y = 0; y < board.height; y++) {
@@ -140,50 +147,9 @@ boardContext.stroke();
 }
 
 /*****************************************************************************
- * Setup board elements
+ * Redraw UI
  *****************************************************************************/
-function uiBoardSetup(board) {
-
-    /* Calculate board grid size */
-    const cellSize = uiBoardCellSize();
-
-    /* Clear elements in board */
-    while (elements.grid.firstChild) {
-        elements.grid.removeChild(elements.grid.firstChild);
-    }
-
-    /* Center the board */
-    elements.board.style.width = cellSize * board.width + "px";
-    elements.board.style.left  = Math.floor((cellSize * (9 - board.width)) / 2) + "px";
-
-    /* Create grid and add cells */
-    for (y = 0; y < board.height; y++) {
-        /* Create row */
-        let newRow = document.createElement("div");
-        newRow.className = "grid-row";
-        elements.grid.appendChild(newRow);
-
-        for (x = 0; x < board.width; x++) {
-            /* Create cell */
-            let newCell = document.createElement("div");
-            newCell.className    = "grid-cell";
-            newCell.id           = "cell-" + x + "-" + y;
-
-            newCell.style.width      = cellSize + "px";
-            newCell.style.height     = cellSize + "px";
-            newCell.style.lineHeight = cellSize + "px"; /* Center text vertically */
-            newCell.style.textAlign  = "center";
-
-            newRow.appendChild(newCell);
-        }
-    }
-}
-
-
 function uiRedraw() {
-    /* Setup board elements */
-    uiBoardSetup(globals.game.board);
-
     /* Redraw cells */
     uiCellsRedraw(globals.game.board);
 
