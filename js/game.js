@@ -242,7 +242,9 @@ class Board {
 
         /* Read word database */
         let stringSet = await dbReadFile(this.dbName);
-        console.log(stringSet);
+
+//        console.log(stringSet.has("seppel"));
+
     }
 }
 
