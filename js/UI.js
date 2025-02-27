@@ -60,6 +60,10 @@ function uiBoardRedraw(board) {
     boardContext.scale(pixelRatio, pixelRatio);
     boardContext.clearRect(0, 0, elements.canvas.width, elements.canvas.height);
 
+    const textRatio   = 0.75;
+    const circleRatio = 0.75;
+    const borderWidth = 3;
+
 
     /* Redraw cell content */
     for (y = 0; y < board.height; y++) {
@@ -69,16 +73,22 @@ function uiBoardRedraw(board) {
             const startX = cellSize * x;
             const startY = cellSize * y;
 
-            /* Draw cell background */
+            /* Draw value circles */
+            boardContext.beginPath();
+            boardContext.arc(middleX, middleY, circleRatio * cellSize / 2, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
             if (board.resolved(x, y)) {
-                boardContext.fillStyle = colorSolved;
-                boardContext.fillRect(startX, startY, cellSize, cellSize); // x, y, width, height
+                boardContext.fillStyle   = colorSolved;
+                boardContext.fill();
             }
+            boardContext.strokeStyle = colorBorder;
+            boardContext.lineWidth   = borderWidth;
+            boardContext.lineCap     = "round";
+            boardContext.stroke();
 
             /* Draw value inside a cell */
             const fontWeight = "normal";
             const fontStyle  = "normal";
-            const fontSize   = (cellSize * 0.75) + "px";
+            const fontSize   = (cellSize * textRatio) + "px";
             const fontFamily = "Courier New";
 
             boardContext.font         = `${fontWeight} ${fontStyle} ${fontSize} ${fontFamily}`;
