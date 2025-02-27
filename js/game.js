@@ -39,6 +39,9 @@ class Board {
             this.targetSum = undefined;
             this.values    = [[undefined]];
 
+        /* Word database (set) */
+        this.wordSet = undefined;
+
         /* Board walls */
         this.horizontalWalls = [undefined];
         this.verticalWalls = [undefined];
@@ -240,11 +243,10 @@ class Board {
             }
         }
 
-        /* Read word database */
-        let stringSet = await dbReadFile(this.dbName);
+        /* Read word database to set structure */
+        this.wordSet = await dbReadFile(this.dbName);
 
-//        console.log(stringSet.has("seppel"));
-
+//        console.log(this.wordSet.has("seppel"));
     }
 }
 
