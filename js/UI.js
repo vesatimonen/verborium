@@ -77,15 +77,16 @@ function uiBoardRedraw(board) {
     /* Get board cell size */
     const cellSize = uiBoardCellSize();
 
-
+if (false) {
 boardContext.beginPath();
 boardContext.arc(150, 150, 50, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
 boardContext.fillStyle   = "green";
 boardContext.fill();
 boardContext.strokeStyle = colorBorder;
-boardContext.lineWidth = 5; // Line thickness
+boardContext.lineWidth   = 5;
 boardContext.lineCap     = "round";
 boardContext.stroke();
+}
 
     /* Draw dots */
     var dotRadius = 3;
