@@ -1,3 +1,11 @@
+
+// Get these from CSS
+const colorSolved     = "#67BFEC";
+const colorBorder     = "#202020";
+const colorBackground = "#B0DDFF";
+
+
+
 /*****************************************************************************
  * Calculate board grid size
  *****************************************************************************/
@@ -38,9 +46,6 @@ function uiCellsRedraw(board) {
     /* Redraw cell content */
     for (y = 0; y < board.height; y++) {
         for (x = 0; x < board.width; x++) {
-
-
-
             /* Get DOM element for counter */
             let cell = document.getElementById("cell-" + x + "-" + y);
 
@@ -49,53 +54,61 @@ function uiCellsRedraw(board) {
 
             /* Set background */
             if (board.resolved(x, y)) {
-                cell.style.background = "#67BFEC";
+                cell.style.background = colorSolved;
             } else {
                 cell.style.background = "none";
             }
-
         }
     }
 }
 
 
 function uiBoardRedraw(board) {
-    var canvas = document.getElementById('game-canvas');
-    var canvasContext = canvas.getContext('2d');
+    const boardCanvas   = document.getElementById('game-canvas');
+    const boardContext = boardCanvas.getContext('2d');
 
     /* Set canvas size and clear it */
     const pixelRation = 2.0;
-    canvas.width  = elements.grid.clientWidth * pixelRation;
-    canvas.height = elements.grid.clientHeight * pixelRation;
-    canvasContext.scale(pixelRation, pixelRation);
-    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+    boardCanvas.width  = elements.grid.clientWidth * pixelRation;
+    boardCanvas.height = elements.grid.clientHeight * pixelRation;
+    boardContext.scale(pixelRation, pixelRation);
+    boardContext.clearRect(0, 0, boardCanvas.width, boardCanvas.height);
 
     /* Get board cell size */
     const cellSize = uiBoardCellSize();
+
+
+boardContext.beginPath();
+boardContext.arc(150, 150, 50, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
+boardContext.strokeStyle = colorBorder;
+boardContext.lineWidth = 5; // Line thickness
+boardContext.lineCap     = "round";
+boardContext.fillStyle   = "green";
+boardContext.fill();
 
     /* Draw dots */
     var dotRadius = 3;
     for (y = 0; y <= board.height; y++) {
         for (x = 0; x <= board.width; x++) {
-            canvasContext.beginPath();
-            canvasContext.arc(cellSize * x, cellSize * y, dotRadius, 0, 2 * Math.PI, false);
-            canvasContext.fillStyle = "#202020";
-            canvasContext.fill();
+            boardContext.beginPath();
+            boardContext.arc(cellSize * x, cellSize * y, dotRadius, 0, 2 * Math.PI, false);
+            boardContext.fillStyle = colorBorder;
+            boardContext.fill();
         }
     }
 
     /* Draw walls */
     var lineWidth = 3;
-    canvasContext.beginPath();
-    canvasContext.lineWidth = lineWidth;
-    canvasContext.strokeStyle = "#202020";
+    boardContext.beginPath();
+    boardContext.lineWidth = lineWidth;
+    boardContext.strokeStyle = colorBorder;
 
     /* Draw vertical walls */
     for (let x = 0; x < board.width + 1; x++) {
         for (let y = 0; y < board.height; y++) {
             if (board.getVerticalWall(x, y) > 0) {
-                canvasContext.moveTo(cellSize * x, cellSize * y);
-                canvasContext.lineTo(cellSize * x, cellSize * (y + 1));
+                boardContext.moveTo(cellSize * x, cellSize * y);
+                boardContext.lineTo(cellSize * x, cellSize * (y + 1));
             }
         }
     }
@@ -104,13 +117,13 @@ function uiBoardRedraw(board) {
     for (let y = 0; y < board.height + 1; y++) {
         for (let x = 0; x < board.width; x++) {
             if (board.getHorizontalWall(x, y) > 0) {
-                canvasContext.moveTo(cellSize * x, cellSize * y);
-                canvasContext.lineTo(cellSize * (x + 1), cellSize * y);
+                boardContext.moveTo(cellSize * x, cellSize * y);
+                boardContext.lineTo(cellSize * (x + 1), cellSize * y);
             }
         }
     }
 
-    canvasContext.stroke();
+    boardContext.stroke();
 }
 
 /*****************************************************************************
