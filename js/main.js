@@ -1,16 +1,3 @@
-/*****************************************************************************
- * Game globals
- *****************************************************************************/
-var globals = {
-    game: undefined,
-    storage:    "verborium/game-level"
-};
-
-var options = {
-    challenges: [],
-    level:      0
-};
-
 
 /*****************************************************************************
  * Game challenges (levels)
@@ -71,14 +58,14 @@ function parseOptions() {
 function modalClick(event) {
     event.preventDefault();
 
-    gameOverModal.style.visibility = "hidden";
-    gameBoard.style.visibility     = "visible";
+    elements.gameOver.style.visibility = "hidden";
+    elements.board.style.visibility     = "visible";
 
     gameStart(globals.game.level);
 }
 
-gameOverModal.addEventListener("click",      modalClick);
-gameOverModal.addEventListener("touchend",   modalClick, {passive: true});
+elements.gameOver.addEventListener("click",      modalClick);
+elements.gameOver.addEventListener("touchend",   modalClick, {passive: true});
 
 
 /*****************************************************************************
