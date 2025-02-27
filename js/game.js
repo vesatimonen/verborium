@@ -184,7 +184,6 @@ class Board {
 
     /* Initialize game */
     init(info) {
-
         /* Parse board configuration (divisium) */
         var boardInfo   = info.split('>')[1];
         this.width      = parseInt(boardInfo.substr(0,1));
@@ -222,13 +221,17 @@ class Board {
             }
         }
 
+        /* Update room statistics */
+        this.updateRoomStatistics();
+
+
         /* Parse board configuration (verborum) */
         var boardInfo   = info.split('>')[2];
         var infoValues  = boardInfo.split('-');
 
         this.width      = parseInt(infoValues[0].substr(0,1));
         this.height     = parseInt(infoValues[0].substr(2,1));
-        this.dbName     = infoValues[1];
+        this.dbName     = "words_" + infoValues[1] + ".csv";
 
         this.fragments = array2D(this.width, this.height, 0);
         for (let x = 0; x < this.width; x++) {
@@ -237,8 +240,12 @@ class Board {
             }
         }
 
-        /* Update room statistics */
-        this.updateRoomStatistics();
+        /* Read word database */
+        // Oma luokkansa?
+        // DB boardin sisällä?
+
+        /* Read only once somehow */
+        dbReadFile(this.dbName);
     }
 }
 
