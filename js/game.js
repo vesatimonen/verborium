@@ -194,28 +194,6 @@ class Board {
         this.targetSum  = parseInt(boardInfo.split('=')[1]);
         var boardValues = boardInfo.split('-')[1];
 
-        /* Initialize vertical walls */
-        for (let x = 0; x < this.width + 1; x++) {
-            for (let y = 0; y < this.height; y++) {
-                if (x == 0 || x == this.width) {
-                    this.setVerticalWall(x, y, 1);
-                } else {
-                    this.setVerticalWall(x, y, 0);
-                }
-            }
-        }
-
-        /* Initialize horizontal walls */
-        for (let y = 0; y < this.height + 1; y++) {
-            for (let x = 0; x < this.width; x++) {
-                if (y == 0 || y == this.height) {
-                    this.setHorizontalWall(x, y, 1);
-                } else {
-                    this.setHorizontalWall(x, y, 0);
-                }
-            }
-        }
-
         /* Initialize board values */
         this.values = array2D(this.width, this.height, 0);
         for (let x = 0; x < this.width; x++) {
