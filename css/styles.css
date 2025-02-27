@@ -99,22 +99,6 @@
     background: none;
 }
 
-.grid-row:after {
-    content:        "";
-    clear:          both;
-
-    display:        block;
-}
-
-.grid-cell {
-    margin:         0 auto;
-    float:          left;
-
-    font-family:    Courier New, monospace;
-
-    background:     none;
-}
-
 
 /*** Game controls ***/
 #game-controls {
