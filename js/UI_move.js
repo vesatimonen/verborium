@@ -14,11 +14,12 @@ function uiMovePosition(event) {
             return undefined;
     }
 
-    let rect = elements.grid.getBoundingClientRect();
+    const rect     = elements.grid.getBoundingClientRect();
+    const cellSize = uiBoardCellSize();
     X -= rect.left;
     Y -= rect.top;
-    X = X / gameGridCellSize;
-    Y = Y / gameGridCellSize;
+    X = X / cellSize;
+    Y = Y / cellSize;
 
     return {X, Y};
 }

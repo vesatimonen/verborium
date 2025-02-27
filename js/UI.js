@@ -1,6 +1,3 @@
-var gameGridCellSize;
-
-
 /*****************************************************************************
  * Calculate board grid size
  *****************************************************************************/
@@ -70,12 +67,15 @@ function uiElementsRedraw(board) {
     canvasContext.scale(pixelRation, pixelRation);
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
+    /* Get board cell size */
+    const cellSize = uiBoardCellSize();
+
     /* Draw dots */
     var dotRadius = 3;
     for (y = 0; y <= board.height; y++) {
         for (x = 0; x <= board.width; x++) {
             canvasContext.beginPath();
-            canvasContext.arc(gameGridCellSize * x, gameGridCellSize * y, dotRadius, 0, 2 * Math.PI, false);
+            canvasContext.arc(cellSize * x, cellSize * y, dotRadius, 0, 2 * Math.PI, false);
             canvasContext.fillStyle = "#202020";
             canvasContext.fill();
         }
@@ -91,8 +91,8 @@ function uiElementsRedraw(board) {
     for (let x = 0; x < board.width + 1; x++) {
         for (let y = 0; y < board.height; y++) {
             if (board.getVerticalWall(x, y) > 0) {
-                canvasContext.moveTo(gameGridCellSize * x, gameGridCellSize * y);
-                canvasContext.lineTo(gameGridCellSize * x, gameGridCellSize * (y + 1));
+                canvasContext.moveTo(cellSize * x, cellSize * y);
+                canvasContext.lineTo(cellSize * x, cellSize * (y + 1));
             }
         }
     }
@@ -101,8 +101,8 @@ function uiElementsRedraw(board) {
     for (let y = 0; y < board.height + 1; y++) {
         for (let x = 0; x < board.width; x++) {
             if (board.getHorizontalWall(x, y) > 0) {
-                canvasContext.moveTo(gameGridCellSize * x, gameGridCellSize * y);
-                canvasContext.lineTo(gameGridCellSize * (x + 1), gameGridCellSize * y);
+                canvasContext.moveTo(cellSize * x, cellSize * y);
+                canvasContext.lineTo(cellSize * (x + 1), cellSize * y);
             }
         }
     }
@@ -116,7 +116,7 @@ function uiElementsRedraw(board) {
 function uiBoardSetup(board) {
 
     /* Calculate board grid size */
-    gameGridCellSize = uiBoardCellSize();
+    const cellSize = uiBoardCellSize();
 
     /* Clear elements in board */
     while (elements.grid.firstChild) {
@@ -124,8 +124,8 @@ function uiBoardSetup(board) {
     }
 
     /* Center the board */
-    elements.board.style.width = gameGridCellSize * board.width + "px";
-    elements.board.style.left  = Math.floor((gameGridCellSize * (9 - board.width)) / 2) + "px";
+    elements.board.style.width = cellSize * board.width + "px";
+    elements.board.style.left  = Math.floor((cellSize * (9 - board.width)) / 2) + "px";
 
     /* Create grid and add cells */
     for (y = 0; y < board.height; y++) {
@@ -140,9 +140,9 @@ function uiBoardSetup(board) {
             newCell.className    = "grid-cell";
             newCell.id           = "cell-" + x + "-" + y;
 
-            newCell.style.width      = gameGridCellSize + "px";
-            newCell.style.height     = gameGridCellSize + "px";
-            newCell.style.lineHeight = gameGridCellSize + "px"; /* Center text vertically */
+            newCell.style.width      = cellSize + "px";
+            newCell.style.height     = cellSize + "px";
+            newCell.style.lineHeight = cellSize + "px"; /* Center text vertically */
             newCell.style.textAlign  = "center";
 
             newRow.appendChild(newCell);
