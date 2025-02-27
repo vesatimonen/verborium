@@ -60,10 +60,10 @@ function uiBoardRedraw(board) {
     boardContext.scale(pixelRatio, pixelRatio);
     boardContext.clearRect(0, 0, elements.canvas.width, elements.canvas.height);
 
+    /* Define board elements sizes */
     const textRatio   = 0.30;
     const circleRatio = 0.75;
     const borderWidth = 1.5;
-
 
     /* Redraw cell content */
     for (y = 0; y < board.height; y++) {
@@ -95,22 +95,12 @@ function uiBoardRedraw(board) {
             boardContext.textBaseline = "middle";
             boardContext.textAlign    = "center";
             boardContext.fillStyle    = colorBorder;
-//            boardContext.fillText(board.values[x][y], middleX, middleY);
-            boardContext.fillText("test", middleX, middleY);
+            boardContext.fillText(board.values[x][y], middleX, middleY);
+//            boardContext.fillText("test", middleX, middleY);
         }
     }
 
 if (false) {
-boardContext.beginPath();
-boardContext.arc(150, 150, 50, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
-boardContext.fillStyle   = "green";
-boardContext.fill();
-boardContext.strokeStyle = colorBorder;
-boardContext.lineWidth   = 5;
-boardContext.lineCap     = "round";
-boardContext.stroke();
-}
-
     /* Draw dots */
     var dotRadius = 3;
     for (y = 0; y <= board.height; y++) {
@@ -121,6 +111,7 @@ boardContext.stroke();
             boardContext.fill();
         }
     }
+}
 
     /* Draw walls */
     var lineWidth = 3;
