@@ -43,23 +43,6 @@ function uiInfoRedraw(game) {
  * Redraw cell
  *****************************************************************************/
 function uiCellsRedraw(board) {
-    /* Redraw cell content */
-    for (y = 0; y < board.height; y++) {
-        for (x = 0; x < board.width; x++) {
-            /* Get DOM element for counter */
-            let cell = document.getElementById("cell-" + x + "-" + y);
-
-            /* Set value on board */
-            cell.innerHTML = board.values[x][y];
-
-            /* Set background */
-            if (board.resolved(x, y)) {
-                cell.style.background = colorSolved;
-            } else {
-                cell.style.background = "none";
-            }
-        }
-    }
 }
 
 
@@ -76,6 +59,34 @@ function uiBoardRedraw(board) {
 
     /* Get board cell size */
     const cellSize = uiBoardCellSize();
+
+    /* Redraw cell content */
+    for (y = 0; y < board.height; y++) {
+        for (x = 0; x < board.width; x++) {
+            const middleX = cellSize * x + cellSize / 2;
+            const middleY = cellSize * y + cellSize / 2;
+            const startX = cellSize * x;
+            const startY = cellSize * y;
+
+            /* Draw cell background */
+            if (board.resolved(x, y)) {
+                boardContext.fillStyle = colorSolved;
+                boardContext.fillRect(startX, startY, cellSize, cellSize); // x, y, width, height
+            }
+
+            /* Draw value inside a cell */
+            const fontWeight = "normal";
+            const fontStyle  = "normal";
+            const fontSize   = (cellSize * 0.75) + "px";
+            const fontFamily = "Courier New";
+
+            boardContext.font         = `${fontWeight} ${fontStyle} ${fontSize} ${fontFamily}`;
+            boardContext.textBaseline = "middle";
+            boardContext.textAlign    = "center";
+            boardContext.fillStyle    = colorBorder;
+            boardContext.fillText(board.values[x][y], middleX, middleY);
+        }
+    }
 
 if (false) {
 boardContext.beginPath();
