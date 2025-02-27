@@ -63,9 +63,9 @@ function uiBoardRedraw(board) {
     boardContext.clearRect(0, 0, elements.canvas.width, elements.canvas.height);
 
     /* Define board elements sizes */
-    const textRatio   = 0.30;
-    const circleRatio = 0.75;
-    const borderWidth = 1.5;
+    const textRatio   = 0.35;
+    const circleRatio = 0.90;
+    const borderWidth = 1.0;
 
     /* Redraw cell content */
     for (y = 0; y < board.height; y++) {
