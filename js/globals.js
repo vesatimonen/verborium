@@ -21,6 +21,9 @@ const elements = {
     screen:    document.getElementById("game-screen"),
     board:     document.getElementById("game-board"),
     grid:      document.getElementById("game-grid"),
-    gameOver:  document.getElementById("game-over-modal")
+    gameOver:  document.getElementById("game-over-modal"),
+
+    buttonRestart:  document.getElementById("button-restart"),
+    buttonUndo:     document.getElementById("button-undo")
 };
 

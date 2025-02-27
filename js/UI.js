@@ -12,15 +12,15 @@ var gameGridCellSize;
  *****************************************************************************/
 function uiButtonsRedraw(game) {
     if (game.moveHistory.length == 0) {
-        buttonUndo.disabled = true;
+        elements.buttonUndo.disabled = true;
     } else {
-        buttonUndo.disabled = false;
+        elements.buttonUndo.disabled = false;
     }
 
     if (game.level == 0 && game.moveHistory.length == 0) {
-        buttonRestart.disabled = true;
+        elements.buttonRestart.disabled = true;
     } else {
-        buttonRestart.disabled = false;
+        elements.buttonRestart.disabled = false;
     }
 }
 
