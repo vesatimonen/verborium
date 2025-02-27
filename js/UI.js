@@ -40,12 +40,8 @@ function uiInfoRedraw(game) {
 }
 
 /*****************************************************************************
- * Redraw cell
+ * Redraw board
  *****************************************************************************/
-function uiCellsRedraw(board) {
-}
-
-
 function uiBoardRedraw(board) {
     const boardContext = elements.canvas.getContext('2d');
 
@@ -149,9 +145,6 @@ boardContext.stroke();
  * Redraw UI
  *****************************************************************************/
 function uiRedraw() {
-    /* Redraw cells */
-    uiCellsRedraw(globals.game.board);
-
     /* Redraw board */
     uiBoardRedraw(globals.game.board);
 
