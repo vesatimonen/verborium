@@ -1,7 +1,4 @@
 
-const maximumBoardSize = 9;
-
-
 /*****************************************************************************
  * Board size variables
  *****************************************************************************/
@@ -114,7 +111,7 @@ function uiElementsRedraw(board) {
 function uiBoardSetup(board) {
 
     /* Calculate board grid size */
-    gameGridCellSize = Math.floor((elements.screen.clientWidth) / maximumBoardSize);
+    gameGridCellSize = Math.floor((elements.screen.clientWidth) / globals.boardMaxSize);
 
     /* Clear elements in board */
     while (elements.grid.firstChild) {

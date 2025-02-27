@@ -3,7 +3,9 @@
  *****************************************************************************/
 var globals = {
     game:     undefined,
-    storage:  "verborium/game-level"
+    storage:  "verborium/game-level",
+
+    boardMaxSize: 9
 };
 
 /*****************************************************************************
