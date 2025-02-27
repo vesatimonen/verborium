@@ -2,8 +2,8 @@
  * Global variables
  *****************************************************************************/
 var globals = {
-    game:     undefined,
-    storage:  "verborium/game-level",
+    game:         undefined,
+    storage:      "verborium/game-level",
 
     boardMaxSize: 9
 };
@@ -20,10 +20,10 @@ var options = {
  * UI elements
  *****************************************************************************/
 const elements = {
-    screen:    document.getElementById("game-screen"),
-    board:     document.getElementById("game-board"),
-    grid:      document.getElementById("game-grid"),
-    gameOver:  document.getElementById("game-over-modal"),
+    screen:         document.getElementById("game-screen"),
+    board:          document.getElementById("game-board"),
+    grid:           document.getElementById("game-grid"),
+    gameOver:       document.getElementById("game-over-modal"),
 
     buttonRestart:  document.getElementById("button-restart"),
     buttonUndo:     document.getElementById("button-undo")
