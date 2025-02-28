@@ -39,19 +39,10 @@ class Board {
         /* Word database (set) */
         this.wordSet   = undefined;
 
-        /* Board walls */
-        this.horizontalWalls = [undefined];
-        this.verticalWalls = [undefined];
-
-        /* Room statistics */
-        this.roomId       = [[undefined]];
+        /* Path statistics */
+        this.pathId       = [[undefined]];
+        this.pathCount    = 0;
         this.roomResolved = 0;
-        this.roomCount    = 0;
-    }
-
-    /* Wall methods */
-    arrayIndex(x, y) {
-        return (this.width + 1) * y + x;
     }
 
     getVerticalWall(x, y) {
@@ -81,11 +72,7 @@ class Board {
     }
 
     solved() {
-        if (this.roomResolved == this.width * this.height / 3) {
-            return true;
-        } else {
-            return false;
-        }
+        return false;
     }
 
     /* Initialize game */
