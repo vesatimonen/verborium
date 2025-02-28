@@ -45,8 +45,6 @@ class Board {
 
         /* Room statistics */
         this.roomId       = [[undefined]];
-        this.roomSum      = [undefined];
-        this.roomArea     = [undefined];
         this.roomResolved = 0;
         this.roomCount    = 0;
     }
@@ -57,121 +55,29 @@ class Board {
     }
 
     getVerticalWall(x, y) {
-        return this.verticalWalls[this.arrayIndex(x, y)];
+        return 0;
     }
 
     setVerticalWall(x, y, value) {
-        this.verticalWalls[this.arrayIndex(x, y)] = value;
     }
 
     toggleVerticalWall(x, y) {
-        if (this.getVerticalWall(x, y) == 1) {
-            this.setVerticalWall(x, y, 0);
-        } else {
-            this.setVerticalWall(x, y, 1);
-        }
-
-        this.updateRoomStatistics();
-
-        return this.getVerticalWall(x, y);
+        return false;
     }
 
     getHorizontalWall(x, y) {
-        return this.horizontalWalls[this.arrayIndex(x, y)];
+        return 0;
     }
 
     setHorizontalWall(x, y, value) {
-        this.horizontalWalls[this.arrayIndex(x, y)] = value;
     }
 
     toggleHorizontalWall(x, y) {
-        if (this.getHorizontalWall(x, y) == 1) {
-            this.setHorizontalWall(x, y, 0);
-        } else {
-            this.setHorizontalWall(x, y, 1);
-        }
-
-        this.updateRoomStatistics();
-
-        return this.getHorizontalWall(x, y);
-    }
-
-    /* Room functions */
-    fillCell(x, y, id) {
-        /* Out of board */
-        if (x < 0 || x >= this.width ||
-            y < 0 || y >= this.height) {
-            return;
-        }
-
-        /* Already filled */
-        if (this.roomId[x][y] != 0) {
-            return;
-        }
-
-        /* Fill this cell */
-        this.roomId[x][y] = id;
-        this.roomSum[id] += 0;
-        this.roomArea[id]++;
-
-        /* Fill left */
-        if (this.getVerticalWall(x, y) == 0) {
-            this.fillCell(x - 1, y, id);
-        }
-
-        /* Fill right */
-        if (this.getVerticalWall(x + 1, y) == 0) {
-            this.fillCell(x + 1, y, id);
-        }
-
-        /* Fill up */
-        if (this.getHorizontalWall(x, y) == 0) {
-            this.fillCell(x, y - 1, id);
-        }
-
-        /* Fill down */
-        if (this.getHorizontalWall(x, y + 1) == 0) {
-            this.fillCell(x, y + 1, id);
-        }
-    }
-
-    updateRoomStatistics() {
-        /* Initialize room statistics */
-        this.roomId       = array2D(this.width, this.height, 0);
-        this.roomResolved = 0;
-        this.roomCount    = 0;
-
-        /* Find first free and fill */
-        for (let x = 0; x < this.width; x++) {
-            for (let y = 0; y < this.height; y++) {
-                if (this.roomId[x][y] == 0) {
-                    this.roomCount++;
-
-                    this.roomSum[this.roomCount] = 0;
-                    this.roomArea[this.roomCount] = 0;
-                    this.fillCell(x, y, this.roomCount);
-
-                    if (this.resolved(x, y)) {
-                        this.roomResolved++;
-                    }
-
-                }
-            }
-        }
+        return false;
     }
 
     resolved(x, y) {
-        var roomId = this.roomId[x][y];
-
-        if (roomId == undefined) {
-            return false;
-        }
-
-        if (this.roomArea[roomId] == 3) {
-            return true;
-        } else {
-            return false;
-        }
+        return false;
     }
 
     solved() {
@@ -198,9 +104,6 @@ class Board {
                 this.fragments[x][y] = infoValues[2 + y * this.width + x];
             }
         }
-
-/* Update room statistics */
-this.updateRoomStatistics();
 
         /* Read word database to set structure */
         this.wordSet = await dbReadFile("words_" + this.dbName + ".csv");
