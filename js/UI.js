@@ -100,34 +100,6 @@ function uiBoardRedraw(board) {
             boardContext.fillText(board.fragments[x][y], middleX, middleY);
         }
     }
-
-    /* Draw walls */
-    var lineWidth = 3;
-    boardContext.beginPath();
-    boardContext.lineWidth = lineWidth;
-    boardContext.strokeStyle = colorBorder;
-
-    /* Draw vertical walls */
-    for (let x = 0; x < board.width + 1; x++) {
-        for (let y = 0; y < board.height; y++) {
-            if (board.getVerticalWall(x, y) > 0) {
-                boardContext.moveTo(cellSize * x, cellSize * y);
-                boardContext.lineTo(cellSize * x, cellSize * (y + 1));
-            }
-        }
-    }
-
-    /* Draw horizontal walls */
-    for (let y = 0; y < board.height + 1; y++) {
-        for (let x = 0; x < board.width; x++) {
-            if (board.getHorizontalWall(x, y) > 0) {
-                boardContext.moveTo(cellSize * x, cellSize * y);
-                boardContext.lineTo(cellSize * (x + 1), cellSize * y);
-            }
-        }
-    }
-
-    boardContext.stroke();
 }
 
 /*****************************************************************************

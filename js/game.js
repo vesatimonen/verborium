@@ -42,14 +42,10 @@ class Board {
         /* Path statistics */
         this.pathId       = [[undefined]];
         this.pathCount    = 0;
-        this.roomResolved = 0;
     }
 
     getVerticalWall(x, y) {
         return 0;
-    }
-
-    setVerticalWall(x, y, value) {
     }
 
     toggleVerticalWall(x, y) {
@@ -58,9 +54,6 @@ class Board {
 
     getHorizontalWall(x, y) {
         return 0;
-    }
-
-    setHorizontalWall(x, y, value) {
     }
 
     toggleHorizontalWall(x, y) {
