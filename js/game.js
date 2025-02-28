@@ -17,16 +17,6 @@ function array2D(width, height, value) {
     return arr;
 }
 
-/* Randomize helpers */
-var randomSeed = 0;
-function randomOwnSeed(seed) {
-    randomSeed = seed;
-}
-function randomOwn() {
-    randomSeed = (randomSeed * 1103515245 + 12345) % 4294967296;
-    return ((randomSeed / 65536) % 32768) / 32768;
-}
-
 /* Visible board state */
 class Board {
     constructor() {
@@ -44,16 +34,8 @@ class Board {
         this.pathCount    = 0;
     }
 
-    getVerticalWall(x, y) {
-        return 0;
-    }
-
     toggleVerticalWall(x, y) {
         return false;
-    }
-
-    getHorizontalWall(x, y) {
-        return 0;
     }
 
     toggleHorizontalWall(x, y) {
@@ -111,7 +93,6 @@ class Game {
 
         /* Set level */
         this.level = level;
-        randomOwnSeed(level);
 
         /* Initialize board */
         this.board.init(info);
@@ -122,10 +103,8 @@ class Game {
 
         switch (direction) {
             case "vertical":
-                polarity = this.board.toggleVerticalWall(x, y);
                 break;
             case "horizontal":
-                polarity = this.board.toggleHorizontalWall(x, y);
                 break;
             default:
                 return undefined;
@@ -133,8 +112,6 @@ class Game {
 
         /* Save move */
         this.moveHistory.push({direction: direction, x: x, y: y});
-
-        return polarity;
     }
 
     undoMove() {
@@ -148,10 +125,8 @@ class Game {
 
         switch (move.direction) {
             case "vertical":
-                this.board.toggleVerticalWall(move.x, move.y);
                 break;
             case "horizontal":
-                this.board.toggleHorizontalWall(move.x, move.y);
                 break;
             default:
                 return;
