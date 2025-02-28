@@ -36,11 +36,8 @@ class Board {
         this.dbName    = undefined;
         this.fragments = [[undefined]];
 
-            this.targetSum = undefined;
-            this.values    = [[undefined]];
-
         /* Word database (set) */
-        this.wordSet = undefined;
+        this.wordSet   = undefined;
 
         /* Board walls */
         this.horizontalWalls = [undefined];
@@ -114,7 +111,7 @@ class Board {
 
         /* Fill this cell */
         this.roomId[x][y] = id;
-        this.roomSum[id] += this.values[x][y];
+        this.roomSum[id] += 0;
         this.roomArea[id]++;
 
         /* Fill left */
@@ -170,7 +167,7 @@ class Board {
             return false;
         }
 
-        if (this.roomSum[roomId] == this.targetSum && this.roomArea[roomId] == 3) {
+        if (this.roomArea[roomId] == 3) {
             return true;
         } else {
             return false;
@@ -187,40 +184,13 @@ class Board {
 
     /* Initialize game */
     async init(info) {
-        /* Parse board configuration (divisium) */
-        var boardInfo   = info.split('>')[1];
-        this.width      = parseInt(boardInfo.substr(0,1));
-        this.height     = parseInt(boardInfo.substr(2,1));
-        this.targetSum  = parseInt(boardInfo.split('=')[1]);
-        var boardValues = boardInfo.split('-')[1];
-
-        /* Initialize board values */
-        this.values = array2D(this.width, this.height, 0);
-        for (let x = 0; x < this.width; x++) {
-            for (let y = 0; y < this.height; y++) {
-                this.values[x][y] = parseInt(boardValues[y * this.width + x]);
-            }
-        }
-
-        /* Initialize all walls */
-        for (let x = 0; x < this.width; x++) {
-            for (let y = 0; y < this.height; y++) {
-                this.setHorizontalWall(x, y, 0);
-                this.setVerticalWall(x, y, 0);
-            }
-        }
-
-        /* Update room statistics */
-        this.updateRoomStatistics();
-
-
         /* Parse board configuration (verborum) */
         var boardInfo   = info.split('>')[2];
         var infoValues  = boardInfo.split('-');
 
         this.width      = parseInt(infoValues[0].substr(0,1));
         this.height     = parseInt(infoValues[0].substr(2,1));
-        this.dbName     = "words_" + infoValues[1] + ".csv";
+        this.dbName     = infoValues[1];
 
         this.fragments = array2D(this.width, this.height, 0);
         for (let x = 0; x < this.width; x++) {
@@ -229,8 +199,11 @@ class Board {
             }
         }
 
+/* Update room statistics */
+this.updateRoomStatistics();
+
         /* Read word database to set structure */
-        this.wordSet = await dbReadFile(this.dbName);
+        this.wordSet = await dbReadFile("words_" + this.dbName + ".csv");
 
 //        console.log(this.wordSet.has("seppel"));
     }

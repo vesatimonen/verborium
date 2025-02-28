@@ -98,7 +98,6 @@ function uiBoardRedraw(board) {
             boardContext.textAlign    = "center";
             boardContext.fillStyle    = colorBorder;
             boardContext.fillText(board.fragments[x][y], middleX, middleY);
-            boardContext.fillText(board.values[x][y], middleX, middleY + cellSize / 4);
         }
     }
 
