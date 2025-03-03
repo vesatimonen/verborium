@@ -34,8 +34,12 @@ class Board {
         this.pathCount    = 0;
 
         /* Cell statuses */
-        this.cellStatus = [[undefined]];
+        this.cellUsed = [[undefined]];
 
+    }
+
+    isUsed(x, y) {
+        console.log(this.cellUsed[x][y]);
     }
 
     toggleVerticalWall(x, y) {
@@ -64,14 +68,15 @@ class Board {
         this.height     = parseInt(infoValues[0].substr(2,1));
         this.dbName     = infoValues[1];
 
-        this.fragments = array2D(this.width, this.height, 0);
+        this.fragments  = array2D(this.width, this.height, 0);
+        this.cellUsed   = array2D(this.width, this.height, 0);
         for (let x = 0; x < this.width; x++) {
             for (let y = 0; y < this.height; y++) {
                 this.fragments[x][y] = infoValues[2 + y * this.width + x];
+                this.cellUsed[x][y]  = false;
             }
         }
 
-        this.cellStatus = array2D(this.width, this.height, 0);
 
         /* Set title */
         if (this.dbName.startsWith("FIN")) {

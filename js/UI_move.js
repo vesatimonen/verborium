@@ -29,22 +29,40 @@ function cursorMoveHandler(event)
     X = Math.floor(move.X);
     Y = Math.floor(move.Y);
 
+    /* Check if moved */
     if (X == cursorGridX && Y == cursorGridY) {
         /* Not moved */
         return;
     }
 
-    /* Cursor moved in grid */
-    cursorGridX = X;
-    cursorGridY = Y;
-    console.log("Cursor moved: " + X + Y);
+    /* Check if touches the previous one */
+    if (globals.cursorPath.length > 0) {
+        const prevPosition = globals.cursorPath[globals.cursorPath.length - 1];
+        if (Math.abs(X - prevPosition.X) + Math.abs(Y - prevPosition.Y) != 1) {
+            return;
+        }
+    }
 
-    /* Set path */
+    /* Check if backtrack */
+    if (globals.cursorPath.length >= 2
+     && globals.cursorPath[globals.cursorPath.length - 2].X == X
+     && globals.cursorPath[globals.cursorPath.length - 2].Y == Y) {
+        /* Remove two elements */
+        globals.cursorPath.pop();
+        globals.cursorPath.pop();
+    }
 
-/* Next to previous one */
-/* Free on board */
-/* Not touch same */
-/* Backtrack */
+    /* Check if collide with itself */
+    for (let i = 0; i < globals.cursorPath.length; i++) {
+        if (globals.cursorPath[i].X == X && globals.cursorPath[i].Y == Y) {
+            return;
+        }
+    }
+
+    /* Check if used */
+    if (globals.game.board.isUsed(X, Y)) {
+        return;
+    }
 
     /* Add position to cursor path */
     globals.cursorPath.push({X, Y});
@@ -53,6 +71,10 @@ function cursorMoveHandler(event)
 
     /* Redraw UI */
 //    uiRedraw();
+
+    /* Cursor moved in grid */
+    cursorGridX = X;
+    cursorGridY = Y;
 
     return;
 }
