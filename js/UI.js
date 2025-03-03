@@ -193,11 +193,9 @@ function uiPathRedraw(path) {
                     /* Center point angle from middle */
                     const angle_gamma = (angle1 + angle2) / 2;
 
-                    /* Draw the arc (rounded corner) at the corner */
+                    /* Draw round corner */
                     const cornerX = Xmiddle + distance * Math.cos(angle_gamma);
                     const cornerY = Ymiddle + distance * Math.sin(angle_gamma);
-
-
                     let counterClockwise = false;
                     let arcStart = 0;
                     let arcEnd = 0;
@@ -210,6 +208,7 @@ function uiPathRedraw(path) {
                         arcStart         = angle1 + Math.PI / 2;
                         arcEnd           = angle2 - Math.PI / 2;
                     }
+                    boardContext.arc(cornerX, cornerY, radius, arcStart, arcEnd, counterClockwise);
 
 if (false) {
 console.log("radius: " + radius);
@@ -223,8 +222,6 @@ console.log("beta: " + angle_beta * 360 / (Math.PI * 2));
 console.log("distance: " + distance);
 console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
 }
-                    boardContext.arc(cornerX, cornerY, radius, arcStart, arcEnd, counterClockwise);
-//                    boardContext.arc(cornerX, cornerY, radius, 0, 2 * Math.PI, counterClockwise);
                 }
             }
         }
