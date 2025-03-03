@@ -172,9 +172,9 @@ function uiPathRedraw(path) {
 console.log("angle1: " + angle1 * 360 / (Math.PI * 2));
 console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
 
-                /* Check if we need a rounded corner */
-                if (angle1 != angle2) {
-                    // Calculate the position for the arc (corner of the polyline)
+                /* Check if angle, not straight */
+                if (Math.abs(angle1 - angle2) != Math.PI) {
+                    /* Calculate the position for the arc (corner of the polyline) */
                     const radius = cellSize / 2;
 
                     /* Circle center point distance from middle */
