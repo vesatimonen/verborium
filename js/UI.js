@@ -143,16 +143,16 @@ function uiPathRedraw(path) {
             /* Start polyline */
             boardContext.moveTo(X, Y);
         } else {
-            const Xprev = cellSize * path[i - 1].X + cellSize / 2;
-            const Yprev = cellSize * path[i - 1].Y + cellSize / 2;
+            const Xmiddle = cellSize * path[i - 1].X + cellSize / 2;
+            const Ymiddle = cellSize * path[i - 1].Y + cellSize / 2;
 
             if (i >= 2) {
                 const Xlast = cellSize * path[i - 2].X + cellSize / 2;
                 const Ylast = cellSize * path[i - 2].Y + cellSize / 2;
 
                 /* Calculate the angle of the line segment */
-                const angle1 = lineAngle(Xlast, Ylast, Xprev, Yprev);
-                const angle2 = lineAngle(Xprev, Yprev, X, Y);
+                const angle1 = lineAngle(Xlast, Ylast, Xmiddle, Ymiddle);
+                const angle2 = lineAngle(Xmiddle, Ymiddle, X, Y);
 
                 /* Check if we need a rounded corner */
                 if (angle1 != angle2) {
@@ -160,6 +160,9 @@ function uiPathRedraw(path) {
                     const radius = cellSize / 2;
                     const cornerX = (Xlast + X) / 2;
                     const cornerY = (Ylast + Y) / 2;
+
+                    /* Circle center point distance from prev */
+//                    const distance
 
     console.log(angle1, angle2);
 
