@@ -28,12 +28,12 @@ function uiRestart(event) {
 }
 
 var restartTimer;
-function uiMouseUp(event) {
+function uiRestartMouseUp(event) {
     clearInterval(restartTimer);
     return false;
 }
 
-function uiMouseDown(event) {
+function uiRestartMouseDown(event) {
     restartTimer = setInterval(
                         function() {
                             if (globals.game.level == 0) {
@@ -56,11 +56,11 @@ elements.buttonUndo.addEventListener("click", uiUndo);
 
 /* RESTART */
 elements.buttonRestart.addEventListener("click",      uiRestart);
-elements.buttonRestart.addEventListener("mouseup",    uiMouseUp);
-elements.buttonRestart.addEventListener("mouseleave", uiMouseUp);
-elements.buttonRestart.addEventListener("mousedown",  uiMouseDown);
-elements.buttonRestart.addEventListener("touchend",   uiMouseUp);
-elements.buttonRestart.addEventListener("touchstart", uiMouseDown, {passive: true});
+elements.buttonRestart.addEventListener("mouseup",    uiRestartMouseUp);
+elements.buttonRestart.addEventListener("mouseleave", uiRestartMouseUp);
+elements.buttonRestart.addEventListener("mousedown",  uiRestartMouseDown);
+elements.buttonRestart.addEventListener("touchend",   uiRestartMouseUp);
+elements.buttonRestart.addEventListener("touchstart", uiRestartMouseDown, {passive: true});
 
 function preventZoom(event) {
     /* Disable double click zoom */

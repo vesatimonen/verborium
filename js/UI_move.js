@@ -72,6 +72,12 @@ function uiClick(event) {
 
 elements.board.addEventListener("click", uiClick, {passive: true});
 
-
+if (false) {
+elements.board.addEventListener("mouseup",    uiMouseUp);
+elements.board.addEventListener("mouseleave", uiMouseUp);
+elements.board.addEventListener("mousedown",  uiMouseDown);
+elements.board.addEventListener("touchend",   uiMouseUp);
+elements.board.addEventListener("touchstart", uiMouseDown, {passive: true});
+}
 
 
