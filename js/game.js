@@ -39,6 +39,9 @@ class Board {
     }
 
     isUsed(x, y) {
+        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
+            return false;
+        }
         if (this.cellUsed == undefined) {
             return false;
         }
