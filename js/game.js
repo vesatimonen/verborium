@@ -67,6 +67,13 @@ class Board {
             }
         }
 
+        /* Set title */
+        elements.title.innerHTML = "VERBORIUM-" + this.dbName;
+        if (this.dbName.startsWith("FIN")) {
+            elements.instructions.innerHTML = "Muodosta suomen kielen sanoja piirtämällä polkuja, jotka yhdistävät solut ketjuiksi. "
+            + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen solu tulee käyttää täsmälleen kerran. ";
+        }
+
         /* Read word database to set structure */
         this.wordSet = await dbReadFile("words_" + this.dbName + ".csv");
 

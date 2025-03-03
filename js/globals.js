@@ -25,6 +25,9 @@ const elements = {
     canvas:         document.getElementById('game-canvas'),
     gameOver:       document.getElementById("game-over-modal"),
 
+    title:          document.getElementById("game-title"),
+    instructions:   document.getElementById("game-instructions"),
+
     buttonRestart:  document.getElementById("button-restart"),
     buttonUndo:     document.getElementById("button-undo")
 };
