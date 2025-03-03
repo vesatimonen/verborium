@@ -106,6 +106,10 @@ function uiBoardRedraw(board) {
 /*****************************************************************************
  * Redraw cursor path
  *****************************************************************************/
+function lineAngle(x1, y1, x2, y2) {
+    return Math.atan2(y2 - y1, x2 - x1);
+}
+
 function uiPathRedraw(path) {
     const boardContext = elements.canvas.getContext('2d');
 
@@ -136,14 +140,44 @@ function uiPathRedraw(path) {
         let Y = cellSize * path[i].Y + cellSize / 2;
 
         if (i == 0) {
+            /* Start polyline */
             boardContext.moveTo(X, Y);
         } else {
-            let Xprev = cellSize * path[i - 1].X + cellSize / 2;
-            let Yprev = cellSize * path[i - 1].Y + cellSize / 2;
+            const Xprev = cellSize * path[i - 1].X + cellSize / 2;
+            const Yprev = cellSize * path[i - 1].Y + cellSize / 2;
 
-            boardContext.lineTo(X, Y);
+            if (i >= 2) {
+                const Xlast = cellSize * path[i - 2].X + cellSize / 2;
+                const Ylast = cellSize * path[i - 2].Y + cellSize / 2;
+
+                /* Calculate the angle of the line segment */
+                const angle1 = lineAngle(Xlast, Ylast, Xprev, Yprev);
+                const angle2 = lineAngle(Xprev, Yprev, X, Y);
+
+                /* Check if we need a rounded corner */
+                if (angle1 != angle2) {
+                    // Calculate the position for the arc (corner of the polyline)
+                    const radius = cellSize / 2;
+                    const cornerX = (Xlast + X) / 2;
+                    const cornerY = (Ylast + Y) / 2;
+
+    console.log(angle1, angle2);
+
+    console.log("corner: ", cornerX, cornerY);
+
+                    // Draw the arc (rounded corner) at the corner
+//                    boardContext.arc(cornerX, cornerY, radius, angle1, angle2, false);
+                    boardContext.arc(cornerX, cornerY, radius, Math.PI, 3 * Math.PI / 2, false);
+                }
+            }
         }
     }
+
+    /* Close path with last */
+    X = cellSize * path[path.length - 1].X + cellSize / 2;
+    Y = cellSize * path[path.length - 1].Y + cellSize / 2;
+    boardContext.lineTo(X, Y);
+
     boardContext.strokeStyle = colorPath
     boardContext.lineWidth   = cellSize / 8;
     boardContext.lineCap     = "round";
