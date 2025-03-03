@@ -151,8 +151,27 @@ function uiPathRedraw(path) {
                 const Ylast = cellSize * path[i - 2].Y + cellSize / 2;
 
                 /* Calculate the angle of the line segment */
-                const angle1 = lineAngle(Xlast, Ylast, Xmiddle, Ymiddle);
-                const angle2 = lineAngle(Xmiddle, Ymiddle, X, Y);
+                let angle1 = lineAngle(Xmiddle, Ymiddle, Xlast, Ylast);
+                let angle2 = lineAngle(Xmiddle, Ymiddle, X, Y);
+
+                /* Use only positive angles */
+                while (angle1 < 0) {
+                    angle1 += Math.PI * 2;
+                }
+                while (angle2 < 0) {
+                    angle2 += Math.PI * 2;
+                }
+
+                /* Use acute angle, so that everage is calculated right */
+                if (angle1 - angle2 > Math.PI) {
+                    angle2 += Math.PI * 2;
+                }
+                if (angle2 - angle1 > Math.PI) {
+                    angle1 += Math.PI * 2;
+                }
+
+console.log("angle1: " + angle1 * 360 / (Math.PI * 2));
+console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
 
                 /* Check if we need a rounded corner */
                 if (angle1 != angle2) {
@@ -161,27 +180,25 @@ function uiPathRedraw(path) {
                     const cornerX = (Xlast + X) / 2;
                     const cornerY = (Ylast + Y) / 2;
 
-                    /* Circle center point distance from prev */
+                    /* Circle center point distance from middle */
                     let angle_beta = Math.abs(angle2 - angle1);
-                    while (angle_beta < 0) {
-                        angle_beta += Math.PI;
-                    }
                     while (angle_beta > Math.PI) {
                         angle_beta -= Math.PI;
                     }
                     angle_beta /= 2;
+console.log("beta: " + angle_beta * 360 / (Math.PI * 2));
 
+                    /* Center point angle from middle */
+                    const angle_gamma = (angle1 + angle2) / 2;
+
+
+console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
                     const distance = Math.abs(radius / Math.cos(angle_beta));
-                    const angle_gamma = Math.PI / 2 + (angle1 + angle2) / 2;
 
-    console.log("cellSize: " + cellSize);
-    console.log("angle1: " + angle1 * 360 / (Math.PI * 2));
-    console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
-    console.log("beta: " + angle_beta * 360 / (Math.PI * 2));
-    console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
-    console.log("distance: " + distance);
+//    console.log("cellSize: " + cellSize);
+//    console.log("distance: " + distance);
 
-    console.log("corner: ", cornerX, cornerY);
+//    console.log("corner: ", cornerX, cornerY);
 
                     // Draw the arc (rounded corner) at the corner
 //                    boardContext.arc(cornerX, cornerY, radius, angle1, angle2, false);
