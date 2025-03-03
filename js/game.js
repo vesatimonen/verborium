@@ -39,7 +39,10 @@ class Board {
     }
 
     isUsed(x, y) {
-        console.log(this.cellUsed[x][y]);
+        if (this.cellUsed == undefined) {
+            return false;
+        }
+        return this.cellUsed[x][y];
     }
 
     toggleVerticalWall(x, y) {
