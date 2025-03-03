@@ -172,11 +172,15 @@ function uiPathRedraw(path) {
                 /* Check if angle, not straight */
                 if (Math.abs(angle1 - angle2) != Math.PI) {
                     /* Calculate the position for the arc (corner of the polyline) */
-                    const radius = cellSize / 2;
-console.log("radius: " + radius);
+                    const radius = cellSize / 3;
 
                     /* Circle center point distance from middle */
-                    let angle_beta = Math.abs(angle2 + angle1);
+                    let angle_beta = 0;
+                    if (angle1 > angle2) {
+                        angle_beta = Math.abs(Math.PI + angle2 - angle1);
+                    } else {
+                        angle_beta = Math.abs(Math.PI + angle1 - angle2);
+                    }
                     while (angle_beta > Math.PI) {
                         angle_beta -= Math.PI;
                     }
@@ -191,11 +195,6 @@ console.log("radius: " + radius);
                     const cornerX = Xmiddle + distance * Math.cos(angle_gamma);
                     const cornerY = Ymiddle + distance * Math.sin(angle_gamma);
 
-console.log("Xmiddle: " + Xmiddle);
-console.log("Ymiddle: " + Ymiddle);
-
-console.log("Xmiddle dx: " + distance * Math.cos(angle_gamma));
-console.log("Ymiddle dy: " + distance * Math.sin(angle_gamma));
 
                     let counterClockwise = false;
                     let arcStart = 0;
@@ -210,7 +209,12 @@ console.log("Ymiddle dy: " + distance * Math.sin(angle_gamma));
                         arcEnd           = angle2 - Math.PI / 2;
                     }
 
-if (true) {
+if (false) {
+console.log("radius: " + radius);
+console.log("Xmiddle: " + Xmiddle);
+console.log("Ymiddle: " + Ymiddle);
+console.log("Xmiddle dx: " + distance * Math.cos(angle_gamma));
+console.log("Ymiddle dy: " + distance * Math.sin(angle_gamma));
 console.log("angle1: " + angle1 * 360 / (Math.PI * 2));
 console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
 console.log("beta: " + angle_beta * 360 / (Math.PI * 2));

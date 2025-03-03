@@ -38,7 +38,7 @@ function cursorMoveHandler(event)
     /* Check if touches the previous one */
     if (globals.cursorPath.length > 0) {
         const prevPosition = globals.cursorPath[globals.cursorPath.length - 1];
-        if (Math.abs(X - prevPosition.X) + Math.abs(Y - prevPosition.Y) != 2) {
+        if (Math.abs(X - prevPosition.X) + Math.abs(Y - prevPosition.Y) != 1) {
             return;
         }
     }
