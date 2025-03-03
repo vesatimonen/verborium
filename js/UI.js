@@ -1,9 +1,9 @@
 
 // Get these from CSS
-const colorSolved     = "#67BFEC";
-const colorBorder     = "#202020";
-const colorBackground = "#B0DDFF";
-const colorPath       = "#20202060";
+const solvedColor     = "#67BFEC";
+const borderColor     = "#202020";
+const backgroundColor = "#B0DDFF";
+const pathColor       = "#20202060";
 
 
 
@@ -80,10 +80,10 @@ function uiBoardRedraw(board) {
             boardContext.beginPath();
             boardContext.arc(middleX, middleY, circleRatio * cellSize / 2, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
             if (board.resolved(x, y)) {
-                boardContext.fillStyle   = colorSolved;
+                boardContext.fillStyle   = solvedColor;
                 boardContext.fill();
             }
-            boardContext.strokeStyle = colorBorder;
+            boardContext.strokeStyle = borderColor;
             boardContext.lineWidth   = borderWidth;
             boardContext.lineCap     = "round";
             boardContext.stroke();
@@ -97,7 +97,7 @@ function uiBoardRedraw(board) {
             boardContext.font         = `${fontWeight} ${fontStyle} ${fontSize} ${fontFamily}`;
             boardContext.textBaseline = "middle";
             boardContext.textAlign    = "center";
-            boardContext.fillStyle    = colorBorder;
+            boardContext.fillStyle    = borderColor;
             boardContext.fillText(board.fragments[x][y], middleX, middleY);
         }
     }
@@ -127,12 +127,14 @@ function uiPathRedraw(path) {
     const cellSize = uiBoardCellSize();
 
     /* Draw circle */
+    const pathLineWidth = cellSize / 4;
+
     let X = cellSize * path[0].X + cellSize / 2;
     let Y = cellSize * path[0].Y + cellSize / 2;
     boardContext.beginPath();
-    boardContext.arc(X, Y, 5, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
-    boardContext.strokeStyle = colorPath
-    boardContext.lineWidth   = cellSize / 4;
+    boardContext.arc(X, Y, 8, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
+    boardContext.strokeStyle = pathColor;
+    boardContext.lineWidth   = pathLineWidth;
     boardContext.lineCap     = "round";
     boardContext.stroke();
 
@@ -233,8 +235,8 @@ console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
     Y = cellSize * path[path.length - 1].Y + cellSize / 2;
     boardContext.lineTo(X, Y);
 
-    boardContext.strokeStyle = colorPath
-    boardContext.lineWidth   = cellSize / 8;
+    boardContext.strokeStyle = pathColor;
+    boardContext.lineWidth   = pathLineWidth;
     boardContext.lineCap     = "round";
     boardContext.stroke();
 }
