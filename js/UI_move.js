@@ -70,7 +70,7 @@ function cursorMoveHandler(event)
     console.log(globals.cursorPath);
 
     /* Redraw UI */
-//    uiRedraw();
+    uiRedraw();
 
     /* Cursor moved in grid */
     cursorGridX = X;

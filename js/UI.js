@@ -103,11 +103,24 @@ function uiBoardRedraw(board) {
 }
 
 /*****************************************************************************
+ * Redraw cursor path
+ *****************************************************************************/
+function uiPathRedraw(path) {
+    if (path.length == 0) {
+        return;
+    }
+}
+
+
+/*****************************************************************************
  * Redraw UI
  *****************************************************************************/
 function uiRedraw() {
     /* Redraw board */
     uiBoardRedraw(globals.game.board);
+
+    /* Redraw path */
+    uiPathRedraw(globals.cursorPath);
 
     /* Redraw info */
     uiInfoRedraw(globals.game);
