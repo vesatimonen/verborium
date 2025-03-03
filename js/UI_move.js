@@ -10,8 +10,9 @@ function uiMovePosition(event) {
     const cellSize = uiBoardCellSize();
     X -= rect.left;
     Y -= rect.top;
-    X = X / cellSize;
-    Y = Y / cellSize;
+
+    X = Math.floor(X / cellSize);
+    Y = Math.floor(Y / cellSize);
 
     return {X, Y};
 }
@@ -26,8 +27,13 @@ function cursorMoveHandler(event)
 {
     /* Get cursor grid position */
     move = uiMovePosition(event);
-    X = Math.floor(move.X);
-    Y = Math.floor(move.Y);
+    X = move.X;
+    Y = move.Y;
+
+    /* Check legality */
+    if (X < 0 || Y < 0 || X >= globals.game.board.width || Y >= globals.game.board.height) {
+        return;
+    }
 
     /* Check if moved */
     if (X == cursorGridX && Y == cursorGridY) {
@@ -67,7 +73,7 @@ function cursorMoveHandler(event)
     /* Add position to cursor path */
     globals.cursorPath.push({X, Y});
 
-    console.log(globals.cursorPath);
+//    console.log(globals.cursorPath);
 
     /* Redraw UI */
     uiRedraw();
