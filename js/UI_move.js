@@ -26,21 +26,30 @@ function cursorMoveHandler(event)
 {
     /* Get cursor grid position */
     move = uiMovePosition(event);
-    gridX = Math.floor(move.X);
-    gridY = Math.floor(move.Y);
+    X = Math.floor(move.X);
+    Y = Math.floor(move.Y);
 
-    if (gridX == cursorGridX && gridY == cursorGridY) {
+    if (X == cursorGridX && Y == cursorGridY) {
         /* Not moved */
         return;
     }
 
     /* Cursor moved in grid */
-    cursorGridX = gridX;
-    cursorGridY = gridY;
-    console.log("Cursor moved: " + gridX + gridY);
+    cursorGridX = X;
+    cursorGridY = Y;
+    console.log("Cursor moved: " + X + Y);
 
     /* Set path */
-//    globals.game.makeMove("vertical", Xwall, Ycell);
+
+/* Next to previous one */
+/* Free on board */
+/* Not touch same */
+/* Backtrack */
+
+    /* Add position to cursor path */
+    globals.cursorPath.push({X, Y});
+
+    console.log(globals.cursorPath);
 
     /* Redraw UI */
 //    uiRedraw();
@@ -59,16 +68,18 @@ function uiMouseDown(event) {
 function uiMouseUp(event) {
     mouseIsDown = false;
 
+    /* Remove cursor */
     cursorGridX = -1;
     cursorGridY = -1;
 
-    /* Remove path */
-//    globals.game.makeMove("vertical", Xwall, Ycell);
-
     /* Make move */
+
+    /* Clear path */
+    globals.cursorPath = [];
 
     /* Redraw UI */
 //    uiRedraw();
+
 }
 
 function uiMouseMove(event) {

@@ -29,9 +29,13 @@ class Board {
         /* Word database (set) */
         this.wordSet   = undefined;
 
-        /* Path statistics */
+        /* Paths */
         this.pathId       = [[undefined]];
         this.pathCount    = 0;
+
+        /* Cell statuses */
+        this.cellStatus = [[undefined]];
+
     }
 
     toggleVerticalWall(x, y) {
@@ -66,6 +70,8 @@ class Board {
                 this.fragments[x][y] = infoValues[2 + y * this.width + x];
             }
         }
+
+        this.cellStatus = array2D(this.width, this.height, 0);
 
         /* Set title */
         if (this.dbName.startsWith("FIN")) {

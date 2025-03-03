@@ -5,7 +5,9 @@ var globals = {
     game:         undefined,
     storage:      "verborium/game-level",
 
-    boardMaxSize: 9
+    boardMaxSize: 9,
+
+    cursorPath:   []
 };
 
 /*****************************************************************************
