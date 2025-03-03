@@ -116,11 +116,13 @@ function uiPathRedraw(path) {
     const cellSize = uiBoardCellSize();
 
     /* Draw circle */
+    let X = cellSize * path[0].X + cellSize / 2;
+    let Y = cellSize * path[0].Y + cellSize / 2;
     boardContext.beginPath();
     boardContext.arc(X, Y, 5, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
     boardContext.strokeStyle = colorPath
     boardContext.lineWidth   = cellSize / 4;
-    boardContext.lineCap     = "flat";
+    boardContext.lineCap     = "round";
     boardContext.stroke();
 
     if (path.length <= 1) {
