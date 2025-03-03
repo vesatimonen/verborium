@@ -3,7 +3,6 @@
 const solvedColor     = "#67BFEC";
 const borderColor     = "#202020";
 const backgroundColor = "#B0DDFF";
-const pathColor       = "#20202060";
 
 
 
@@ -124,15 +123,17 @@ function uiPathRedraw(path) {
         return;
     }
 
+    /* Path characteristics */
     const cellSize = uiBoardCellSize();
+    const pathColor       = "#20202040";
+    const pathLineWidth   = cellSize / 3;
+    const pathStartRadius = 8;
 
     /* Draw circle */
-    const pathLineWidth = cellSize / 4;
-
     let X = cellSize * path[0].X + cellSize / 2;
     let Y = cellSize * path[0].Y + cellSize / 2;
     boardContext.beginPath();
-    boardContext.arc(X, Y, 8, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
+    boardContext.arc(X, Y, pathStartRadius, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
     boardContext.strokeStyle = pathColor;
     boardContext.lineWidth   = pathLineWidth;
     boardContext.lineCap     = "round";
