@@ -3,6 +3,7 @@
 const colorSolved     = "#67BFEC";
 const colorBorder     = "#202020";
 const colorBackground = "#B0DDFF";
+const colorPath       = "#20202060";
 
 
 
@@ -106,9 +107,45 @@ function uiBoardRedraw(board) {
  * Redraw cursor path
  *****************************************************************************/
 function uiPathRedraw(path) {
+    const boardContext = elements.canvas.getContext('2d');
+
     if (path.length == 0) {
         return;
     }
+
+    const cellSize = uiBoardCellSize();
+
+    /* Draw circle */
+    boardContext.beginPath();
+    boardContext.arc(X, Y, 5, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
+    boardContext.strokeStyle = colorPath
+    boardContext.lineWidth   = cellSize / 4;
+    boardContext.lineCap     = "flat";
+    boardContext.stroke();
+
+    if (path.length <= 1) {
+        return;
+    }
+
+    /* Draw path */
+    boardContext.beginPath();
+    for (let i = 0; i < path.length; i++) {
+        let X = cellSize * path[i].X + cellSize / 2;
+        let Y = cellSize * path[i].Y + cellSize / 2;
+
+        if (i == 0) {
+            boardContext.moveTo(X, Y);
+        } else {
+            let Xprev = cellSize * path[i - 1].X + cellSize / 2;
+            let Yprev = cellSize * path[i - 1].Y + cellSize / 2;
+
+            boardContext.lineTo(X, Y);
+        }
+    }
+    boardContext.strokeStyle = colorPath
+    boardContext.lineWidth   = cellSize / 8;
+    boardContext.lineCap     = "round";
+    boardContext.stroke();
 }
 
 
