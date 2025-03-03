@@ -67,5 +67,5 @@ function preventZoom(event) {
     event.preventDefault();
 }
 
-document.getElementById("game-screen").addEventListener("click", preventZoom);
+elements.screen.addEventListener("click", preventZoom);
 
