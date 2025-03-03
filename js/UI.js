@@ -169,32 +169,35 @@ function uiPathRedraw(path) {
                 if (angle2 - angle1 > Math.PI) {
                     angle1 += Math.PI * 2;
                 }
-console.log("angle1: " + angle1 * 360 / (Math.PI * 2));
-console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
 
                 /* Check if angle, not straight */
                 if (Math.abs(angle1 - angle2) != Math.PI) {
                     /* Calculate the position for the arc (corner of the polyline) */
-                    const radius = cellSize / 4;
+                    const radius = cellSize / 2;
+console.log("radius: " + radius);
 
                     /* Circle center point distance from middle */
-                    let angle_beta = Math.abs(angle2 - angle1);
+                    let angle_beta = Math.abs(angle2 + angle1);
                     while (angle_beta > Math.PI) {
                         angle_beta -= Math.PI;
                     }
                     angle_beta /= 2;
-console.log("beta: " + angle_beta * 360 / (Math.PI * 2));
 
                     const distance = Math.abs(radius / Math.cos(angle_beta));
-//console.log("distance: " + distance);
 
                     /* Center point angle from middle */
                     const angle_gamma = (angle1 + angle2) / 2;
-console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
 
                     /* Draw the arc (rounded corner) at the corner */
                     const cornerX = Xmiddle + distance * Math.cos(angle_gamma);
                     const cornerY = Ymiddle + distance * Math.sin(angle_gamma);
+
+console.log("Xmiddle: " + Xmiddle);
+console.log("Ymiddle: " + Ymiddle);
+
+console.log("Xmiddle dx: " + distance * Math.cos(angle_gamma));
+console.log("Ymiddle dy: " + distance * Math.sin(angle_gamma));
+
                     let counterClockwise = false;
                     let arcStart = 0;
                     let arcEnd = 0;
@@ -208,7 +211,15 @@ console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
                         arcEnd           = angle2 - Math.PI / 2;
                     }
 
+if (true) {
+console.log("angle1: " + angle1 * 360 / (Math.PI * 2));
+console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
+console.log("beta: " + angle_beta * 360 / (Math.PI * 2));
+console.log("distance: " + distance);
+console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
+}
                     boardContext.arc(cornerX, cornerY, radius, arcStart, arcEnd, counterClockwise);
+//                    boardContext.arc(cornerX, cornerY, radius, 0, 2 * Math.PI, counterClockwise);
                 }
             }
         }
