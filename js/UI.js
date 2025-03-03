@@ -162,9 +162,24 @@ function uiPathRedraw(path) {
                     const cornerY = (Ylast + Y) / 2;
 
                     /* Circle center point distance from prev */
-//                    const distance
+                    let angle_beta = Math.abs(angle2 - angle1);
+                    while (angle_beta < 0) {
+                        angle_beta += Math.PI;
+                    }
+                    while (angle_beta > Math.PI) {
+                        angle_beta -= Math.PI;
+                    }
+                    angle_beta /= 2;
 
-    console.log(angle1, angle2);
+                    const distance = Math.abs(radius / Math.cos(angle_beta));
+                    const angle_gamma = Math.PI / 2 + (angle1 + angle2) / 2;
+
+    console.log("cellSize: " + cellSize);
+    console.log("angle1: " + angle1 * 360 / (Math.PI * 2));
+    console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
+    console.log("beta: " + angle_beta * 360 / (Math.PI * 2));
+    console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
+    console.log("distance: " + distance);
 
     console.log("corner: ", cornerX, cornerY);
 
