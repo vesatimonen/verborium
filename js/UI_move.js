@@ -3,16 +3,8 @@
  * Move helpers
  *****************************************************************************/
 function uiMovePosition(event) {
-    let X, Y;
-
-    switch (event.type) {
-        case "click":
-            X = event.clientX;
-            Y = event.clientY;
-            break;
-        default:
-            return undefined;
-    }
+    let X = event.clientX;
+    let Y = event.clientY;
 
     const rect     = elements.canvas.getBoundingClientRect();
     const cellSize = uiBoardCellSize();
@@ -28,42 +20,72 @@ function uiMovePosition(event) {
 /*****************************************************************************
  * Event handlers
  *****************************************************************************/
-function uiClick(event) {
-    /* Get clock position */
+let cursorGridX = -1;
+let cursorGridY = -1;
+function cursorMoveHandler(event)
+{
+    /* Get cursor grid position */
     move = uiMovePosition(event);
-    X = Math.floor(move.X);
-    Y = Math.floor(move.Y);
+    gridX = Math.floor(move.X);
+    gridY = Math.floor(move.Y);
 
-    /* Check limits */
-    if (Y < 0 || Y >= globals.game.board.height ||
-        X < 0 || X >= globals.game.board.width) {
-
-        return false;
+    if (gridX == cursorGridX && gridY == cursorGridY) {
+        /* Not moved */
+        return;
     }
 
-console.log(X, Y);
+    /* Cursor moved in grid */
+    cursorGridX = gridX;
+    cursorGridY = gridY;
+    console.log("Cursor moved: " + gridX + gridY);
+
+    /* Set path */
+//    globals.game.makeMove("vertical", Xwall, Ycell);
+
+    /* Redraw UI */
+//    uiRedraw();
+
+    return;
+}
+
+
+let mouseIsDown = false;
+function uiMouseDown(event) {
+    mouseIsDown = true;
+
+    cursorMoveHandler(event);
+}
+
+function uiMouseUp(event) {
+    mouseIsDown = false;
+
+    cursorGridX = -1;
+    cursorGridY = -1;
+
+    /* Remove path */
+//    globals.game.makeMove("vertical", Xwall, Ycell);
 
     /* Make move */
-//    globals.game.makeMove("vertical", Xwall, Ycell);
 
     /* Redraw UI */
 //    uiRedraw();
 }
 
-
+function uiMouseMove(event) {
+    if (mouseIsDown) {
+        cursorMoveHandler(event);
+    }
+}
 
 
 /*****************************************************************************
  * Register game board event handlers
  *****************************************************************************/
-elements.board.addEventListener("click", uiClick, {passive: true});
-
-if (false) {
-elements.board.addEventListener("mouseup",    uiMouseUp);
-elements.board.addEventListener("mouseleave", uiMouseUp);
 elements.board.addEventListener("mousedown",  uiMouseDown);
-elements.board.addEventListener("touchend",   uiMouseUp);
+elements.board.addEventListener("mousemove",  uiMouseMove);
+elements.board.addEventListener("mouseup",    uiMouseUp);
+
 elements.board.addEventListener("touchstart", uiMouseDown, {passive: true});
-}
+elements.board.addEventListener("touchend",   uiMouseUp);
 
 
