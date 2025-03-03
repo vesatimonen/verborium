@@ -175,7 +175,7 @@ console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
                 /* Check if angle, not straight */
                 if (Math.abs(angle1 - angle2) != Math.PI) {
                     /* Calculate the position for the arc (corner of the polyline) */
-                    const radius = cellSize / 2;
+                    const radius = cellSize / 4;
 
                     /* Circle center point distance from middle */
                     let angle_beta = Math.abs(angle2 - angle1);
