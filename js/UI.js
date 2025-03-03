@@ -162,14 +162,13 @@ function uiPathRedraw(path) {
                     angle2 += Math.PI * 2;
                 }
 
-                /* Use acute angle, so that everage is calculated right */
+                /* Use acute angle side, so that average is calculated right */
                 if (angle1 - angle2 > Math.PI) {
                     angle2 += Math.PI * 2;
                 }
                 if (angle2 - angle1 > Math.PI) {
                     angle1 += Math.PI * 2;
                 }
-
 console.log("angle1: " + angle1 * 360 / (Math.PI * 2));
 console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
 
@@ -177,8 +176,6 @@ console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
                 if (angle1 != angle2) {
                     // Calculate the position for the arc (corner of the polyline)
                     const radius = cellSize / 2;
-                    const cornerX = (Xlast + X) / 2;
-                    const cornerY = (Ylast + Y) / 2;
 
                     /* Circle center point distance from middle */
                     let angle_beta = Math.abs(angle2 - angle1);
@@ -188,21 +185,30 @@ console.log("angle2: " + angle2 * 360 / (Math.PI * 2));
                     angle_beta /= 2;
 console.log("beta: " + angle_beta * 360 / (Math.PI * 2));
 
+                    const distance = Math.abs(radius / Math.cos(angle_beta));
+//console.log("distance: " + distance);
+
                     /* Center point angle from middle */
                     const angle_gamma = (angle1 + angle2) / 2;
-
-
 console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
-                    const distance = Math.abs(radius / Math.cos(angle_beta));
 
-//    console.log("cellSize: " + cellSize);
-//    console.log("distance: " + distance);
+                    /* Draw the arc (rounded corner) at the corner */
+                    const cornerX = Xmiddle + distance * Math.cos(angle_gamma);
+                    const cornerY = Ymiddle + distance * Math.sin(angle_gamma);
+                    let counterClockwise = false;
+                    let arcStart = 0;
+                    let arcEnd = 0;
+                    if (angle2 > angle1) {
+                        counterClockwise = true;
+                        arcStart         = angle1 - Math.PI / 2;
+                        arcEnd           = angle2 + Math.PI / 2;
+                    } else {
+                        counterClockwise = false;
+                        arcStart         = angle1 + Math.PI / 2;
+                        arcEnd           = angle2 - Math.PI / 2;
+                    }
 
-//    console.log("corner: ", cornerX, cornerY);
-
-                    // Draw the arc (rounded corner) at the corner
-//                    boardContext.arc(cornerX, cornerY, radius, angle1, angle2, false);
-                    boardContext.arc(cornerX, cornerY, radius, Math.PI, 3 * Math.PI / 2, false);
+                    boardContext.arc(cornerX, cornerY, radius, arcStart, arcEnd, counterClockwise);
                 }
             }
         }
