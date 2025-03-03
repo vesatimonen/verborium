@@ -107,7 +107,14 @@ function uiBoardRedraw(board) {
  * Redraw cursor path
  *****************************************************************************/
 function lineAngle(x1, y1, x2, y2) {
-    return Math.atan2(y2 - y1, x2 - x1);
+    let angle = Math.atan2(y2 - y1, x2 - x1);
+
+    /* Use only positive angles */
+    while (angle < 0) {
+        angle += Math.PI * 2;
+    }
+
+    return angle;
 }
 
 function uiPathRedraw(path) {
@@ -153,14 +160,6 @@ function uiPathRedraw(path) {
                 /* Calculate the angle of the line segment */
                 let angle1 = lineAngle(Xmiddle, Ymiddle, Xlast, Ylast);
                 let angle2 = lineAngle(Xmiddle, Ymiddle, X, Y);
-
-                /* Use only positive angles */
-                while (angle1 < 0) {
-                    angle1 += Math.PI * 2;
-                }
-                while (angle2 < 0) {
-                    angle2 += Math.PI * 2;
-                }
 
                 /* Use acute angle side, so that average is calculated right */
                 if (angle1 - angle2 > Math.PI) {
