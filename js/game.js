@@ -45,7 +45,16 @@ class Board {
         if (this.cell == undefined) {
             return false;
         }
-        return this.cell[x][y];
+
+        if (this.cell[x][y] == undefined) {
+            return false;
+        }
+
+        if (this.cell[x][y].pathId < 0) {
+            return false;
+        }
+
+        return true;
     }
 
     setCell(x, y, used, id) {
@@ -55,7 +64,7 @@ class Board {
         if (this.cell == undefined) {
             return false;
         }
-        this.cell[x][y] = used;
+        this.cell[x][y] = {pathId: id};
     }
 
     clearCell(x, y, used, id) {
@@ -65,7 +74,7 @@ class Board {
         if (this.cell == undefined) {
             return false;
         }
-        this.cell[x][y] = false;
+        this.cell[x][y] = undefined;
     }
 
     resolved(x, y) {
@@ -91,7 +100,7 @@ class Board {
         for (let x = 0; x < this.width; x++) {
             for (let y = 0; y < this.height; y++) {
                 this.fragments[x][y] = infoValues[2 + y * this.width + x];
-                this.cell[x][y]  = false;
+                this.cell[x][y]  = undefined;
             }
         }
 
