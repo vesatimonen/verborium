@@ -142,9 +142,6 @@ class Game {
     }
 
     init(level, info) {
-        /* Clear move history */
-        this.movesCount = 0;
-
         /* Set level */
         this.level = level;
 
@@ -180,19 +177,26 @@ class Game {
         }
 
         /* Add to history */
-        this.moves.push(wordPath);
+        this.moves.push({path: wordPath});
     }
 
     removePath(X, Y) {
         const id = this.board.getCellId(X, Y);
         if (id >= 0) {
+            /* Remove path */
             const path = this.board.paths[id];
+
+            /* Add to removed path to history */
+            this.moves.push({path: path});
+
             for (let i = 0; i < path.length; i++) {
                 this.board.setCellStatus(path[i].X, path[i].Y, false);
             }
 
+            /* Remove path from paths array */
             this.board.paths.splice(id, 1);
         }
+
     }
 
     undoMove() {
