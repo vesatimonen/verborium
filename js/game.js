@@ -58,6 +58,16 @@ class Board {
         this.cell[x][y] = used;
     }
 
+    clearCell(x, y, used, id) {
+        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
+            return false;
+        }
+        if (this.cell == undefined) {
+            return false;
+        }
+        this.cell[x][y] = false;
+    }
+
     resolved(x, y) {
         return false;
     }
@@ -176,7 +186,7 @@ console.log(X, Y);
         for (let i = 0; i < path.length; i++) {
             const X = path[i].X;
             const Y = path[i].Y;
-            this.board.setCell(X, Y, false, 0);
+            this.board.clearCell(X, Y, false, 0);
         }
 
         this.moveCount--;
