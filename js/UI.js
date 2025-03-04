@@ -126,7 +126,7 @@ function uiPathRedraw(path) {
     /* Path characteristics */
     const cellSize = uiBoardCellSize();
     const pathColor       = "#20202040";
-    const pathLineWidth   = cellSize / 3;
+    const pathLineWidth   = cellSize / 4;
     const pathStartRadius = 8;
 
     /* Draw circle */
