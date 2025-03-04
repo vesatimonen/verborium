@@ -38,7 +38,7 @@ class Board {
 
     }
 
-    getCell(x, y) {
+    getCellStatus(x, y) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
@@ -141,7 +141,7 @@ class Game {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
 
-            if (this.board.getCell(X, Y) == true) {
+            if (this.board.getCellStatus(X, Y) == true) {
                 return;
             }
 

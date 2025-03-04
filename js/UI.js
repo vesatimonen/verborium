@@ -78,7 +78,7 @@ function uiBoardRedraw(board) {
             /* Draw value circles */
             boardContext.beginPath();
             boardContext.arc(middleX, middleY, circleRatio * cellSize / 2, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
-            if (board.getCell(x, y)) {
+            if (board.getCellStatus(x, y)) {
                 boardContext.fillStyle = usedColor;
                 boardContext.fill();
             }
