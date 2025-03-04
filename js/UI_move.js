@@ -21,21 +21,11 @@ function uiMovePosition(event) {
 /*****************************************************************************
  * Event handlers
  *****************************************************************************/
-let mouseIsDown = false;
+let mouseIsDown  = false;
+let mouseIsMoved = false;
 
 let cursorGridX = -1;
 let cursorGridY = -1;
-
-function pathReset()
-{
-    mouseIsDown = false;
-
-    cursorGridX = -1;
-    cursorGridY = -1;
-
-    globals.cursorPath = [];
-}
-
 
 function cursorMoveHandler(event)
 {
@@ -46,7 +36,6 @@ function cursorMoveHandler(event)
 
     /* Check legality */
     if (X < 0 || Y < 0 || X >= globals.game.board.width || Y >= globals.game.board.height) {
-        pathReset();
         return;
     }
 
@@ -102,7 +91,8 @@ function cursorMoveHandler(event)
 
 
 function uiMouseDown(event) {
-    mouseIsDown = true;
+    mouseIsDown  = true;
+    mouseIsMoved = false;
 
     cursorMoveHandler(event);
 }
@@ -110,12 +100,19 @@ function uiMouseDown(event) {
 function uiMouseUp(event) {
     mouseIsDown = false;
 
+    if (mouseIsMoved == false) {
+        /* Click */
+        console.log("click");
+    } else {
+        /* Make move */
+        globals.game.makeMove(globals.cursorPath);
+    }
+
+    mouseIsMoved = false;
+
     /* Remove cursor from board */
     cursorGridX = -1;
     cursorGridY = -1;
-
-    /* Make move */
-    globals.game.makeMove(globals.cursorPath);
 
     /* Clear path */
     globals.cursorPath = [];
@@ -125,10 +122,13 @@ function uiMouseUp(event) {
 }
 
 function uiMouseMove(event) {
+    mouseIsMoved = true;
+
     if (mouseIsDown) {
         cursorMoveHandler(event);
     }
 }
+
 
 
 /*****************************************************************************
@@ -144,4 +144,5 @@ elements.board.addEventListener("touchmove",  uiMouseMove, {passive: true});
 elements.board.addEventListener("touchend",   uiMouseUp);
 // touchcancel
 // touchmove
+
 
