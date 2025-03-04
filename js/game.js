@@ -33,24 +33,23 @@ class Board {
         this.pathsId     = [[undefined]];
         this.paths       = [];
 
-        /* Cell info */
-        this.cell = [[undefined]];
-
+        /* Cells info */
+        this.cells = [[undefined]];
     }
 
     getCellStatus(x, y) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
-        if (this.cell == undefined) {
+        if (this.cells == undefined) {
             return false;
         }
 
-        if (this.cell[x][y] == undefined) {
+        if (this.cells[x][y] == undefined) {
             return false;
         }
 
-        if (this.cell[x][y].pathId < 0) {
+        if (this.cells[x][y].pathId < 0) {
             return false;
         }
 
@@ -61,20 +60,20 @@ class Board {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
-        if (this.cell == undefined) {
+        if (this.cells == undefined) {
             return false;
         }
-        this.cell[x][y] = {pathId: id};
+        this.cells[x][y] = {pathId: id};
     }
 
     clearCell(x, y) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
-        if (this.cell == undefined) {
+        if (this.cells == undefined) {
             return false;
         }
-        this.cell[x][y] = undefined;
+        this.cells[x][y] = undefined;
     }
 
     resolved(x, y) {
@@ -96,14 +95,13 @@ class Board {
         this.dbName     = infoValues[1];
 
         this.fragments  = array2D(this.width, this.height, 0);
-        this.cell   = array2D(this.width, this.height, 0);
+        this.cells   = array2D(this.width, this.height, 0);
         for (let x = 0; x < this.width; x++) {
             for (let y = 0; y < this.height; y++) {
                 this.fragments[x][y] = infoValues[2 + y * this.width + x];
-                this.cell[x][y]  = undefined;
+                this.cells[x][y]  = undefined;
             }
         }
-
 
         /* Set title */
         if (this.dbName.startsWith("FIN")) {
@@ -114,8 +112,6 @@ class Board {
 
         /* Read word database to set structure */
         this.wordSet = await dbReadFile("words_" + this.dbName + ".csv");
-
-//        console.log(this.wordSet.has("seppel"));
     }
 }
 
@@ -167,12 +163,11 @@ class Game {
         for (let i = 0; i < wordPath.length; i++) {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
-            this.board.setCell(X, Y, 0);
+            this.board.setCell(X, Y, this.board.paths.length - 1);
         }
 
         this.moveCount++;
 
-//console.log(this.board.paths);
 if (false) {
         for (let i = 0; i < this.board.paths.length; i++) {
             let path = this.board.paths[i];
