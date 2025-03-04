@@ -3,14 +3,7 @@
  *****************************************************************************/
 function uiUndo(event) {
     /* Make undo if possible */
-    if (globals.game.undoMove() == false) {
-        return false;
-    }
-
-    /* Redraw UI */
-    uiRedraw();
-
-    return false;
+    globals.game.undoMove();
 }
 
 function uiRestart(event) {

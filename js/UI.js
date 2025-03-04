@@ -18,13 +18,13 @@ function uiBoardCellSize() {
  * Redraw buttons
  *****************************************************************************/
 function uiButtonsRedraw(game) {
-    if (game.moveHistory.length == 0) {
+    if (game.moveCount == 0) {
         elements.buttonUndo.disabled = true;
     } else {
         elements.buttonUndo.disabled = false;
     }
 
-    if (game.level == 0 && game.moveHistory.length == 0) {
+    if (game.level == 0 && game.moveCount == 0) {
         elements.buttonRestart.disabled = true;
     } else {
         elements.buttonRestart.disabled = false;

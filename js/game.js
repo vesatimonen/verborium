@@ -175,15 +175,21 @@ console.log(X, Y);
     }
 
     undoMove() {
+        if (this.moveCount <= 0) {
+            return false;
+        }
+
         /* Undo move */
         const path = this.board.paths.pop();
         for (let i = 0; i < path.length; i++) {
-            const X = wordPath[i].X;
-            const Y = wordPath[i].Y;
+            const X = path[i].X;
+            const Y = path[i].Y;
             this.board.setUsed(X, Y, false);
         }
 
         this.moveCount--;
+
+        return true;
     }
 }
 
