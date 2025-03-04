@@ -43,9 +43,8 @@ function cursorClickHandler(event)
     /* Check if used */
     if (globals.game.board.getCellStatus(X, Y)) {
         /* Remove */
-        console.log("remove");
+        globals.game.removePath(X, Y);
     } else {
-        console.log("move");
         /* Make move here */
         globals.game.makeMove(globals.cursorPath);
     }

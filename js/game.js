@@ -30,7 +30,6 @@ class Board {
         this.wordSet   = undefined;
 
         /* Paths */
-        this.pathsId     = [[undefined]];
         this.paths       = [];
 
         /* Cells info */
@@ -54,6 +53,21 @@ class Board {
         }
 
         return true;
+    }
+
+    getCellId(x, y) {
+        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
+            return false;
+        }
+        if (this.cells == undefined) {
+            return false;
+        }
+
+        if (this.cells[x][y] == undefined) {
+            return false;
+        }
+
+        return this.cells[x][y].pathId;
     }
 
     setCell(x, y, id) {
@@ -167,6 +181,19 @@ class Game {
         }
 
         this.moveCount++;
+    }
+
+    removePath(X, Y) {
+        const id = this.board.getCellId(X, Y);
+console.log("remove path");
+        if (id >= 0) {
+            const path = this.board.paths[id];
+            for (let i = 0; i < path.length; i++) {
+                this.board.clearCell(path[i].X, path[i].Y);
+            }
+
+            this.board.paths.splice(id, 1);
+        }
     }
 
     undoMove() {
