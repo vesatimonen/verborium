@@ -38,7 +38,7 @@ class Board {
 
     }
 
-    isUsed(x, y) {
+    getUsed(x, y) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
@@ -48,22 +48,14 @@ class Board {
         return this.cellUsed[x][y];
     }
 
-    setUsed(x, y, value) {
+    setUsed(x, y, used, id) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
         if (this.cellUsed == undefined) {
             return false;
         }
-        this.cellUsed[x][y] = value;
-    }
-
-    toggleVerticalWall(x, y) {
-        return false;
-    }
-
-    toggleHorizontalWall(x, y) {
-        return false;
+        this.cellUsed[x][y] = used;
     }
 
     resolved(x, y) {
@@ -139,7 +131,7 @@ class Game {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
 
-            if (this.board.isUsed(X, Y) == true) {
+            if (this.board.getUsed(X, Y) == true) {
                 return;
             }
 
@@ -156,7 +148,7 @@ class Game {
         for (let i = 0; i < wordPath.length; i++) {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
-            this.board.setUsed(X, Y, true);
+            this.board.setUsed(X, Y, true, 0);
         }
 
         this.moveCount++;
@@ -184,7 +176,7 @@ console.log(X, Y);
         for (let i = 0; i < path.length; i++) {
             const X = path[i].X;
             const Y = path[i].Y;
-            this.board.setUsed(X, Y, false);
+            this.board.setUsed(X, Y, false, 0);
         }
 
         this.moveCount--;

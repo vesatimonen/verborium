@@ -69,7 +69,7 @@ function cursorMoveHandler(event)
     }
 
     /* Check if used */
-    if (globals.game.board.isUsed(X, Y)) {
+    if (globals.game.board.getUsed(X, Y)) {
         return;
     }
 
