@@ -87,7 +87,7 @@ class Board {
         /* Set title */
         if (this.dbName.startsWith("FIN")) {
             elements.title.innerHTML        = "VERBORIUM-FIN";
-            elements.instructions.innerHTML = "Muodosta suomen kielen sanoja piirtämällä polkuja, jotka yhdistävät solut ketjuiksi. "
+            elements.instructions.innerHTML = "Muodosta perusmuodossa olevia suomen kielen sanoja yhdistämällä soluja. "
             + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen solu tulee käyttää täsmälleen kerran. ";
         }
 
@@ -122,7 +122,28 @@ class Game {
         this.board.init(info);
     }
 
-    makeMove(direction, x, y) {
+    makeMove(cursorPath) {
+        /* Check path legality */
+        let word = "";
+        for (let i = 0; i < cursorPath.length; i++) {
+            const X = cursorPath[i].X;
+            const Y = cursorPath[i].Y;
+
+            if (this.board.isUsed(X, Y) == true) {
+                return;
+            }
+
+            word = word + this.board.fragments[X][Y];
+        }
+
+        /* Check word legality */
+        if (this.board.wordSet.has(word) == false) {
+            return;
+        }
+
+console.log(word);
+
+if (false) {
         var polarity = undefined;
 
         switch (direction) {
@@ -136,6 +157,7 @@ class Game {
 
         /* Save move */
         this.moveHistory.push({direction: direction, x: x, y: y});
+}
     }
 
     undoMove() {

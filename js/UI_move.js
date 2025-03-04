@@ -21,8 +21,11 @@ function uiMovePosition(event) {
 /*****************************************************************************
  * Event handlers
  *****************************************************************************/
+let mouseIsDown = false;
+
 let cursorGridX = -1;
 let cursorGridY = -1;
+
 function cursorMoveHandler(event)
 {
     /* Get cursor grid position */
@@ -86,7 +89,6 @@ function cursorMoveHandler(event)
 }
 
 
-let mouseIsDown = false;
 function uiMouseDown(event) {
     mouseIsDown = true;
 
@@ -96,18 +98,18 @@ function uiMouseDown(event) {
 function uiMouseUp(event) {
     mouseIsDown = false;
 
-    /* Remove cursor */
+    /* Remove cursor from board */
     cursorGridX = -1;
     cursorGridY = -1;
 
     /* Make move */
+    globals.game.makeMove(globals.cursorPath);
 
     /* Clear path */
     globals.cursorPath = [];
 
     /* Redraw UI */
-//    uiRedraw();
-
+    uiRedraw();
 }
 
 function uiMouseMove(event) {
