@@ -107,8 +107,9 @@ class Board {
     /* Initialize game */
     async init(info) {
         /* Parse board configuration (verborum) */
-        var boardInfo   = info.split('>')[2];
-        var infoValues  = boardInfo.split('-');
+        const infoStr    = info.replaceAll('"', '');
+        const boardInfo  = infoStr.split('>')[1];
+        const infoValues = boardInfo.split('-');
 
         this.width      = parseInt(infoValues[0].substr(0,1));
         this.height     = parseInt(infoValues[0].substr(2,1));
