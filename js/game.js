@@ -70,7 +70,7 @@ class Board {
         return this.cells[x][y].pathId;
     }
 
-    setCell(x, y, id) {
+    setCellStatus(x, y, id) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
@@ -177,7 +177,7 @@ class Game {
         for (let i = 0; i < wordPath.length; i++) {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
-            this.board.setCell(X, Y, this.board.paths.length - 1);
+            this.board.setCellStatus(X, Y, this.board.paths.length - 1);
         }
 
         this.moveCount++;
