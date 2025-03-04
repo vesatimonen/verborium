@@ -51,24 +51,14 @@ class Board {
         return this.cells[x][y].status;
     }
 
-    setCellStatus(x, y) {
+    setCellStatus(x, y, status) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
         if (this.cells == undefined) {
             return false;
         }
-        this.cells[x][y] = {status: true};
-    }
-
-    clearCellStatus(x, y) {
-        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
-            return false;
-        }
-        if (this.cells == undefined) {
-            return false;
-        }
-        this.cells[x][y] = {status: false};
+        this.cells[x][y] = {status: status};
     }
 
     getCellId(x, y) {
@@ -186,7 +176,7 @@ class Game {
         for (let i = 0; i < wordPath.length; i++) {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
-            this.board.setCellStatus(X, Y);
+            this.board.setCellStatus(X, Y, true);
         }
 
         this.moveCount++;
@@ -197,7 +187,7 @@ class Game {
         if (id >= 0) {
             const path = this.board.paths[id];
             for (let i = 0; i < path.length; i++) {
-                this.board.clearCellStatus(path[i].X, path[i].Y);
+                this.board.setCellStatus(path[i].X, path[i].Y, false);
             }
 
             this.board.paths.splice(id, 1);
@@ -214,7 +204,7 @@ class Game {
         for (let i = 0; i < path.length; i++) {
             const X = path[i].X;
             const Y = path[i].Y;
-            this.board.clearCellStatus(X, Y);
+            this.board.setCellStatus(X, Y, false);
         }
 
         this.moveCount--;
