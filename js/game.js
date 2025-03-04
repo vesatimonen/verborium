@@ -167,17 +167,6 @@ class Game {
         }
 
         this.moveCount++;
-
-if (false) {
-        for (let i = 0; i < this.board.paths.length; i++) {
-            let path = this.board.paths[i];
-            for (let j = 0; j < path.length; j++) {
-                const X = path[j].X;
-                const Y = path[j].Y;
-console.log(X, Y);
-            }
-        }
-}
     }
 
     undoMove() {

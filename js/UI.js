@@ -247,7 +247,13 @@ function uiRedraw() {
     /* Redraw board */
     uiBoardRedraw(globals.game.board);
 
-    /* Redraw path */
+    /* Redraw word paths */
+    const paths = globals.game.board.paths;
+    for (let i = 0; i < paths.length; i++) {
+        uiPathRedraw(paths[i]);
+    }
+
+    /* Redraw cursor path */
     uiPathRedraw(globals.cursorPath);
 
     /* Redraw info */
