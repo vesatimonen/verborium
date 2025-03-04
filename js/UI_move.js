@@ -6,11 +6,11 @@ function uiMovePosition(event) {
     let X = event.clientX;
     let Y = event.clientY;
 
-    const rect     = elements.canvas.getBoundingClientRect();
-    const cellSize = uiBoardCellSize();
+    const rect = elements.canvas.getBoundingClientRect();
     X -= rect.left;
     Y -= rect.top;
 
+    const cellSize = uiBoardCellSize();
     X = Math.floor(X / cellSize);
     Y = Math.floor(Y / cellSize);
 
@@ -26,6 +26,17 @@ let mouseIsDown = false;
 let cursorGridX = -1;
 let cursorGridY = -1;
 
+function pathReset()
+{
+    mouseIsDown = false;
+
+    cursorGridX = -1;
+    cursorGridY = -1;
+
+    globals.cursorPath = [];
+}
+
+
 function cursorMoveHandler(event)
 {
     /* Get cursor grid position */
@@ -35,6 +46,7 @@ function cursorMoveHandler(event)
 
     /* Check legality */
     if (X < 0 || Y < 0 || X >= globals.game.board.width || Y >= globals.game.board.height) {
+        pathReset();
         return;
     }
 
