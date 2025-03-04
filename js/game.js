@@ -87,12 +87,6 @@ class Board {
         return -1; /* Not found */
     }
 
-
-
-    resolved(x, y) {
-        return false;
-    }
-
     solved() {
         return false;
     }
