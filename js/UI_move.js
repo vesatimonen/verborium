@@ -137,8 +137,11 @@ function uiMouseMove(event) {
 elements.board.addEventListener("mousedown",  uiMouseDown);
 elements.board.addEventListener("mousemove",  uiMouseMove);
 elements.board.addEventListener("mouseup",    uiMouseUp);
+elements.board.addEventListener("mouseleave", uiMouseUp);
 
 elements.board.addEventListener("touchstart", uiMouseDown, {passive: true});
+elements.board.addEventListener("touchmove",  uiMouseMove, {passive: true});
 elements.board.addEventListener("touchend",   uiMouseUp);
-
+// touchcancel
+// touchmove
 
