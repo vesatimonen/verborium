@@ -43,10 +43,10 @@ function cursorClickHandler(event)
     /* Check if used */
     if (globals.game.board.getCellStatus(X, Y)) {
         /* Remove */
-        globals.game.removePath(X, Y);
+        globals.game.removePath(X, Y, true);
     } else {
         /* Make move here */
-        globals.game.makeMove(globals.cursorPath);
+        globals.game.addPath(globals.cursorPath, true);
     }
 }
 
@@ -129,7 +129,7 @@ function uiMouseUp(event) {
         cursorClickHandler(event);
     } else {
         /* Make move */
-        globals.game.makeMove(globals.cursorPath);
+        globals.game.addPath(globals.cursorPath, true);
     }
 
     mouseIsMoved = false;

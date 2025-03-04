@@ -149,7 +149,7 @@ class Game {
         this.board.init(info);
     }
 
-    makeMove(wordPath) {
+    addPath(wordPath, track) {
         /* Check path legality */
         let word = "";
         for (let i = 0; i < wordPath.length; i++) {
@@ -177,17 +177,21 @@ class Game {
         }
 
         /* Add to history */
-        this.moves.push({command: "add", path: wordPath});
+        if (track == true) {
+            this.moves.push({command: "add", path: wordPath});
+        }
     }
 
-    removePath(X, Y) {
+    removePath(X, Y, track) {
         const id = this.board.getCellId(X, Y);
         if (id >= 0) {
             /* Remove path */
             const path = this.board.paths[id];
 
             /* Add to removed path to history */
-            this.moves.push({command: "remove", path: path});
+            if (track == true)  {
+                this.moves.push({command: "remove", path: path});
+            }
 
             for (let i = 0; i < path.length; i++) {
                 this.board.setCellStatus(path[i].X, path[i].Y, false);
@@ -208,12 +212,12 @@ class Game {
         switch (move.command) {
             case "add":
                 console.log("add");
-                this.removePath(move.path[0].X, move.path[0].Y);
+                this.removePath(move.path[0].X, move.path[0].Y, false);
                 break;
             case "remove":
                 /* Undo remove */
                 console.log("remove");
-                this.makeMove(move.path);
+                this.addPath(move.path, false);
                 break;
         }
 
