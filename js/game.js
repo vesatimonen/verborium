@@ -177,7 +177,7 @@ class Game {
         }
 
         /* Add to history */
-        this.moves.push({path: wordPath});
+        this.moves.push({command: "add", path: wordPath});
     }
 
     removePath(X, Y) {
@@ -187,7 +187,7 @@ class Game {
             const path = this.board.paths[id];
 
             /* Add to removed path to history */
-            this.moves.push({path: path});
+            this.moves.push({command: "remove", path: path});
 
             for (let i = 0; i < path.length; i++) {
                 this.board.setCellStatus(path[i].X, path[i].Y, false);
@@ -196,7 +196,6 @@ class Game {
             /* Remove path from paths array */
             this.board.paths.splice(id, 1);
         }
-
     }
 
     undoMove() {
@@ -204,6 +203,23 @@ class Game {
             return false;
         }
 
+        const move = this.moves.pop();
+
+        switch (move.command) {
+            case "add":
+                console.log("add");
+                this.removePath(move.path[0].X, move.path[0].Y);
+                break;
+            case "remove":
+                /* Undo remove */
+                console.log("remove");
+                this.makeMove(move.path);
+                break;
+        }
+
+console.log(this.moves);
+
+if (false) {
         /* Undo move */
         const path = this.board.paths.pop();
         for (let i = 0; i < path.length; i++) {
@@ -211,9 +227,9 @@ class Game {
             const Y = path[i].Y;
             this.board.setCellStatus(X, Y, false);
         }
+}
 
 // Make move backwards
-        this.moves.pop();
 
         return true;
     }
