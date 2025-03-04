@@ -135,7 +135,7 @@ class Game {
         this.board = new Board();
 
         /* Game move history */
-        this.moveHistory = [];
+        this.moves = [];
 
         /* Game level */
         this.level = 0;
@@ -143,7 +143,7 @@ class Game {
 
     init(level, info) {
         /* Clear move history */
-        this.moveCount = 0;
+        this.movesCount = 0;
 
         /* Set level */
         this.level = level;
@@ -179,7 +179,8 @@ class Game {
             this.board.setCellStatus(X, Y, true);
         }
 
-        this.moveCount++;
+        /* Add to history */
+        this.moves.push(wordPath);
     }
 
     removePath(X, Y) {
@@ -195,7 +196,7 @@ class Game {
     }
 
     undoMove() {
-        if (this.moveCount <= 0) {
+        if (this.moves.length == 0) {
             return false;
         }
 
@@ -207,7 +208,8 @@ class Game {
             this.board.setCellStatus(X, Y, false);
         }
 
-        this.moveCount--;
+// Make move backwards
+        this.moves.pop();
 
         return true;
     }
