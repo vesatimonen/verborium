@@ -36,6 +36,17 @@ class Board {
         this.cells = [[undefined]];
     }
 
+    filledCount() {
+        let count = 0;
+        for (let i = 0; i < this.paths.length; i++) {
+            count += this.paths[i].length;
+        }
+
+console.log("filled: ", count);
+
+        return count;
+    }
+
     getCellStatus(x, y) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
@@ -74,7 +85,7 @@ class Board {
         }
 
         /* Go through paths and find cell id */
-        const paths = globals.game.board.paths;
+        const paths = this.paths;
         for (let i = 0; i < paths.length; i++) {
             const path = paths[i];
             for (let j = 0; j < path.length; j++) {
@@ -88,6 +99,10 @@ class Board {
     }
 
     solved() {
+        if (this.filledCount() == this.width * this.height) {
+            return true;
+        }
+
         return false;
     }
 
@@ -100,6 +115,8 @@ class Board {
         this.width      = parseInt(infoValues[0].substr(0,1));
         this.height     = parseInt(infoValues[0].substr(2,1));
         this.dbName     = infoValues[1];
+
+        this.paths       = [];
 
         this.fragments  = array2D(this.width, this.height, 0);
         this.cells   = array2D(this.width, this.height, 0);
@@ -136,11 +153,14 @@ class Game {
     }
 
     init(level, info) {
-        /* Set level */
-        this.level = level;
-
         /* Initialize board */
         this.board.init(info);
+
+        /* Clear moves history */
+        this.moves = [];
+
+        /* Set level */
+        this.level = level;
     }
 
     addPath(wordPath, track) {
@@ -174,6 +194,8 @@ class Game {
         if (track == true) {
             this.moves.push({command: "add", path: wordPath});
         }
+
+console.log(this.board.filledCount());
     }
 
     removePath(X, Y, track) {
