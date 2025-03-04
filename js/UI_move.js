@@ -53,6 +53,9 @@ function cursorClickHandler(event)
 
 function cursorMoveHandler(event)
 {
+
+elements.debug.innerHTML = "move handler";
+
     /* Get cursor grid position */
     move = uiMovePosition(event);
     X = move.X;

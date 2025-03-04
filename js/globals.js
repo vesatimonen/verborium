@@ -31,6 +31,10 @@ const elements = {
     instructions:   document.getElementById("game-instructions"),
 
     buttonRestart:  document.getElementById("button-restart"),
-    buttonUndo:     document.getElementById("button-undo")
+    buttonUndo:     document.getElementById("button-undo"),
+
+    debug:          document.getElementById("debug-text")
+
 };
+
 
