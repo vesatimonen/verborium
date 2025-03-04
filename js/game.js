@@ -220,6 +220,13 @@ class Game {
 
         return true;
     }
+
+    undoable() {
+        if (this.moves.length == 0) {
+            return false;
+        }
+        return true;
+    }
 }
 
 
