@@ -32,7 +32,7 @@ class Board {
         /* Paths */
         this.paths       = [];
 
-        /* Cells info */
+        /* Cells status */
         this.cells = [[undefined]];
     }
 
@@ -48,11 +48,27 @@ class Board {
             return false;
         }
 
-        if (this.cells[x][y].pathId < 0) {
+        return this.cells[x][y].status;
+    }
+
+    setCellStatus(x, y) {
+        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
+        if (this.cells == undefined) {
+            return false;
+        }
+        this.cells[x][y] = {status: true};
+    }
 
-        return true;
+    clearCellStatus(x, y) {
+        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
+            return false;
+        }
+        if (this.cells == undefined) {
+            return false;
+        }
+        this.cells[x][y] = {status: false};
     }
 
     getCellId(x, y) {
@@ -67,28 +83,21 @@ class Board {
             return false;
         }
 
-        return this.cells[x][y].pathId;
+        /* Go through paths and find cell id */
+        const paths = globals.game.board.paths;
+        for (let i = 0; i < paths.length; i++) {
+            const path = paths[i];
+            for (let j = 0; j < path.length; j++) {
+                if (path[j].X == x && path[j].Y == y) {
+                    return i;
+                }
+            }
+        }
+
+        return -1; /* Not found */
     }
 
-    setCellStatus(x, y, id) {
-        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
-            return false;
-        }
-        if (this.cells == undefined) {
-            return false;
-        }
-        this.cells[x][y] = {pathId: id};
-    }
 
-    clearCell(x, y) {
-        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
-            return false;
-        }
-        if (this.cells == undefined) {
-            return false;
-        }
-        this.cells[x][y] = undefined;
-    }
 
     resolved(x, y) {
         return false;
@@ -113,7 +122,7 @@ class Board {
         for (let x = 0; x < this.width; x++) {
             for (let y = 0; y < this.height; y++) {
                 this.fragments[x][y] = infoValues[2 + y * this.width + x];
-                this.cells[x][y]  = undefined;
+                this.cells[x][y]     = {status: false};
             }
         }
 
@@ -177,7 +186,7 @@ class Game {
         for (let i = 0; i < wordPath.length; i++) {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
-            this.board.setCellStatus(X, Y, this.board.paths.length - 1);
+            this.board.setCellStatus(X, Y);
         }
 
         this.moveCount++;
@@ -189,7 +198,7 @@ console.log("remove path: ", id);
         if (id >= 0) {
             const path = this.board.paths[id];
             for (let i = 0; i < path.length; i++) {
-                this.board.clearCell(path[i].X, path[i].Y);
+                this.board.clearCellStatus(path[i].X, path[i].Y);
             }
 
             this.board.paths.splice(id, 1);
@@ -206,7 +215,7 @@ console.log("remove path: ", id);
         for (let i = 0; i < path.length; i++) {
             const X = path[i].X;
             const Y = path[i].Y;
-            this.board.clearCell(X, Y);
+            this.board.clearCellStatus(X, Y);
         }
 
         this.moveCount--;
