@@ -38,7 +38,7 @@ class Board {
 
     }
 
-    getUsed(x, y) {
+    getCell(x, y) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
@@ -48,7 +48,7 @@ class Board {
         return this.cell[x][y];
     }
 
-    setUsed(x, y, used, id) {
+    setCell(x, y, used, id) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
@@ -131,7 +131,7 @@ class Game {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
 
-            if (this.board.getUsed(X, Y) == true) {
+            if (this.board.getCell(X, Y) == true) {
                 return;
             }
 
@@ -148,7 +148,7 @@ class Game {
         for (let i = 0; i < wordPath.length; i++) {
             const X = wordPath[i].X;
             const Y = wordPath[i].Y;
-            this.board.setUsed(X, Y, true, 0);
+            this.board.setCell(X, Y, true, 0);
         }
 
         this.moveCount++;
@@ -176,7 +176,7 @@ console.log(X, Y);
         for (let i = 0; i < path.length; i++) {
             const X = path[i].X;
             const Y = path[i].Y;
-            this.board.setUsed(X, Y, false, 0);
+            this.board.setCell(X, Y, false, 0);
         }
 
         this.moveCount--;
