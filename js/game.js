@@ -185,7 +185,7 @@ class Game {
 
     removePath(X, Y) {
         const id = this.board.getCellId(X, Y);
-console.log("remove path");
+console.log("remove path: ", id);
         if (id >= 0) {
             const path = this.board.paths[id];
             for (let i = 0; i < path.length; i++) {
