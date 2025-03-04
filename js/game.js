@@ -130,7 +130,7 @@ class Board {
         if (this.dbName.startsWith("FIN")) {
             elements.title.innerHTML        = "VERBORIUM-FIN";
             elements.instructions.innerHTML = "Muodosta perusmuodossa olevia suomen kielen sanoja yhdistämällä solut ketjuiksi. "
-            + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen solu tulee käyttää täsmälleen kerran. ";
+            + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen solu on käytettävä täsmälleen kerran. ";
         }
 
         /* Read word database to set structure */
