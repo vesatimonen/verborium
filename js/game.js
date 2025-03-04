@@ -33,8 +33,8 @@ class Board {
         this.pathsId     = [[undefined]];
         this.paths       = [];
 
-        /* Cell statuses */
-        this.cellUsed = [[undefined]];
+        /* Cell info */
+        this.cell = [[undefined]];
 
     }
 
@@ -42,20 +42,20 @@ class Board {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
-        if (this.cellUsed == undefined) {
+        if (this.cell == undefined) {
             return false;
         }
-        return this.cellUsed[x][y];
+        return this.cell[x][y];
     }
 
     setUsed(x, y, used, id) {
         if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
             return false;
         }
-        if (this.cellUsed == undefined) {
+        if (this.cell == undefined) {
             return false;
         }
-        this.cellUsed[x][y] = used;
+        this.cell[x][y] = used;
     }
 
     resolved(x, y) {
@@ -77,11 +77,11 @@ class Board {
         this.dbName     = infoValues[1];
 
         this.fragments  = array2D(this.width, this.height, 0);
-        this.cellUsed   = array2D(this.width, this.height, 0);
+        this.cell   = array2D(this.width, this.height, 0);
         for (let x = 0; x < this.width; x++) {
             for (let y = 0; y < this.height; y++) {
                 this.fragments[x][y] = infoValues[2 + y * this.width + x];
-                this.cellUsed[x][y]  = false;
+                this.cell[x][y]  = false;
             }
         }
 
