@@ -30,8 +30,8 @@ class Board {
         this.wordSet   = undefined;
 
         /* Paths */
-        this.pathId       = [[undefined]];
-        this.pathCount    = 0;
+        this.pathsId     = [[undefined]];
+        this.paths       = [];
 
         /* Cell statuses */
         this.cellUsed = [[undefined]];
@@ -46,6 +46,16 @@ class Board {
             return false;
         }
         return this.cellUsed[x][y];
+    }
+
+    setUsed(x, y, value) {
+        if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
+            return false;
+        }
+        if (this.cellUsed == undefined) {
+            return false;
+        }
+        this.cellUsed[x][y] = value;
     }
 
     toggleVerticalWall(x, y) {
@@ -113,7 +123,7 @@ class Game {
 
     init(level, info) {
         /* Clear move history */
-        this.moveHistory = [];
+        this.moveCount = 0;
 
         /* Set level */
         this.level = level;
@@ -122,12 +132,12 @@ class Game {
         this.board.init(info);
     }
 
-    makeMove(cursorPath) {
+    makeMove(wordPath) {
         /* Check path legality */
         let word = "";
-        for (let i = 0; i < cursorPath.length; i++) {
-            const X = cursorPath[i].X;
-            const Y = cursorPath[i].Y;
+        for (let i = 0; i < wordPath.length; i++) {
+            const X = wordPath[i].X;
+            const Y = wordPath[i].Y;
 
             if (this.board.isUsed(X, Y) == true) {
                 return;
@@ -141,44 +151,39 @@ class Game {
             return;
         }
 
-console.log(word);
-
-if (false) {
-        var polarity = undefined;
-
-        switch (direction) {
-            case "vertical":
-                break;
-            case "horizontal":
-                break;
-            default:
-                return undefined;
+        /* Make move */
+        this.board.paths.push(wordPath);
+        for (let i = 0; i < wordPath.length; i++) {
+            const X = wordPath[i].X;
+            const Y = wordPath[i].Y;
+            this.board.setUsed(X, Y, true);
         }
 
-        /* Save move */
-        this.moveHistory.push({direction: direction, x: x, y: y});
+        this.moveCount++;
+
+//console.log(this.board.paths);
+if (false) {
+        for (let i = 0; i < this.board.paths.length; i++) {
+            let path = this.board.paths[i];
+            for (let j = 0; j < path.length; j++) {
+                const X = path[j].X;
+                const Y = path[j].Y;
+console.log(X, Y);
+            }
+        }
 }
     }
 
     undoMove() {
-        /* Check if something to undo */
-        if (this.moveHistory.length == 0) {
-            return false;
+        /* Undo move */
+        const path = this.board.paths.pop();
+        for (let i = 0; i < path.length; i++) {
+            const X = wordPath[i].X;
+            const Y = wordPath[i].Y;
+            this.board.setUsed(X, Y, false);
         }
 
-        /* Pop latest move */
-        let move = this.moveHistory.pop();
-
-        switch (move.direction) {
-            case "vertical":
-                break;
-            case "horizontal":
-                break;
-            default:
-                return;
-        }
-
-        return true;
+        this.moveCount--;
     }
 }
 
