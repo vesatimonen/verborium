@@ -207,33 +207,16 @@ class Game {
             return false;
         }
 
+        /* Undo move */
         const move = this.moves.pop();
-
         switch (move.command) {
             case "add":
-                console.log("add");
                 this.removePath(move.path[0].X, move.path[0].Y, false);
                 break;
             case "remove":
-                /* Undo remove */
-                console.log("remove");
                 this.addPath(move.path, false);
                 break;
         }
-
-console.log(this.moves);
-
-if (false) {
-        /* Undo move */
-        const path = this.board.paths.pop();
-        for (let i = 0; i < path.length; i++) {
-            const X = path[i].X;
-            const Y = path[i].Y;
-            this.board.setCellStatus(X, Y, false);
-        }
-}
-
-// Make move backwards
 
         return true;
     }
