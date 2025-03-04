@@ -3,8 +3,31 @@
  * Move helpers
  *****************************************************************************/
 function uiMovePosition(event) {
-    let X = event.clientX;
-    let Y = event.clientY;
+    let X, Y;
+
+    switch (event.type) {
+        case "mousedown":
+        case "mousemove":
+        case "mouseup":
+        case "mouseleave":
+            X = event.clientX;
+            Y = event.clientY;
+            break;
+        case "touchstart":
+        case "touchmove":
+        case "touchend":
+        case "touchcancel":
+            /* Ignore if touched multiple fingers */
+            if (event.targetTouches > 1) {
+                return undefined;
+            }
+
+            X = event.touches[0].clientX;
+            Y = event.touches[0].clientY;
+            break;
+        default:
+            return undefined;
+    }
 
     const rect = elements.canvas.getBoundingClientRect();
     X -= rect.left;
@@ -53,9 +76,6 @@ function cursorClickHandler(event)
 
 function cursorMoveHandler(event)
 {
-
-elements.debug.innerHTML = "move handler";
-
     /* Get cursor grid position */
     move = uiMovePosition(event);
     X = move.X;
@@ -122,6 +142,8 @@ function uiMouseDown(event) {
     mouseIsMoved = false;
 
     cursorMoveHandler(event);
+
+    return false;
 }
 
 function uiMouseUp(event) {
@@ -146,6 +168,8 @@ function uiMouseUp(event) {
 
     /* Redraw UI */
     uiRedraw();
+
+    return false;
 }
 
 function uiMouseMove(event) {
@@ -154,6 +178,8 @@ function uiMouseMove(event) {
     if (mouseIsDown) {
         cursorMoveHandler(event);
     }
+
+    return false;
 }
 
 
@@ -169,7 +195,5 @@ elements.board.addEventListener("mouseleave", uiMouseUp);
 elements.board.addEventListener("touchstart", uiMouseDown, {passive: true});
 elements.board.addEventListener("touchmove",  uiMouseMove, {passive: true});
 elements.board.addEventListener("touchend",   uiMouseUp);
-// touchcancel
-// touchmove
 
 
