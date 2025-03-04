@@ -4,6 +4,9 @@
 function uiUndo(event) {
     /* Make undo if possible */
     globals.game.undoMove();
+
+    /* Redraw UI */
+    uiRedraw();
 }
 
 function uiRestart(event) {
