@@ -27,6 +27,31 @@ let mouseIsMoved = false;
 let cursorGridX = -1;
 let cursorGridY = -1;
 
+
+function cursorClickHandler(event)
+{
+    /* Get cursor grid position */
+    move = uiMovePosition(event);
+    X = move.X;
+    Y = move.Y;
+
+    /* Check legality */
+    if (X < 0 || Y < 0 || X >= globals.game.board.width || Y >= globals.game.board.height) {
+        return;
+    }
+
+    /* Check if used */
+    if (globals.game.board.getCellStatus(X, Y)) {
+        /* Remove */
+        console.log("remove");
+    } else {
+        console.log("move");
+        /* Make move here */
+        globals.game.makeMove(globals.cursorPath);
+    }
+}
+
+
 function cursorMoveHandler(event)
 {
     /* Get cursor grid position */
@@ -102,7 +127,7 @@ function uiMouseUp(event) {
 
     if (mouseIsMoved == false) {
         /* Click */
-        console.log("click");
+        cursorClickHandler(event);
     } else {
         /* Make move */
         globals.game.makeMove(globals.cursorPath);
