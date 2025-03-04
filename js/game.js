@@ -42,8 +42,6 @@ class Board {
             count += this.paths[i].length;
         }
 
-console.log("filled: ", count);
-
         return count;
     }
 
@@ -194,8 +192,6 @@ class Game {
         if (track == true) {
             this.moves.push({command: "add", path: wordPath});
         }
-
-console.log(this.board.filledCount());
     }
 
     removePath(X, Y, track) {

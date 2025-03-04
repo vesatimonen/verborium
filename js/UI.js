@@ -244,7 +244,6 @@ console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
  * Redraw UI
  *****************************************************************************/
 function uiRedraw() {
-console.log("redraw");
     /* Redraw board */
     uiBoardRedraw(globals.game.board);
 
