@@ -1,6 +1,6 @@
 
 // Get these from CSS
-const solvedColor     = "#67BFEC";
+const usedColor       = "#67BFEC";
 const borderColor     = "#202020";
 const backgroundColor = "#B0DDFF";
 
@@ -78,8 +78,8 @@ function uiBoardRedraw(board) {
             /* Draw value circles */
             boardContext.beginPath();
             boardContext.arc(middleX, middleY, circleRatio * cellSize / 2, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
-            if (board.resolved(x, y)) {
-                boardContext.fillStyle   = solvedColor;
+            if (board.isUsed(x, y)) {
+                boardContext.fillStyle = usedColor;
                 boardContext.fill();
             }
             boardContext.strokeStyle = borderColor;
