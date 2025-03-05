@@ -2,7 +2,7 @@
 /*****************************************************************************
  * Move helpers
  *****************************************************************************/
-function uiMovePosition(event) {
+function uiEventPosition(event) {
     let X, Y;
 
     switch (event.type) {
@@ -44,17 +44,17 @@ function uiMovePosition(event) {
 /*****************************************************************************
  * Event handlers
  *****************************************************************************/
-let mouseDownStatus  = false;
+let mouseDownStatus   = false;
+let mouseDownPosition = undefined;
 let mouseMovedStatus = false;
 
 let cursorGridX = -1;
 let cursorGridY = -1;
 
-
 function cursorClickHandler(event)
 {
     /* Get cursor grid position */
-    move = uiMovePosition(event);
+    move = uiEventPosition(event);
     X = move.X;
     Y = move.Y;
 
@@ -77,7 +77,7 @@ function cursorClickHandler(event)
 function cursorMoveHandler(event)
 {
     /* Get cursor grid position */
-    move = uiMovePosition(event);
+    move = uiEventPosition(event);
     X = move.X;
     Y = move.Y;
 
