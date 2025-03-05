@@ -63,6 +63,10 @@ function uiMoveHandler(event)
 {
     /* Get cursor grid position */
     move = uiEventPosition(event);
+    if (move == undefined) {
+        return;
+    }
+
     X = move.X;
     Y = move.Y;
 
@@ -121,31 +125,40 @@ function uiMoveHandler(event)
 
 
 function uiMouseDown(event) {
-    mouseDownStatus   = true;
+    /* Get event position */
     mouseDownPosition = uiEventPosition(event);
 
-    uiMoveHandler(event);
+    /* Check position legality */
+    if (mouseDownPosition == undefined) {
+        mouseDownStatus = false;
+    } else {
+        mouseDownStatus = true;
+        uiMoveHandler(event);
+    }
 
     return false;
 }
 
 function uiMouseUp(event) {
-    const position = uiEventPosition(event);
-
-    if (mouseDownPosition != undefined
-     && position != undefined
-     && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
-        /* Handle click */
-        if (globals.game.board.getCellStatus(position.X, position.Y)) {
-            /* Remove path */
-            globals.game.removePath(position.X, position.Y, true);
-        } else {
-            /* Make move here */
-            globals.game.addPath(globals.cursorPath, true);
+    if (mouseDownStatus == true) {
+        const position = uiEventPosition(event);
+        if (position != undefined) {
+            if (mouseDownPosition != undefined
+             && position != undefined
+             && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
+                /* Handle click */
+                if (globals.game.board.getCellStatus(position.X, position.Y)) {
+                    /* Remove path */
+                    globals.game.removePath(position.X, position.Y, true);
+                } else {
+                    /* Make move here */
+                    globals.game.addPath(globals.cursorPath, true);
+                }
+            } else {
+                /* Make move */
+                globals.game.addPath(globals.cursorPath, true);
+            }
         }
-    } else {
-        /* Make move */
-        globals.game.addPath(globals.cursorPath, true);
     }
 
     /* Reset mouse status */
@@ -166,7 +179,7 @@ function uiMouseUp(event) {
 }
 
 function uiMouseMove(event) {
-    if (mouseDownStatus) {
+    if (mouseDownStatus == true) {
         uiMoveHandler(event);
     }
 
