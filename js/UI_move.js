@@ -16,17 +16,17 @@ function uiEventPosition(event) {
         case "touchstart":
         case "touchmove":
             /* Ignore if touched multiple fingers */
-            if (event.targetTouches > 1) {
+            if (event.targetTouches.length != 1) {
                 return undefined;
             }
 
-            X = event.touches[0].clientX;
-            Y = event.touches[0].clientY;
+            X = event.targetTouches[0].clientX;
+            Y = event.targetTouches[0].clientY;
             break;
         case "touchcancel":
         case "touchend":
             /* Ignore if touched multiple fingers */
-            if (event.changedTouches.length > 1) {
+            if (event.changedTouches.length != 1) {
                 return undefined;
             }
 
@@ -132,12 +132,9 @@ function uiMouseDown(event) {
 function uiMouseUp(event) {
     const position = uiEventPosition(event);
 
-elements.debug.innerHTML = "here1";
-
     if (mouseDownPosition != undefined
      && position != undefined
      && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
-elements.debug.innerHTML = "here3";
         /* Handle click */
         if (globals.game.board.getCellStatus(position.X, position.Y)) {
             /* Remove path */
@@ -147,7 +144,6 @@ elements.debug.innerHTML = "here3";
             globals.game.addPath(globals.cursorPath, true);
         }
     } else {
-elements.debug.innerHTML = "here2";
         /* Make move */
         globals.game.addPath(globals.cursorPath, true);
     }
