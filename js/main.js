@@ -1,3 +1,4 @@
+const strorageName = "verborium/game-level";
 
 /*****************************************************************************
  * Game challenges (levels)
@@ -13,6 +14,7 @@ const challengeSetSWE = [
 ];
 
 const challengeSetDefault = challengeSetFIN;
+
 
 /*****************************************************************************
  * Parse URL options
@@ -35,12 +37,15 @@ function parseOptions() {
     switch (setOption) {
         case "FIN":
             options.challenges = challengeSetFIN;
+            globals.storage    = strorageName + "-FIN";
             break;
         case "SWE":
             options.challenges = challengeSetSWE;
+            globals.storage    = strorageName + "-SWE";
             break;
         default:
             options.challenges = challengeSetDefault;
+            globals.storage    = strorageName;
             break;
     }
 
@@ -59,7 +64,7 @@ function parseOptions() {
             }
 
             /* Set manual challenges to be played */
-            globals.storage = globals.storage + "-manual";
+            globals.storage = strorageName + "-manual";
             options.level   = 0;
         }
     }
