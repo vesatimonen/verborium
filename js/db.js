@@ -1,8 +1,8 @@
 async function dbReadFile(fileName) {
     try {
         /* Read file */
-        let response = await fetch("data/words_FIN.csv"); // Get file info
-        let text     = await response.text();             // Get file data
+        let response = await fetch("data/" + fileName); // Get file info
+        let text     = await response.text(); // Get file data
 
         /* Split text to array */
         let lines = text.split("\n");
