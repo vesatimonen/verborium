@@ -123,9 +123,12 @@ function uiMouseDown(event) {
 function uiMouseUp(event) {
     const position = uiEventPosition(event);
 
+elements.debug.innerHTML = "here1";
+
     if (mouseDownPosition != undefined
      && position != undefined
      && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
+elements.debug.innerHTML = "here3";
         /* Handle click */
         if (globals.game.board.getCellStatus(position.X, position.Y)) {
             /* Remove path */
@@ -134,8 +137,8 @@ function uiMouseUp(event) {
             /* Make move here */
             globals.game.addPath(globals.cursorPath, true);
         }
-
     } else {
+elements.debug.innerHTML = "here2";
         /* Make move */
         globals.game.addPath(globals.cursorPath, true);
     }
