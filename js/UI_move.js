@@ -44,8 +44,8 @@ function uiMovePosition(event) {
 /*****************************************************************************
  * Event handlers
  *****************************************************************************/
-let mouseIsDown  = false;
-let mouseIsMoved = false;
+let mouseDownStatus  = false;
+let mouseMovedStatus = false;
 
 let cursorGridX = -1;
 let cursorGridY = -1;
@@ -138,8 +138,8 @@ function cursorMoveHandler(event)
 
 
 function uiMouseDown(event) {
-    mouseIsDown  = true;
-    mouseIsMoved = false;
+    mouseDownStatus  = true;
+    mouseMovedStatus = false;
 
     cursorMoveHandler(event);
 
@@ -147,9 +147,9 @@ function uiMouseDown(event) {
 }
 
 function uiMouseUp(event) {
-    mouseIsDown = false;
+    mouseDownStatus = false;
 
-    if (mouseIsMoved == false) {
+    if (mouseMovedStatus == false) {
         /* Click */
         cursorClickHandler(event);
     } else {
@@ -157,7 +157,7 @@ function uiMouseUp(event) {
         globals.game.addPath(globals.cursorPath, true);
     }
 
-    mouseIsMoved = false;
+    mouseMovedStatus = false;
 
     /* Remove cursor from board */
     cursorGridX = -1;
@@ -173,9 +173,9 @@ function uiMouseUp(event) {
 }
 
 function uiMouseMove(event) {
-    mouseIsMoved = true;
+    mouseMovedStatus = true;
 
-    if (mouseIsDown) {
+    if (mouseDownStatus) {
         cursorMoveHandler(event);
     }
 
