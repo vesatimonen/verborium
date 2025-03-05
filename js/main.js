@@ -30,10 +30,23 @@ function parseOptions() {
         options.level = Number(levelOption - 1);
     }
 
+    /* Challenge set option */
+    var setOption = url.searchParams.get("set");
+    switch (setOption) {
+        case "FIN":
+            options.challenges = challengeSetFIN;
+            break;
+        case "SWE":
+            options.challenges = challengeSetSWE;
+            break;
+        default:
+            options.challenges = challengeSetDefault;
+            break;
+    }
+
     /* Challenge option */
     var challengeOption = url.searchParams.getAll("challenge");
     if (challengeOption.length == 0) {
-        options.challenges = challengeSetDefault;
     } else {
         if (challengeOption.length > 0) {
             options.challenges = [];
