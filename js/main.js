@@ -2,7 +2,7 @@
 /*****************************************************************************
  * Game challenges (levels)
  *****************************************************************************/
-const defaultChallenges = [
+const challengeSetDefault = [
     {info: "INFO: W05 R00000-01000 S0-1-2-2-0-0 T000039 >4x4-FIN-tus-koi-tar-oi-suus-li-dol-ke-ko-pak-mah-a-nen-lai-ma-suo"},
     {info: "INFO: W05 R00000-01000 S0-1-2-2-0-0 T000039 >4x4-FIN-tus-koi-tar-oi-suus-li-dol-ke-ko-pak-mah-a-nen-lai-ma-suo"},
     {info: "INFO: W10 R00000-01000 S0-2-3-3-1-1 T000198 >6x6-FIN-nen-li-e-del-li-no-vä-del-lou-ta-nen-huo-sel-pa-ke-a-kit-mer-pi-rem-oi-vä-tä-nen-me-rik-nen-nen-to-köi-a-ka-lai-li-del-nä"},
@@ -29,7 +29,7 @@ function parseOptions() {
     /* Challenge option */
     var challengeOption = url.searchParams.getAll("challenge");
     if (challengeOption.length == 0) {
-        options.challenges = defaultChallenges;
+        options.challenges = challengeSetDefault;
     } else {
         if (challengeOption.length > 0) {
             options.challenges = [];
