@@ -23,15 +23,6 @@ function parseOptions() {
     /* Get URL */
     const url = new URL(window.location.href);
 
-    /* Level option */
-    const levelOption = url.searchParams.get("level");
-    if (levelOption == null) {
-        /* Read from storage */
-        options.level = JSON.parse(localStorage.getItem(globals.storage));
-    } else {
-        options.level = Number(levelOption - 1);
-    }
-
     /* Challenge set option */
     var setOption = url.searchParams.get("set");
     switch (setOption) {
@@ -47,6 +38,15 @@ function parseOptions() {
             options.challenges = challengeSetDefault;
             globals.storage    = strorageName;
             break;
+    }
+
+    /* Level option */
+    const levelOption = url.searchParams.get("level");
+    if (levelOption == null) {
+        /* Read from storage */
+        options.level = JSON.parse(localStorage.getItem(globals.storage));
+    } else {
+        options.level = Number(levelOption - 1);
     }
 
     /* Challenge option */
