@@ -46,7 +46,7 @@ function uiEventPosition(event) {
  *****************************************************************************/
 let mouseDownStatus   = false;
 let mouseDownPosition = undefined;
-let mouseMovedStatus = false;
+let mouseMovedStatus  = false;
 
 let cursorGridX = -1;
 let cursorGridY = -1;
@@ -138,8 +138,9 @@ function cursorMoveHandler(event)
 
 
 function uiMouseDown(event) {
-    mouseDownStatus  = true;
-    mouseMovedStatus = false;
+    mouseDownStatus   = true;
+    mouseDownPosition = uiEventPosition(event);
+    mouseMovedStatus  = false;
 
     cursorMoveHandler(event);
 
@@ -147,7 +148,8 @@ function uiMouseDown(event) {
 }
 
 function uiMouseUp(event) {
-    mouseDownStatus = false;
+    mouseDownStatus   = false;
+    mouseDownPosition = undefined;
 
     if (mouseMovedStatus == false) {
         /* Click */
