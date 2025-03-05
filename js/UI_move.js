@@ -59,6 +59,25 @@ let mouseDownPosition = undefined;
 let cursorGridX = -1;
 let cursorGridY = -1;
 
+
+function uiResetMove()
+{
+    /* Reset mouse status */
+    mouseDownStatus   = false;
+    mouseDownPosition = undefined;
+
+    /* Remove cursor from board */
+    cursorGridX = -1;
+    cursorGridY = -1;
+
+    /* Clear path */
+    globals.cursorPath = [];
+
+    /* Redraw UI */
+    uiRedraw();
+}
+
+
 function uiMoveHandler(event)
 {
     /* Get cursor grid position */
@@ -141,7 +160,6 @@ function uiMouseDown(event) {
     return false;
 }
 
-let counter = 0;
 function uiMouseUp(event) {
     event.preventDefault();
 
@@ -166,20 +184,7 @@ function uiMouseUp(event) {
         }
     }
 
-counter++;
-    /* Reset mouse status */
-    mouseDownStatus   = false;
-    mouseDownPosition = undefined;
-
-    /* Remove cursor from board */
-    cursorGridX = -1;
-    cursorGridY = -1;
-
-    /* Clear path */
-    globals.cursorPath = [];
-
-    /* Redraw UI */
-    uiRedraw();
+    uiResetMove();
 
     return false;
 }
@@ -194,6 +199,13 @@ function uiMouseMove(event) {
     return false;
 }
 
+function uiMouseLeave(event) {
+    event.preventDefault();
+
+    uiResetMove();
+
+    return false;
+}
 
 
 /*****************************************************************************
@@ -202,7 +214,7 @@ function uiMouseMove(event) {
 elements.board.addEventListener("mousedown",  uiMouseDown);
 elements.board.addEventListener("mousemove",  uiMouseMove);
 elements.board.addEventListener("mouseup",    uiMouseUp);
-elements.board.addEventListener("mouseleave", uiMouseUp);
+elements.board.addEventListener("mouseleave", uiMouseLeave);
 
 elements.board.addEventListener("touchstart", uiMouseDown, {passive: true});
 elements.board.addEventListener("touchmove",  uiMouseMove, {passive: true});
