@@ -46,7 +46,6 @@ function uiEventPosition(event) {
  *****************************************************************************/
 let mouseDownStatus   = false;
 let mouseDownPosition = undefined;
-let mouseMovedStatus  = false;
 
 let cursorGridX = -1;
 let cursorGridY = -1;
@@ -117,7 +116,6 @@ function cursorMoveHandler(event)
 function uiMouseDown(event) {
     mouseDownStatus   = true;
     mouseDownPosition = uiEventPosition(event);
-    mouseMovedStatus  = false;
 
     cursorMoveHandler(event);
 
@@ -146,7 +144,6 @@ function uiMouseUp(event) {
     }
 
     mouseDownPosition = undefined;
-    mouseMovedStatus = false;
 
     /* Remove cursor from board */
     cursorGridX = -1;
@@ -162,8 +159,6 @@ function uiMouseUp(event) {
 }
 
 function uiMouseMove(event) {
-    mouseMovedStatus = true;
-
     if (mouseDownStatus) {
         cursorMoveHandler(event);
     }
