@@ -134,7 +134,7 @@ class Board {
         }
 
         /* Read word database to set structure */
-        this.wordSet = await dbReadFile("words_" + this.dbName + ".csv");
+        this.wordSet = await dbReadFile("data/words_" + this.dbName + ".csv");
     }
 }
 

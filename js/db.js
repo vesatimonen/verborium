@@ -1,7 +1,7 @@
 async function dbReadFile(fileName) {
     try {
         /* Read file */
-        let response = await fetch("data/" + fileName); // Get file info
+        let response = await fetch(fileName); // Get file info
         let text     = await response.text(); // Get file data
 
         /* Split text to array */
