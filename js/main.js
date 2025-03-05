@@ -11,6 +11,8 @@ const challengeSetFIN = [
 
 const challengeSetSWE = [
     {info: "INFO: W05(7.4) R00000-03000 P3.2 L0-2-1-1-1-0 T000070 >4x4-SWE-fr-ämst-ap-k-kong-ress-nt-tens-akt-u-a-e-ll-e-eleg-v"},
+    {info: "INFO: W12(8.1) R00000-08000 P3.0 L0-5-3-3-1-0 T000148 >6x6-SWE-si-rt-ko-st-orh-et-kt-ig-on-ti-råd-jur-egud-herr-kons-truk-am-ma-br-edv-id-ing-aln-bet-ömt-kilt-rs-ka-isni-ng-ålig-särs-st-ac-dov-re"},
+    {info: "INFO: W00(nan) R1000000-00000 Pnan L0-0-0-0-0-0 T000000 >8x8-SWE-st-at-er-re-rka-ve-lugn-kake-ad-ste-to-når-ti-ll-dl-em-ga-rå-terf-ef-nt-my-me-rekr-själ-äs-mat-re-nsli-ska-ing-yter-vkl-gr-ta-ge-ri-ng-sk-vä-ar-för-rän-tvil-en-sd-ag-ll-jör-gen-in-ling-ds-on-st-re-blek-na-il-civ-le-förd-riva-jk"},
 ];
 
 const challengeSetDefault = challengeSetFIN;
