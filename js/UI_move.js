@@ -15,8 +15,6 @@ function uiEventPosition(event) {
             break;
         case "touchstart":
         case "touchmove":
-        case "touchend":
-        case "touchcancel":
             /* Ignore if touched multiple fingers */
             if (event.targetTouches > 1) {
                 return undefined;
@@ -24,6 +22,17 @@ function uiEventPosition(event) {
 
             X = event.touches[0].clientX;
             Y = event.touches[0].clientY;
+            break;
+        case "touchcancel":
+        case "touchend":
+            /* Ignore if touched multiple fingers */
+            if (event.changedTouches.length > 1) {
+                return undefined;
+            }
+
+            X = event.changedTouches[0].clientX;
+            Y = event.changedTouches[0].clientY;
+
             break;
         default:
             return undefined;
