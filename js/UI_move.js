@@ -50,7 +50,7 @@ let mouseDownPosition = undefined;
 let cursorGridX = -1;
 let cursorGridY = -1;
 
-function cursorMoveHandler(event)
+function uiMoveHandler(event)
 {
     /* Get cursor grid position */
     move = uiEventPosition(event);
@@ -100,8 +100,6 @@ function cursorMoveHandler(event)
     /* Add position to cursor path */
     globals.cursorPath.push({X, Y});
 
-//    console.log(globals.cursorPath);
-
     /* Redraw UI */
     uiRedraw();
 
@@ -117,19 +115,18 @@ function uiMouseDown(event) {
     mouseDownStatus   = true;
     mouseDownPosition = uiEventPosition(event);
 
-    cursorMoveHandler(event);
+    uiMoveHandler(event);
 
     return false;
 }
 
 function uiMouseUp(event) {
-    mouseDownStatus = false;
-
     const position = uiEventPosition(event);
+
     if (mouseDownPosition != undefined
      && position != undefined
      && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
-        /* Check if used */
+        /* Handle click */
         if (globals.game.board.getCellStatus(position.X, position.Y)) {
             /* Remove path */
             globals.game.removePath(position.X, position.Y, true);
@@ -143,6 +140,8 @@ function uiMouseUp(event) {
         globals.game.addPath(globals.cursorPath, true);
     }
 
+    /* Reset mouse status */
+    mouseDownStatus   = false;
     mouseDownPosition = undefined;
 
     /* Remove cursor from board */
@@ -160,7 +159,7 @@ function uiMouseUp(event) {
 
 function uiMouseMove(event) {
     if (mouseDownStatus) {
-        cursorMoveHandler(event);
+        uiMoveHandler(event);
     }
 
     return false;
