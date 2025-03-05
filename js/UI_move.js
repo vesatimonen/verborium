@@ -51,29 +51,6 @@ let mouseMovedStatus  = false;
 let cursorGridX = -1;
 let cursorGridY = -1;
 
-function cursorClickHandler(event)
-{
-    /* Get cursor grid position */
-    move = uiEventPosition(event);
-    X = move.X;
-    Y = move.Y;
-
-    /* Check legality */
-    if (X < 0 || Y < 0 || X >= globals.game.board.width || Y >= globals.game.board.height) {
-        return;
-    }
-
-    /* Check if used */
-    if (globals.game.board.getCellStatus(X, Y)) {
-        /* Remove */
-        globals.game.removePath(X, Y, true);
-    } else {
-        /* Make move here */
-        globals.game.addPath(globals.cursorPath, true);
-    }
-}
-
-
 function cursorMoveHandler(event)
 {
     /* Get cursor grid position */
@@ -154,8 +131,15 @@ function uiMouseUp(event) {
     if (mouseDownPosition != undefined
      && position != undefined
      && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
-        /* Click */
-        cursorClickHandler(event);
+        /* Check if used */
+        if (globals.game.board.getCellStatus(position.X, position.Y)) {
+            /* Remove path */
+            globals.game.removePath(position.X, position.Y, true);
+        } else {
+            /* Make move here */
+            globals.game.addPath(globals.cursorPath, true);
+        }
+
     } else {
         /* Make move */
         globals.game.addPath(globals.cursorPath, true);
