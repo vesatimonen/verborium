@@ -148,10 +148,12 @@ function uiMouseDown(event) {
 }
 
 function uiMouseUp(event) {
-    mouseDownStatus   = false;
-    mouseDownPosition = undefined;
+    mouseDownStatus = false;
 
-    if (mouseMovedStatus == false) {
+    const position = uiEventPosition(event);
+    if (mouseDownPosition != undefined
+     && position != undefined
+     && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
         /* Click */
         cursorClickHandler(event);
     } else {
@@ -159,6 +161,7 @@ function uiMouseUp(event) {
         globals.game.addPath(globals.cursorPath, true);
     }
 
+    mouseDownPosition = undefined;
     mouseMovedStatus = false;
 
     /* Remove cursor from board */
