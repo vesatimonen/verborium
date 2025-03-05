@@ -125,6 +125,8 @@ function uiMoveHandler(event)
 
 
 function uiMouseDown(event) {
+    event.preventDefault();
+
     /* Get event position */
     mouseDownPosition = uiEventPosition(event);
 
@@ -139,7 +141,10 @@ function uiMouseDown(event) {
     return false;
 }
 
+let counter = 0;
 function uiMouseUp(event) {
+    event.preventDefault();
+
     if (mouseDownStatus == true) {
         const position = uiEventPosition(event);
         if (position != undefined) {
@@ -148,19 +153,23 @@ function uiMouseUp(event) {
              && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
                 /* Handle click */
                 if (globals.game.board.getCellStatus(position.X, position.Y)) {
+elements.debug.innerHTML = "here3 " + counter + " " + globals.cursorPath.length;
                     /* Remove path */
                     globals.game.removePath(position.X, position.Y, true);
                 } else {
+elements.debug.innerHTML = "here2 " + counter;
                     /* Make move here */
                     globals.game.addPath(globals.cursorPath, true);
                 }
             } else {
+elements.debug.innerHTML = "here1 " + counter;
                 /* Make move */
                 globals.game.addPath(globals.cursorPath, true);
             }
         }
     }
 
+counter++;
     /* Reset mouse status */
     mouseDownStatus   = false;
     mouseDownPosition = undefined;
@@ -179,6 +188,8 @@ function uiMouseUp(event) {
 }
 
 function uiMouseMove(event) {
+    event.preventDefault();
+
     if (mouseDownStatus == true) {
         uiMoveHandler(event);
     }
