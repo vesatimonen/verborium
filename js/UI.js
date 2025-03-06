@@ -122,8 +122,8 @@ function uiPathRedraw(path) {
     /* Path characteristics */
     const cellSize = uiBoardCellSize();
     const pathColor       = "#20202040";
-    const pathLineWidth   = cellSize / 4;
-    const pathStartRadius = 8;
+    const pathLineWidth   = cellSize / 3;
+    const pathStartRadius = 0.1;
 
     /* Draw circle */
     let X = cellSize * path[0].X + cellSize / 2;
@@ -141,6 +141,9 @@ function uiPathRedraw(path) {
 
     /* Draw path */
     boardContext.beginPath();
+    boardContext.strokeStyle = pathColor;
+    boardContext.lineWidth   = pathLineWidth;
+    boardContext.lineCap     = "round";
     for (let i = 0; i < path.length; i++) {
         let X = cellSize * path[i].X + cellSize / 2;
         let Y = cellSize * path[i].Y + cellSize / 2;
