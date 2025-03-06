@@ -1,7 +1,6 @@
 
 // Get these from CSS
 const usedColor       = "#67BFEC";
-const borderColor     = "#202020";
 const backgroundColor = "#B0DDFF";
 
 
@@ -61,7 +60,8 @@ function uiBoardRedraw(board) {
     /* Define board elements sizes */
     const textRatio   = 0.35;
     const circleRatio = 0.90;
-    const borderWidth = 1.0;
+    const borderWidth = 0.5;
+    const borderColor = "#202020";
 
     /* Redraw cell content */
     for (y = 0; y < board.height; y++) {
@@ -84,7 +84,7 @@ function uiBoardRedraw(board) {
             boardContext.stroke();
 
             /* Draw value inside a cell */
-            const fontWeight = "normal";
+            const fontWeight = "bold";
             const fontStyle  = "normal";
             const fontSize   = (cellSize * textRatio) + "px";
             const fontFamily = "Courier New";
