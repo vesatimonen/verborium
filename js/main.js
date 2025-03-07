@@ -6,7 +6,7 @@ const strorageName = "verborium/game-level";
 const challengeSetFIN = [
     {info: "INFO: W05 R00000-01000 S0-1-2-2-0-0 T000039 >4x4-FIN-tus-koi-tar-oi-suus-li-dol-ke-ko-pak-mah-a-nen-lai-ma-suo"},
     {info: "INFO: W10 R00000-01000 S0-2-3-3-1-1 T000198 >6x6-FIN-nen-li-e-del-li-no-vä-del-lou-ta-nen-huo-sel-pa-ke-a-kit-mer-pi-rem-oi-vä-tä-nen-me-rik-nen-nen-to-köi-a-ka-lai-li-del-nä"},
-    {info: "INFO: W26 R01000-04000 S0-18-5-2-1-0 T000294 >8x8-FIN-taa-da-oi-kart-taa-lä-nel-ken-lait-soi-keut-taa-kai-taa-haas-työs-na-ly-tää-kat-vaa-koo-teet-tää-a-työl-lis-taa-tää-ta-taa-polt-liit-tää-peit-syö-syyt-la-puol-juos-tää-ke-hu-dä-ha-tel-taa-ta-da-hy-a-ta-lu-mis-laa-lau-soi-mäh-tää-tää-kier-val-da-juo"},
+    {info: "INFO: F02.0 W15(08.7) R09000-32000 P04.3 L0-2-4-3-3-1-1-1 T040752 >8x8-FIN-yä-vöit-e-äär-u-li-ru-tt-nt-ev-ahou-tua-u-a-t-aa-ä-ö-l-ua-p-a-s-skar-j-i-dä-t-hä-im-i-pata-ttaa-naru-hdy-kä-l-a-a-erat-rku-a-ttää-a-at-hd-a-kave-ki-nuo-l-mpp-e-t-l-real-ta-s-ai-u-i-lla-itua-iso"},
 ];
 
 const challengeSetSWE = [
