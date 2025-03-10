@@ -108,8 +108,14 @@ class Board {
     async init(info) {
         /* Parse board configuration (verborum) */
         const infoStr    = info.replaceAll('"', '');
-        const boardInfo  = infoStr.split('>')[1];
-        const infoValues = boardInfo.split('-');
+        let boardInfo    = infoStr.split('>')[1];
+
+        /* Handle double dash (--) */
+        boardInfo        = boardInfo.replaceAll('--', '*-');
+        boardInfo        = boardInfo.replaceAll('-', ',');
+        boardInfo        = boardInfo.replaceAll('*', '-');
+
+        let infoValues   = boardInfo.split(',');
 
         this.width      = parseInt(infoValues[0].substr(0,1));
         this.height     = parseInt(infoValues[0].substr(2,1));
