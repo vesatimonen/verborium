@@ -54,7 +54,6 @@ function uiEventPosition(event) {
  * Event handlers
  *****************************************************************************/
 let mouseDownStatus   = false;
-let mouseDownPosition = undefined;
 
 let cursorGridX = -1;
 let cursorGridY = -1;
@@ -64,7 +63,6 @@ function uiResetMove()
 {
     /* Reset mouse status */
     mouseDownStatus   = false;
-    mouseDownPosition = undefined;
 
     /* Remove cursor from board */
     cursorGridX = -1;
@@ -147,14 +145,23 @@ function uiMouseDown(event) {
     event.preventDefault();
 
     /* Get event position */
-    mouseDownPosition = uiEventPosition(event);
+    position = uiEventPosition(event);
 
     /* Check position legality */
-    if (mouseDownPosition == undefined) {
+    if (position == undefined) {
         mouseDownStatus = false;
     } else {
-        mouseDownStatus = true;
-        uiMoveHandler(event);
+
+        /* Handle click */
+        if (globals.game.board.getCellStatus(position.X, position.Y)) {
+            /* Remove path */
+            mouseDownStatus = false;
+            globals.game.removePath(position.X, position.Y, true);
+            uiRedraw();
+        } else {
+            mouseDownStatus = true;
+            uiMoveHandler(event);
+        }
     }
 
     return false;
@@ -166,6 +173,7 @@ function uiMouseUp(event) {
     if (mouseDownStatus == true) {
         const position = uiEventPosition(event);
         if (position != undefined) {
+if (false) {
             if (mouseDownPosition != undefined
              && position != undefined
              && mouseDownPosition.X == position.X && mouseDownPosition.Y == position.Y) {
@@ -178,9 +186,11 @@ function uiMouseUp(event) {
                     globals.game.addPath(globals.cursorPath, true);
                 }
             } else {
-                /* Make move */
-                globals.game.addPath(globals.cursorPath, true);
             }
+}
+            /* Make move */
+            globals.game.addPath(globals.cursorPath, true);
+
         }
     }
 
