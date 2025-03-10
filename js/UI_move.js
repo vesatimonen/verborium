@@ -59,7 +59,7 @@ let cursorGridX = -1;
 let cursorGridY = -1;
 
 
-function uiResetMove()
+function uiMoveReset()
 {
     /* Reset mouse status */
     mouseDownStatus   = false;
@@ -178,7 +178,7 @@ function uiMouseUp(event) {
         }
     }
 
-    uiResetMove();
+    uiMoveReset();
 
     return false;
 }
@@ -196,7 +196,7 @@ function uiMouseMove(event) {
 function uiMouseLeave(event) {
     event.preventDefault();
 
-    uiResetMove();
+    uiMoveReset();
 
     return false;
 }
