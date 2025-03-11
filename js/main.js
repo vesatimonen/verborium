@@ -71,6 +71,11 @@ const challengeSetSWE = [
     {info: "INFO: F01.8 W16(07.0) R04000-15000 P04.0 L0-3-3-4-4-1-1-0 T596051 >8x8-SWE-m-uni-cera-grån-a-ö-str-rat-kom-are-r-d-l-a-gk-am-nam-t-bä-ka-oc-l-p-a-es-e-i-od-ig-b-ho-ing-a-s-v-ug-l-l-in-astn-m-f-tip-sa-v-äx-g-bel-n-u-u-p-d-eläg-a-re-d-s-l-im-tra-t-i-fn"},
 ];
 
+const challengeSetENG = [
+    {info: "INFO: F02.4 W04(09.5) R00000-02000 P04.0 L0-0-1-2-1-0-0-0 T000069 >4x4-SWE-mar-be-mok-ra-sa-te-de-ti-la-re-kom-mu-pe-des-skå-nal"},
+];
+
+
 const challengeSetDefault = challengeSetFIN;
 
 
@@ -91,6 +96,10 @@ function parseOptions() {
         case "SWE":
             options.challenges = challengeSetSWE;
             globals.storage    = strorageName + "-SWE";
+            break;
+        case "ENG":
+            options.challenges = challengeSetENG;
+            globals.storage    = strorageName + "-ENG";
             break;
         default:
             options.challenges = challengeSetDefault;
