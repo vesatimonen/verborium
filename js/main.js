@@ -92,10 +92,10 @@ const challengeSetENG = [
     {info: "INFO: F01.8 W11(07.9) R00000-08000 P04.5 L0-2-2-2-2-1-1-1 T0039064 S0045 >7x7-ENG-me-c-hani-ca-l-g-nin-f-a-b-n-i-m-stun-o-l-u-i-m-de-s-u-s-ked-shoc-a-mo-t-e-ted-lec-se-l-s-t-abl-id-pati-ory-ls-e-d-fo-rm-ent-com-pu-e-l"},
     {info: "INFO: F01.7 W12(07.1) R01000-07000 P04.1 L0-3-2-3-1-1-2-0 T0123827 S0044 >7x7-ENG-e-d-ft-i-r-nt-dime-ck-o-h-s-d-wim-se-ical-sw-a-l-low-s-e-log-n-o-ati-c-allo-t-on-i-mp-tom-s-wa-s-i-nat-sy-ecay-an-ua-r-l-nc-i-d-c-t-y"},
 
-    {info: "INFO: F02.1 W17(08.1) R04000-16000 P03.8 L0-4-5-4-2-0-1-1 T0236511 S0044 >8x8-ENG-rtyr-ma-n-o-c-i-l-i-je-ob-scul-u-c-i-d-s-ct-ivi-lery-d-hy-f-ren-t-ety-ty-to-r-tan-f-e-ial-sur-tage-al-nado-de-a-p-sup-qu-fron-rpor-oika-m-sl-ress-p-anti-n-co-r-gr-a-ion-ridi-fica-tio-pere-st-h-p-le-cu"},
-    {info: "INFO: F01.9 W18(06.7) R01000-16000 P03.6 L0-6-5-4-0-1-1-1 T0049202 S0076 >8x8-ENG-g-e-a-t-s-e-r-ec-a-tr-r-ho-i-t-oca-i-nspo-e-r-l-o-o-r-p-rt-d-n-a-u-c-sc-off-da-inun-c-oil-sq-nch-pu-pl-te-ate-migr-redi-s-glo-ue-ag-umm-a-e-rect-s-v-olun-e-s-r-iz-pen-etra-te-teer-ced"},
-    {info: "INFO: F01.9 W16(07.6) R03000-16000 P04.0 L0-3-3-6-1-2-0-1 T0457773 S0058 >8x8-ENG-zzy-u-f-ar-li-fami-un-atic-ing-ish-p-uzz-ling-y-s-ecst-f-in-s-pett-f-li-m-d-s-ed-u-y-di-ar-ning-e-ta-in-b-s-i-y-spin-v-rly-arte-qu-ed-t-s-h-r-r-he-ti-o-ea-i-r-u-ent-co-ced-unn-tr-l-l-c"},
-    {info: "INFO: F02.0 W17(07.5) R01000-16000 P03.8 L0-4-4-4-3-1-1-0 T0172807 S0045 >8x8-ENG-c-t-oc-t-rim-dern-i-gr-a-a-gona-roye-dest-mo-ze-o-sh-expa-l-r-d-te-c-cer-h-nded-re-enha-n-ina-o-y-o-y-pert-oire-ced-am-nt-ele-m-el-ne-ur-o-o-p-vate-pa-s-ic-ot-r-ft-o-rus-rs-e-ce-vi-e-r-c-tic"},
+    {info: "INFO: F01.6 W14(07.4) R03000-16000 P04.6 L0-0-2-5-5-1-1-0 T9321413 S0047 >8x8-ENG-n-r-e-u-l-e-toot-hbr-t-r-v-o-b-var-d-ush-u-vi-ta-e-s-a-ft-op-oso-an-t-ib-io-v-o-o-st-ue-nt-a-tic-k-li-r-c-onq-y-r-war-as-n-ing-u-b-n-no-t-l-te-s-r-st-o-i-at-f-lema-ta"},
+    {info: "INFO: F01.5 W17(05.5) R00000-15000 P03.8 L0-0-11-1-4-0-1-0 T2030280 S0056 >8x8-ENG-s-da-co-uc-h-s-e-r-h-w-dg-et-t-e-rta-nte-nk-i-bu-e-m-n-i-e-s-h-w-il-ta-e-qu-a-dow-a-mp-l-je-e-r-t-ckle-e-u-d-en-k-awa-e-hu-l-b-m-u-o-v-e-c-t-r-spo-t-s-un-rr"},
+    {info: "INFO: F01.7 W14(07.6) R05000-16000 P04.6 L0-0-3-4-5-0-2-0 T1293235 S0074 >8x8-ENG-c-o-h-ere-matr-imon-i-a-ri-nth-i-nt-sh-a-bb-l-co-nee-an-t-w-i-y-g-u-dl-ess-d-kene-s-ti-n-nn-am-d-ema-blac-dis-t-e-t-e-d-nd-ing-pa-ra-re-s-i-t-i-l-t-r-o-f-all-e-n-e-m-i-s"},
+    {info: "INFO: F01.5 W15(06.5) R00000-16000 P04.3 L0-0-7-3-2-1-1-1 T1478986 S0059 >8x8-ENG-t-s-p-h-e-r-nde-a-en-rm-o-t-ri-c-mi-b-sted-e-ik-r-l-a-nd-ou-au-exh-h-e-nd-leli-e-s-u-m-te-nd-ca-g-ht-c-i-c-c-n-oa-s-te-o-d-l-a-ke-l-ile-r-r-yria-m-l-i-m-o-saic-t"},
 ];
 
 
