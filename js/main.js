@@ -72,7 +72,30 @@ const challengeSetSWE = [
 ];
 
 const challengeSetENG = [
-    {info: "INFO: F02.4 W04(09.5) R00000-02000 P04.0 L0-0-1-2-1-0-0-0 T000069 >4x4-SWE-mar-be-mok-ra-sa-te-de-ti-la-re-kom-mu-pe-des-skå-nal"},
+    {info: "INFO: F02.4 W06(06.3) R00000-01000 P02.7 L0-5-0-0-0-1-0-0 T0000437 S0022 >4x4-ENG-e-r-mill-g-p-o-ion-lass-t-r-sub-er-dred-hun-ject-moth"},
+    {info: "INFO: F01.9 W05(06.2) R00000-01000 P03.2 L0-1-2-2-0-0-0-0 T0000112 S0025 >4x4-ENG-xpec-e-c-r-t-er-des-ibe-en-t-e-anno-n-o-t-unce"},
+    {info: "INFO: F02.3 W05(07.4) R00000-01000 P03.2 L0-2-1-1-1-0-0-0 T0000339 S0026 >4x4-ENG-ful-d-o-m-use-e-r-o-sign-rn-mal-n-ifi-cant-tary-mili"},
+    {info: "INFO: F01.5 W04(06.0) R00000-01000 P04.0 L0-2-0-1-0-0-0-1 T0000317 S0023 >4x4-ENG-e-nic-l-a-i-m-d-n-n-r-e-prop-i-s-t-osal"},
+
+    {info: "INFO: F01.5 W04(09.2) R00000-02000 P06.2 L0-0-0-0-1-2-0-1 T0000493 S0038 >5x5-ENG-e-a-tion-rsa-co-sp-k-e-e-nv-p-a-r-xhi-b-p-h-c-e-it-r-o-a-n-io"},
+    {info: "INFO: F01.6 W05(08.2) R00000-02000 P05.0 L0-1-1-0-0-2-0-1 T0001232 S0030 >5x5-ENG-c-h-e-rg-cha-a-ass-o-c-ect-o-r-at-i-coll-p-p-e-e-at-a-d-e-mon-str"},
+    {info: "INFO: F01.5 W04(09.2) R00000-02000 P06.2 L0-0-0-1-0-1-1-1 T0002066 S0027 >5x5-ENG-e-pr-l-pr-o-se-nt-a-on-fe-n-mo-c-i-ss-a-de-r-a-t-ic-er-m-a-ic"},
+    {info: "INFO: F01.6 W05(08.0) R00000-02000 P05.0 L0-0-3-0-0-0-0-2 T0001333 S0027 >5x5-ENG-oice-g-ion-i-n-h-ath-tat-p-ter-c-er-e-r-s-y-g-e-t-t-ou-tp-ut-a-r"},
+
+    {info: "INFO: F01.7 W08(07.5) R01000-04000 P04.5 L0-1-2-1-2-1-0-1 T0012374 S0034 >6x6-ENG-e-id-pr-on-ti-a-u-r-t-s-nce-isl-g-g-inci-d-e-eg-y-l-e-ing-n-l-t-t-men-sign-mea-p-u-a-be-s-a-ast"},
+    {info: "INFO: F01.5 W08(06.8) R00000-04000 P04.5 L0-1-1-4-0-0-1-1 T0031669 S0036 >6x6-ENG-n-o-i-d-r-corr-vi-on-t-q-ai-esp-nce-c-s-ue-n-ond-h-c-ca-l-rk-e-ec-a-nt-c-ma-t-k-l-p-u-l-a"},
+    {info: "INFO: F01.6 W06(09.8) R01000-04000 P06.0 L0-0-0-1-1-2-1-1 T0000862 S0021 >6x6-ENG-ted-enc-o-u-ra-gi-es-nter-i-ue-q-ng-l-e-v-nt-e-r-a-f-si-pres-im-f-ent-un-nt-e-i-v-m-da-i-n-s-e"},
+    {info: "INFO: F01.8 W08(08.2) R01000-04000 P04.5 L0-0-3-1-3-0-0-1 T0006230 S0042 >6x6-ENG-i-an-i-b-xhi-e-l-e-t-n-ach-m-tra-n-i-o-a-sto-aus-a-rage-e-v-ing-e-l-p-itan-opol-reas-t-o-u-q-metr-inc"},
+
+    {info: "INFO: F01.8 W13(06.9) R01000-07000 P03.8 L0-1-7-1-3-0-1-0 T0006935 S0037 >7x7-ENG-i-rt-b-irri-ta-gna-resi-h-e-r-e-tion-tion-pic-s-e-c-ast-er-y-nic-g-ze-l-i-c-x-g-n-b-e-m-is-la-a-ni-a-z-b-d-aggr-es-ai-rg-ga-ins-ta-nt-sion"},
+    {info: "INFO: F01.3 W10(06.5) R00000-06000 P04.9 L0-0-1-5-1-1-1-1 T8328632 S0078 >7x7-ENG-e-t-fo-rmu-te-i-c-p-a-te-la-d-r-a-a-lit-i-c-n-i-w-r-er-f-a-s-e-a-w-t-nis-c-h-r-q-y-jus-i-ra-s-t-ue-if-t-m-d-a-y-r"},
+    {info: "INFO: F01.8 W11(07.9) R00000-08000 P04.5 L0-2-2-2-2-1-1-1 T0039064 S0045 >7x7-ENG-me-c-hani-ca-l-g-nin-f-a-b-n-i-m-stun-o-l-u-i-m-de-s-u-s-ked-shoc-a-mo-t-e-ted-lec-se-l-s-t-abl-id-pati-ory-ls-e-d-fo-rm-ent-com-pu-e-l"},
+    {info: "INFO: F01.7 W12(07.1) R01000-07000 P04.1 L0-3-2-3-1-1-2-0 T0123827 S0044 >7x7-ENG-e-d-ft-i-r-nt-dime-ck-o-h-s-d-wim-se-ical-sw-a-l-low-s-e-log-n-o-ati-c-allo-t-on-i-mp-tom-s-wa-s-i-nat-sy-ecay-an-ua-r-l-nc-i-d-c-t-y"},
+
+    {info: "INFO: F02.1 W17(08.1) R04000-16000 P03.8 L0-4-5-4-2-0-1-1 T0236511 S0044 >8x8-ENG-rtyr-ma-n-o-c-i-l-i-je-ob-scul-u-c-i-d-s-ct-ivi-lery-d-hy-f-ren-t-ety-ty-to-r-tan-f-e-ial-sur-tage-al-nado-de-a-p-sup-qu-fron-rpor-oika-m-sl-ress-p-anti-n-co-r-gr-a-ion-ridi-fica-tio-pere-st-h-p-le-cu"},
+    {info: "INFO: F01.9 W18(06.7) R01000-16000 P03.6 L0-6-5-4-0-1-1-1 T0049202 S0076 >8x8-ENG-g-e-a-t-s-e-r-ec-a-tr-r-ho-i-t-oca-i-nspo-e-r-l-o-o-r-p-rt-d-n-a-u-c-sc-off-da-inun-c-oil-sq-nch-pu-pl-te-ate-migr-redi-s-glo-ue-ag-umm-a-e-rect-s-v-olun-e-s-r-iz-pen-etra-te-teer-ced"},
+    {info: "INFO: F01.9 W16(07.6) R03000-16000 P04.0 L0-3-3-6-1-2-0-1 T0457773 S0058 >8x8-ENG-zzy-u-f-ar-li-fami-un-atic-ing-ish-p-uzz-ling-y-s-ecst-f-in-s-pett-f-li-m-d-s-ed-u-y-di-ar-ning-e-ta-in-b-s-i-y-spin-v-rly-arte-qu-ed-t-s-h-r-r-he-ti-o-ea-i-r-u-ent-co-ced-unn-tr-l-l-c"},
+    {info: "INFO: F02.0 W17(07.5) R01000-16000 P03.8 L0-4-4-4-3-1-1-0 T0172807 S0045 >8x8-ENG-c-t-oc-t-rim-dern-i-gr-a-a-gona-roye-dest-mo-ze-o-sh-expa-l-r-d-te-c-cer-h-nded-re-enha-n-ina-o-y-o-y-pert-oire-ced-am-nt-ele-m-el-ne-ur-o-o-p-vate-pa-s-ic-ot-r-ft-o-rus-rs-e-ce-vi-e-r-c-tic"},
 ];
 
 
