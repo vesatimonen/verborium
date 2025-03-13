@@ -98,6 +98,9 @@ const challengeSetENG = [
     {info: "INFO: F01.5 W15(06.5) R00000-16000 P04.3 L0-0-7-3-2-1-1-1 T1478986 S0059 >8x8-ENG-t-s-p-h-e-r-nde-a-en-rm-o-t-ri-c-mi-b-sted-e-ik-r-l-a-nd-ou-au-exh-h-e-nd-leli-e-s-u-m-te-nd-ca-g-ht-c-i-c-c-n-oa-s-te-o-d-l-a-ke-l-ile-r-r-yria-m-l-i-m-o-saic-t"},
 ];
 
+const challengeSetITA = [
+    {info: "INFO: F02.4 W06(06.3) R00000-01000 P02.7 L0-5-0-0-0-1-0-0 T0000437 S0022 >4x4-ENG-e-r-mill-g-p-o-ion-lass-t-r-sub-er-dred-hun-ject-moth"},
+];
 
 const challengeSetDefault = challengeSetFIN;
 
@@ -123,6 +126,10 @@ function parseOptions() {
         case "ENG":
             options.challenges = challengeSetENG;
             globals.storage    = strorageName + "-ENG";
+            break;
+        case "ITA":
+            options.challenges = challengeSetITA;
+            globals.storage    = strorageName + "-ITA";
             break;
         default:
             options.challenges = challengeSetDefault;
