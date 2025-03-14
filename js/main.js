@@ -19,29 +19,15 @@ const challengeSetFIN = [
     {info: "INFO: F02.1 W09(08.4) R01000-04000 P04.0 L0-1-2-3-2-1-0-0 T008346 >6x6-FIN-a-ut-tt-ava-hu-i-o-i-a-ii-l-kea-kin-lain-nn-alli-m-ä-jon-en-ka-nen-k-r-nen-py-h-ä-ä-edus-elli-s-k-kkeu-poi-tava"},
     {info: "INFO: F01.6 W08(07.4) R01000-04000 P04.5 L0-0-2-3-2-0-0-1 T023185 >6x6-FIN-a-n-y-hiih-tä-ä-ta-sai-l-is-oton-hd-uu-n-tau-tä-ä-a-s-so-s-a-k-m-pu-k-aa-s-s-u-ke-utua-l-v-a-t"},
 
-/*
-    {info: "INFO: F01.7 W08(07.8) R02000-08000 P04.5 L0-0-3-1-2-1-1-0 T025543 >6x6-FIN-e-t-in-v-aa-i-nsi-tö-p-lam-kuna-k-t-ään-i-u-us-k-ee-s-s-k-v-lei-tti-ais-uu-mak-oi-s-o-m-l-ä-h-ety"},
-    {info: "INFO: F01.8 W08(07.9) R02000-07000 P04.5 L0-0-2-3-2-0-0-1 T017494 >6x6-FIN-l-ihde-va-su-ä-t-l-mat-k-o-s-e-a-a-i-taa-i-ky-h-e-hku-t-t-taa-heu-t-a-maht-el-nis-ai-ua-a-a-l-suun"},
-    {info: "INFO: F01.8 W08(08.1) R03000-08000 P04.5 L0-0-4-1-1-0-1-1 T007302 >6x6-FIN-va-t-a-va-tön-tämä-ll-t-h-ka-ava-väis-o-i-u-väli-ll-inen-l-ai-o-ve-l-a-k-s-ä-la-l-aj-a-ri-pe-nen-i-r"},
-    {info: "INFO: F01.6 W07(08.3) R02000-08000 P05.1 L0-0-2-1-0-2-2-0 T044654 >6x6-FIN-a-i-d-o-n-ine-usk-ar-m-l-e-na-o-k-kina-n-m-a-l-l-in-e-ha-j-oi-t-on-m-re-unu-da-ää-tt-väsy-v-a"},
-*/
-
     {info: "INFO: F01.9 W11(08.3) R02000-08000 P04.5 L0-1-4-1-2-1-1-1 T010731 >7x7-FIN-e-ttu-u-ä-ij-s-k-a-a-l-i-a-fra-e-s-s-keu-p-p-asi-k-v-a-l-am-k-ärs-imys-us-tust-vas-k-mys-sy-vä-aili-virk-t-es-v-itte-lij-ja-ti-oin-i-n-vä-ä"},
     {info: "INFO: F01.8 W12(07.5) R02000-08000 P04.1 L0-1-2-4-5-0-0-0 T137679 >7x7-FIN-tä-i-va-p-ri-aa-tt-l-l-llo-us-t-aa-ostu-hi-tta-i-i-tk-eä-erm-e-a-ih-a-i-lla-h-d-taa-sata-ltää-i-ki-v-e-is-ta-is-ta-a-ä-tä-al-v-tu-t-tää-is"},
     {info: "INFO: F01.9 W12(07.8) R02000-08000 P04.1 L0-2-3-3-1-2-1-0 T170892 >7x7-FIN-evä-en-a-s-arvo-a-e-vas-m-vo-i-ton-kan-k-kii-ra-i-ton-a-a-l-t-ä-väl-s-uunn-h-l-ys-vi-l-inen-tu-t-i-jä-ä-ro-i-s-k-kuin-n-ne-eräi-en-kesk-pi-en"},
     {info: "INFO: F01.9 W11(08.4) R03000-07000 P04.5 L0-2-2-3-1-1-0-2 T010318 >7x7-FIN-a-vo-it-a-a-alt-oiv-sti-ra-t-vi-r-t-t-aton-m-a-ruko-taus-i-a-et-y-s-illa-i-t-a-jais-y-j-taks-s-aa-t-a-haut-ä-i-kyy-s-ruut-y-ri-tt-it-sek-p-e"},
 
-/*
-    {info: "INFO: F01.8 W11(08.2) R04000-16000 P04.5 L0-0-5-2-0-2-2-0 T003309 >7x7-FIN-eikk-l-t-s-s-i-ol-uri-s-u-ra-fy-yys-og-a-v-u-u-a-nikk-ia-kuus-s-ha-pyj-am-sin-s-intä-u-hmot-t-mä-ti-i-st-ani-a-urb-y-t-t-vie-es-i-in-t-a-a"},
-    {info: "INFO: F02.0 W12(08.2) R06000-16000 P04.1 L0-1-4-4-1-1-0-1 T041547 >7x7-FIN-iil-k-r-u-h-lla-aste-lo-ttaa-ist-a-ku-s-heij-tua-n-a-vilk-par-y-y-vaki-i-a-as-tut-e-t-a-ta-m-uo-taa-l-tä-m-is-a-vat-ä-l-s-so-su-o-da-käte-llä-täri"},
-    {info: "INFO: F02.3 W12(09.3) R04000-15000 P04.1 L0-2-0-7-2-0-1-0 T002093 >7x7-FIN-s-t-oiv-ott-u-at-j-pon-inen-ima-oott-idi-on-poh-t-a-lias-arme-h-ede-as-n-a-ti-lis-popu-l-ik-i-n-ne-met-tine-mäll-lm-o-dott-amat-sa-n-inen-ku-roos-a-on-a-mer-o-t"},
-    {info: "INFO: F01.9 W11(08.5) R04000-15000 P04.5 L0-0-3-4-1-2-1-0 T009873 >7x7-FIN-p-k-e-skik-o-h-ta-a-astr-ö-ö-i-ur-kirj-ne-o-nau-j-l-a-j-e-li-tti-m-i-a-aj-ta-ntti-i-n-a-a-s-adju-oks-idi-imu-r-oi-a-hiil-idi-saka-rist-o-nti-f"},
-*/
-
-    {info: "INFO: F02.1 W17(07.8) R04000-15000 P03.8 L0-2-8-3-1-2-1-0 T022691 >8x8-FIN-r-os-tti-v-suus-oogi-h-ire-hö-vo-e-älit-ys-l-töö-t-y-r-etik-t-ömy-o-r-i-h-iisi-ora-p-sa-nk-lii-t-en-s-n-ar-ve-l-u-u-l-u-i-pi-i-ts-etti-läs-i-j-e-ep-ja-oloi-läh-yys-ini-alu-miin-i-rav-int-rii-ttäv"},
-    {info: "INFO: F01.9 W14(08.6) R05000-16000 P04.6 L0-2-2-3-1-5-1-0 T157447 >8x8-FIN-i-h-s-ta-p-yör-lkoi-l-n-eur-a-a-ä-istä-u-ut-k-t-i-k-ä-ä-l-taa-u-a-tä-ö-y-s-ellä-st-kado-ttaa-ku-k-a-a-ltyä-ieli-ua-ott-r-s-y-t-sisä-m-taa-inn-a-t-ä-vah-a-k-t-u-hu-vite-lla-itua-mio-naa"},
-    {info: "INFO: F02.0 W15(08.5) R04000-16000 P04.3 L0-2-4-2-4-2-0-1 T252235 >8x8-FIN-ll-ha-s-y-k-inen-eell-aatt-in-ma-inei-kas-l-a-v-e-noll-inen-iili-stab-i-s-r-t-u-p-n-e-n-tas-i-n-t-l-a-l-l-ä-ä-po-siv-ull-inen-peto-i-nen-n-il-v-e-il-aton-pohj-n-etö-oto-a-t-unke-a-tav-s-haa-n"},
-    {info: "INFO: F02.0 W16(08.2) R05000-16000 P04.0 L0-2-5-4-2-2-1-0 T019296 >8x8-FIN-vene-i-llä-igm-d-a-r-pa-tää-dyt-h-a-lo-kk-htua-ila-t-y-re-ä-ä-i-a-p-ö-k-öt-t-p-yssy-pp-i-j-ton-tty-e-k-psyy-ttaa-la-mili-ee-ä-jähm-e-ulko-ilu-pä-i-katt-tava-stet-s-äy-v-i-s-i-r-aka-hor-juma-to-n"},
+    {info: "INFO: F01.5 W13(07.5) R03000-08000 P04.9 L0-0-0-6-5-0-1-1 T0840253 S0069 >8x8-FIN-o-k-graa-h-o-ek-n-s-a-k-fi-ta-m-ine-ään-a-uk-e-l-kä-y-n-k-k-s-yys-yhte-s-h-ai-t-ki-s-is-nä-o-r-a-t-jää-e-n-i-i-m-var-inti-kä-l-ute-s-k-a-t-io-r-i-as-u-b-l-j-a-i"},
+    {info: "INFO: F01.5 W12(08.0) R02000-08000 P05.3 L0-0-0-5-2-2-2-1 T6141430 S0077 >8x8-FIN-o-t-s-u-ä-ä-l-e-r-e-a-utut-p-t-l-yt-e-l-l-ta-e-t-ä-ä-u-k-pit-a-ä-ä-yst-n-mot-a-ki-ttä-py-y-d-aa-ää-t-n-ä-a-tu-is-tt-p-yä-e-s-r-oma-ohd-i-ä-ätt-v-y-taa-h-k-seko"},
+    {info: "INFO: F01.8 W13(08.9) R02000-08000 P04.9 L0-0-2-4-4-1-0-2 T0077798 S0049 >8x8-FIN-e-k-o-toi-nen-osit-t-a-ht-ym-ät-s-a-im-hu-inen-tu-m-ön-a-k-i-p-m-u-at-on-pu-i-k-t-le-to-i-s-utt-eel-m-u-a-m-er-ki-l-l-t-y-yn-inen-oll-inen-l-inen-uo-p-i-m-uod-inen-iall-kunn-s-e-a"},
+    {info: "INFO: F01.4 W13(07.0) R02000-08000 P04.9 L0-0-0-8-2-0-2-1 T8848215 S0057 >8x8-FIN-i-t-a-n-s-t-y-ö-n-e-e-ner-i-u-v-h-u-t-g-min-a-n-t-y-mu-to-k-e-a-n-o-k-n-ine-aust-n-t-y-d-e-k-peri-m-mäin-a-r-t-unta-e-ys-t-en-mas-l-is-s-h-o-i-vir-m-a-a-r"},
 ];
 
 const challengeSetSWE = [
