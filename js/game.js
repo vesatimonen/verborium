@@ -135,8 +135,13 @@ class Board {
         /* Set title */
         if (this.dbName.startsWith("FIN")) {
 //            elements.title.innerHTML        = "VERBORIUM-FIN";
-            elements.instructions.innerHTML = "Muodosta perusmuodossa olevia suomen kielen sanoja yhdistämällä soluja toisiinsa. "
-            + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen solu on käytettävä täsmälleen kerran. ";
+            elements.instructions.innerHTML = "Muodosta perusmuodossa olevia suomen kielen sanoja yhdistämällä sanafragmentit toisiinsa. "
+            + "Yhdistäminen on sallittu vain pysty- ja/tai vaakasuunnassa. Jokainen solu on käytettävä täsmälleen kerran. ";
+        }
+        if (this.dbName.startsWith("SWE")) {
+//            elements.title.innerHTML        = "VERBORIUM-SWE";
+            elements.instructions.innerHTML = "Bilda svenska ord i grundform genom att förena orddelar med varandra vågrätt och/eller lodrätt. "
+            + "Varje stavelse ska användas exakt en gång.";
         }
 
         /* Read word database to set structure */
