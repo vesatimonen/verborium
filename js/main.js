@@ -24,10 +24,10 @@ const challengeSetFIN = [
     {info: "INFO: F01.9 W12(07.8) R02000-08000 P04.1 L0-2-3-3-1-2-1-0 T170892 >7x7-FIN-evä-en-a-s-arvo-a-e-vas-m-vo-i-ton-kan-k-kii-ra-i-ton-a-a-l-t-ä-väl-s-uunn-h-l-ys-vi-l-inen-tu-t-i-jä-ä-ro-i-s-k-kuin-n-ne-eräi-en-kesk-pi-en"},
     {info: "INFO: F01.9 W11(08.4) R03000-07000 P04.5 L0-2-2-3-1-1-0-2 T010318 >7x7-FIN-a-vo-it-a-a-alt-oiv-sti-ra-t-vi-r-t-t-aton-m-a-ruko-taus-i-a-et-y-s-illa-i-t-a-jais-y-j-taks-s-aa-t-a-haut-ä-i-kyy-s-ruut-y-ri-tt-it-sek-p-e"},
 
-    {info: "INFO: F01.5 W13(07.5) R03000-08000 P04.9 L0-0-0-6-5-0-1-1 T0840253 S0069 >8x8-FIN-o-k-graa-h-o-ek-n-s-a-k-fi-ta-m-ine-ään-a-uk-e-l-kä-y-n-k-k-s-yys-yhte-s-h-ai-t-ki-s-is-nä-o-r-a-t-jää-e-n-i-i-m-var-inti-kä-l-ute-s-k-a-t-io-r-i-as-u-b-l-j-a-i"},
-    {info: "INFO: F01.5 W12(08.0) R02000-08000 P05.3 L0-0-0-5-2-2-2-1 T6141430 S0077 >8x8-FIN-o-t-s-u-ä-ä-l-e-r-e-a-utut-p-t-l-yt-e-l-l-ta-e-t-ä-ä-u-k-pit-a-ä-ä-yst-n-mot-a-ki-ttä-py-y-d-aa-ää-t-n-ä-a-tu-is-tt-p-yä-e-s-r-oma-ohd-i-ä-ätt-v-y-taa-h-k-seko"},
-    {info: "INFO: F01.8 W13(08.9) R02000-08000 P04.9 L0-0-2-4-4-1-0-2 T0077798 S0049 >8x8-FIN-e-k-o-toi-nen-osit-t-a-ht-ym-ät-s-a-im-hu-inen-tu-m-ön-a-k-i-p-m-u-at-on-pu-i-k-t-le-to-i-s-utt-eel-m-u-a-m-er-ki-l-l-t-y-yn-inen-oll-inen-l-inen-uo-p-i-m-uod-inen-iall-kunn-s-e-a"},
-    {info: "INFO: F01.4 W13(07.0) R02000-08000 P04.9 L0-0-0-8-2-0-2-1 T8848215 S0057 >8x8-FIN-i-t-a-n-s-t-y-ö-n-e-e-ner-i-u-v-h-u-t-g-min-a-n-t-y-mu-to-k-e-a-n-o-k-n-ine-aust-n-t-y-d-e-k-peri-m-mäin-a-r-t-unta-e-ys-t-en-mas-l-is-s-h-o-i-vir-m-a-a-r"},
+    {info: "INFO: F02.0 W15(08.5) R02000-08000 P04.3 L0-0-2-8-4-1-0-0 S01 T0000003 W038 >8x8-FIN-ni-st-in-us-ul-ka-so-ve-yn-pa-ki-no-it-si-ja-ll-kä-ka-jä-ut-pe-ia-us-ut-ot-un-li-ua-so-op-in-ar-ar-kä-ve-vä-tä-ut-na-is-ku-va-il-la-yt-ad-la-ke-ke-rt-ka-st-nä-uk-us-ka-na-aa-ra-et-tu-as-st-la"},
+    {info: "INFO: F01.5 W11(08.7) R03000-08000 P05.8 L0-0-0-1-5-1-3-1 S01 T0000005 W075 >8x8-FIN-ääk-j-k-a-a-t-lit-n-i-ek-o-o-k-p-u-ne-nen-koi-lu-m-k-ok-ru-li-lli-l-u-n-l-al-a-l-tee-ti-s-i-ko-jum-al-a-ris-m-e-k-a-ä-y-p-ko-s-nny-iu-s-f-r-i-t-ä-s-l-i-g-an-hä"},
+    {info: "INFO: F01.3 W12(07.1) R02000-08000 P05.3 L0-0-1-4-1-3-2-1 S01 T0000005 W061 >8x8-FIN-a-tk-li-a-tu-t-t-ta-m-ia-l-jä-oh-y-i-n-it-t-a-ä-j-y-m-u-i-i-ah-t-s-vy-u-rj-n-ui-m-k-p-äi-h-o-t-ra-i-on-k-us-ra-t-k-a-s-rs-u-a-t-da-oa-t-n-u-t-r-p-an"},
+    {info: "INFO: F01.0 W11(05.8) R03000-08000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000049 W138 >8x8-FIN-e-k-t-a-i-n-k-a-ö-ö-j-j-ä-ä-t-s-m-i-l-k-n-u-r-i-k-i-r-e-a-p-e-e-s-e-v-m-i-t-i-v-t-t-i-t-s-t-r-i-i-u-k-i-ä-ä-ä-v-j-a-n-o-e-r-ä-j"},
 ];
 
 const challengeSetFIN2 = [
