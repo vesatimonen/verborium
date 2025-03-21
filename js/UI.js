@@ -58,7 +58,7 @@ function uiBoardRedraw(board) {
     boardContext.clearRect(0, 0, elements.canvas.width, elements.canvas.height);
 
     /* Define board elements sizes */
-    const textRatio   = 0.35;
+    const textRatio   = 0.42;
     const circleRatio = 0.90;
     const borderWidth = 0.5;
     const borderColor = "#202020";
