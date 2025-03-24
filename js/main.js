@@ -41,6 +41,55 @@ const challengeSetFIN2 = [
     {info: "INFO: F01.0 W11(05.8) R03000-08000 P05.8 L0-0-0-3-1-3-3-1 S01 T0000015 W118 >8x8-FIN-e-h-j-e-s-o-l-u-a-p-ä-k-s-y-m-k-r-k-h-y-y-e-i-a-o-a-ö-y-k-s-a-h-l-ö-h-v-s-u-v-a-o-l-s-u-u-a-r-u-p-k-i-l-l-i-r-a-ä-k-o-i-k-o-n-k"},
 ];
 
+
+const challengeSetFIN3 = [
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-3-4-1 S01 T0000013 W094 >8x8-FIN-n-s-u-b-j-e-k-t-o-t-a-r-ä-ö-y-i-i-ä-v-a-y-p-k-s-t-s-e-e-a-ä-u-i-n-v-i-k-u-e-t-u-e-n-i-k-a-k-s-ä-s-r-u-r-s-t-h-k-u-j-l-a-u-a-u-p"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000003 W099 >8x8-FIN-y-ö-o-p-e-i-i-u-s-k-l-p-u-p-t-k-i-p-o-u-m-p-a-a-p-y-ä-p-p-o-n-r-i-r-r-v-a-h-o-p-ä-u-o-s-r-a-u-o-h-t-e-v-i-ä-r-s-o-t-i-s-t-ä-a-s"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-1-5-3-1 S01 T0000024 W102 >8x8-FIN-r-u-k-o-u-a-u-n-h-k-e-a-s-s-ä-o-u-m-p-o-t-h-e-j-n-a-i-a-u-ä-k-a-e-i-t-k-s-y-r-a-y-s-s-k-i-t-r-t-ö-t-y-l-r-i-e-o-i-t-t-o-k-v-v-n"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-3-3-1-2 S01 T0000035 W105 >8x8-FIN-s-u-t-s-o-v-r-a-ä-v-e-m-k-ö-y-h-n-e-h-ä-t-s-y-y-a-p-s-ä-ö-l-a-k-ä-a-e-n-y-j-a-j-n-i-l-k-y-a-v-e-e-l-t-k-n-j-a-k-h-s-o-u-o-k-i-k"},
+    {info: "INFO: F01.0 W10(06.4) R02000-07000 P06.4 L0-0-0-0-1-5-3-1 S01 T0000014 W107 >8x8-FIN-s-k-l-o-u-k-k-u-o-e-t-u-ä-y-t-a-k-t-a-p-p-ä-ä-l-s-u-a-a-k-i-a-h-ä-e-p-l-k-s-t-a-ä-y-n-i-a-p-s-a-k-i-t-h-j-u-ä-ä-o-g-n-a-t-ö-t-s"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000021 W109 >8x8-FIN-p-m-p-a-n-s-a-l-e-o-p-r-o-u-k-k-i-r-e-m-p-y-v-a-p-s-l-y-i-r-ä-a-p-i-r-ä-h-p-k-k-o-a-y-ä-t-u-p-a-n-n-j-ä-a-r-e-r-o-k-k-e-l-r-a-ä"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-3-2-3-1 S01 T0000033 W111 >8x8-FIN-i-e-k-a-o-l-u-e-s-n-o-o-i-u-v-s-t-p-a-t-r-o-p-j-o-l-a-p-s-s-y-a-r-u-s-s-y-n-a-u-i-t-u-u-e-n-k-h-i-s-o-ä-ä-t-s-a-n-i-p-u-r-y-ö-a"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-3-1-5-1 S01 T0000035 W112 >8x8-FIN-a-i-d-ä-v-y-l-i-i-a-e-k-k-k-e-ä-k-v-m-o-i-a-r-h-e-u-o-a-r-s-o-u-j-s-k-ä-y-v-s-n-u-k-k-u-n-e-y-t-h-i-o-a-e-t-e-y-l-a-r-p-i-s-l-v"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-5-0-3 S01 T0000027 W113 >8x8-FIN-ä-ä-p-v-p-u-j-ä-t-t-e-a-i-a-y-s-t-o-s-e-i-m-e-y-ä-l-ä-h-v-u-t-k-t-l-t-y-a-s-n-s-i-y-s-s-j-u-u-k-i-v-e-a-u-h-t-a-s-i-n-i-p-a-l-a"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000011 W114 >8x8-FIN-e-j-h-i-v-t-i-v-k-u-i-k-ä-t-h-y-y-r-ä-k-ä-ä-a-l-p-s-k-a-k-e-r-k-m-i-e-k-i-p-i-e-y-j-ä-p-e-t-ä-m-p-i-y-n-t-i-i-t-a-h-y-p-i-s-y-i"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-3-3-1-1-3 S01 T0000031 W114 >8x8-FIN-ä-m-ä-h-h-i-k-i-r-i-a-u-j-i-l-ä-t-d-n-l-t-t-e-m-ä-a-ä-k-a-a-a-i-ä-s-k-u-o-i-h-ä-d-o-i-r-k-k-n-v-i-t-i-l-m-ä-e-ä-s-u-s-u-t-ä-r-ä"},
+    {info: "INFO: F01.0 W10(06.4) R02000-07000 P06.4 L0-0-0-0-4-0-4-2 S01 T0000025 W117 >8x8-FIN-s-i-d-h-p-s-u-o-ä-k-r-y-e-l-l-j-s-u-k-u-v-a-e-e-o-a-p-i-i-k-r-l-i-t-k-a-o-k-e-u-n-k-r-e-h-i-t-r-u-f-a-i-t-s-t-e-a-k-a-m-ö-a-u-h"},
+    {info: "INFO: F01.0 W11(05.8) R03000-07000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000058 W121 >8x8-FIN-p-i-r-i-s-t-u-k-p-ä-e-ä-t-i-s-k-y-r-t-r-ä-n-o-u-k-ä-p-i-ä-k-o-t-p-n-s-y-e-o-l-t-o-e-n-l-p-r-y-o-l-l-o-y-k-ä-t-u-o-e-n-k-u-v-i-s"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-3-4-1 S01 T0000102 W124 >8x8-FIN-s-y-v-ä-i-u-i-m-e-t-y-k-m-h-y-y-l-i-n-ä-a-o-l-k-ä-l-l-i-v-v-o-u-t-n-o-t-a-v-l-u-t-s-f-o-i-s-i-t-ä-i-i-l-e-t-s-k-ä-l-i-e-p-a-y-e"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-3-3-1-3 S01 T0000011 W124 >8x8-FIN-t-o-t-e-u-t-u-s-h-a-k-a-ä-i-n-e-i-s-s-n-j-k-a-n-g-n-u-e-o-r-s-v-i-e-b-n-t-v-i-o-t-h-p-u-s-e-r-t-y-k-i-k-p-l-o-o-s-i-o-s-i-i-k-n"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-1-5-3-1 S01 T0000025 W129 >8x8-FIN-a-l-a-k-k-u-t-i-v-t-i-p-a-a-ä-n-r-e-a-a-k-n-i-t-k-s-s-p-y-ö-r-o-k-u-p-p-f-i-n-a-h-a-u-a-v-i-l-a-a-u-l-e-r-a-v-i-k-k-o-k-a-n-e-r"},
+    {info: "INFO: F01.0 W10(06.4) R03000-08000 P06.4 L0-0-0-0-3-2-3-2 S01 T0000010 W131 >8x8-FIN-l-i-l-n-k-o-m-ä-j-a-a-i-r-m-a-t-a-s-j-l-a-f-r-t-k-r-a-t-s-e-i-ä-k-y-a-r-o-a-a-ä-y-m-u-t-r-m-a-t-e-n-a-j-e-k-a-t-n-k-i-r-t-a-l-i"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-3-2-3-1 S01 T0000033 W132 >8x8-FIN-u-s-i-s-a-s-k-o-o-t-t-a-n-l-y-ä-k-t-i-k-a-ä-o-v-s-b-e-k-a-k-i-h-i-i-t-l-v-l-a-ä-r-n-o-e-y-i-k-v-o-t-t-y-t-o-a-i-k-o-n-s-u-s-i-ö"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-3-2-3-1 S01 T0000095 W133 >8x8-FIN-v-u-k-a-n-n-p-m-a-h-u-u-t-e-a-a-t-y-p-s-o-s-u-k-ä-ä-p-o-d-o-a-a-i-a-k-j-o-n-l-a-p-a-u-a-a-a-l-v-p-e-s-n-p-h-j-a-i-t-i-r-u-s-a-k"},
+    {info: "INFO: F01.0 W10(06.4) R03000-08000 P06.4 L0-0-0-0-3-2-3-2 S01 T0000025 W134 >8x8-FIN-t-ä-t-s-i-r-ä-t-u-r-h-s-u-t-a-l-e-v-e-l-p-o-v-j-a-v-a-p-e-a-t-e-i-l-a-k-l-l-e-l-e-m-u-h-u-m-i-o-s-ä-e-i-s-o-v-k-t-y-k-t-i-n-i-a"},
+    {info: "INFO: F01.0 W11(05.8) R02000-07000 P05.8 L0-0-0-2-3-2-3-1 S01 T0000022 W140 >8x8-FIN-a-i-v-s-a-g-l-o-l-l-e-a-k-e-l-k-t-a-p-ä-ä-t-t-a-u-r-t-t-h-i-y-j-h-o-u-a-a-o-n-a-o-r-k-s-t-v-e-m-a-h-a-a-o-n-p-p-u-t-m-l-a-t-i-a"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-4-1-2-2 S01 T0000032 W141 >8x8-FIN-k-i-i-m-m-a-e-i-k-s-o-r-i-ä-r-k-i-n-i-k-i-n-ö-k-e-t-a-t-k-e-t-t-h-s-i-u-t-m-s-e-t-i-m-s-a-r-o-r-t-t-s-i-t-a-j-ä-n-o-a-t-i-k-u-s"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-4-2-2 S01 T0000031 W142 >8x8-FIN-t-ä-r-i-s-a-l-n-s-i-s-u-t-v-l-o-n-a-k-s-ä-a-a-s-o-u-p-t-a-n-r-i-r-s-p-u-o-n-k-o-s-u-a-s-d-y-n-a-i-a-l-s-o-i-p-m-u-n-a-u-t-a-u-o"},
+    {info: "INFO: F01.0 W10(06.4) R03000-08000 P06.4 L0-0-0-0-1-5-3-1 S01 T0000102 W144 >8x8-FIN-o-m-a-i-r-e-t-a-s-a-t-t-r-f-o-s-i-l-i-p-i-r-o-f-r-e-l-p-y-i-s-u-k-v-y-k-l-v-ä-t-o-s-i-a-ä-e-k-u-s-s-r-a-m-j-y-s-t-o-a-j-r-u-k-a"},
+    {info: "INFO: F01.0 W10(06.4) R03000-08000 P06.4 L0-0-0-0-3-3-1-3 S01 T0000153 W145 >8x8-FIN-s-a-u-t-u-a-a-n-e-n-t-k-i-p-d-p-u-p-t-t-k-a-e-u-s-i-i-e-o-v-s-h-e-l-a-r-n-s-t-t-r-o-a-e-t-s-i-i-i-t-u-u-s-o-k-k-r-a-l-l-e-t-e-o"},
+    {info: "INFO: F01.0 W10(06.4) R02000-07000 P06.4 L0-0-0-0-3-1-5-1 S01 T0000143 W149 >8x8-FIN-e-ä-e-p-i-k-e-a-n-r-e-h-m-e-k-i-u-s-a-a-p-l-u-l-r-i-p-n-e-ä-a-e-m-r-u-r-o-t-k-n-a-ä-l-i-v-i-a-n-t-ä-l-i-r-s-r-u-a-p-y-s-a-k-t-t"},
+    {info: "INFO: F01.0 W10(06.4) R03000-08000 P06.4 L0-0-0-0-2-4-2-2 S01 T0000016 W149 >8x8-FIN-o-i-v-a-t-e-n-t-e-t-l-l-t-t-k-t-n-t-u-s-i-l-u-i-i-i-r-a-i-t-i-p-s-a-j-i-l-u-s-u-a-h-ä-u-t-u-k-k-a-k-h-s-u-l-l-k-r-e-l-y-j-k-e-i"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-4-2-2 S01 T0000009 W150 >8x8-FIN-h-s-j-o-u-s-t-o-a-u-a-l-a-s-o-a-a-v-e-m-a-i-t-a-k-e-m-a-u-s-s-u-k-e-a-h-t-p-r-e-i-t-s-o-g-k-k-l-a-p-u-u-n-a-u-a-a-l-l-l-u-t-s-p"},
+    {info: "INFO: F01.0 W10(06.4) R03000-07000 P06.4 L0-0-0-0-1-5-3-1 S01 T0000068 W153 >8x8-FIN-t-t-i-i-v-p-e-r-a-v-y-i-k-a-n-u-k-y-t-l-k-k-k-a-i-s-ö-k-a-i-u-k-o-a-n-o-i-e-k-k-h-u-t-i-v-s-e-r-r-o-k-k-t-t-k-e-a-t-t-a-a-i-k-ä"},
+    {info: "INFO: F01.0 W10(06.4) R03000-07000 P06.4 L0-0-0-0-4-2-0-4 S01 T0000096 W155 >8x8-FIN-i-s-u-u-k-a-i-v-o-k-u-l-t-u-ä-ä-l-y-p-l-i-m-j-v-t-h-a-p-e-t-a-a-y-i-r-i-d-t-s-i-ä-ä-t-t-ä-a-a-l-t-r-a-m-u-o-p-a-a-a-k-u-j-o-p-v"},
+    {info: "INFO: F01.0 W10(06.4) R03000-08000 P06.4 L0-0-0-0-2-3-4-1 S01 T0000009 W155 >8x8-FIN-t-s-m-a-n-s-i-k-o-a-l-m-e-j-l-k-n-l-o-i-t-v-a-a-t-a-k-o-a-i-p-k-u-k-a-u-u-l-p-o-s-y-l-l-o-i-s-s-y-t-a-i-i-l-s-t-v-e-l-v-ä-e-e-r"},
+    {info: "INFO: F01.0 W10(06.4) R02000-07000 P06.4 L0-0-0-0-1-5-3-1 S01 T0000141 W156 >8x8-FIN-r-a-t-u-s-i-a-k-i-a-t-v-ä-e-s-l-s-a-k-a-l-a-t-u-s-t-s-o-p-e-ö-j-n-o-a-a-a-k-s-i-p-r-a-t-t-r-f-l-i-t-t-l-o-a-i-i-v-a-r-a-m-p-p-u"},
+    {info: "INFO: F01.0 W10(06.4) R02000-07000 P06.4 L0-0-0-0-2-3-4-1 S01 T0000032 W159 >8x8-FIN-l-o-t-k-u-u-l-s-u-u-t-l-i-j-i-u-u-a-k-k-n-a-p-u-l-i-a-a-i-m-a-h-h-u-s-r-f-a-i-t-n-a-i-o-m-v-i-a-ä-n-i-i-u-t-t-t-i-k-t-s-t-a-a-a"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-4-1-2-3 S01 T0000014 W160 >8x8-FIN-e-l-i-o-n-a-l-a-ö-i-m-d-a-r-v-m-t-s-e-v-h-y-o-i-r-o-t-a-l-v-i-a-n-a-t-t-o-ä-t-h-e-n-i-a-r-ä-t-r-v-e-r-k-m-a-h-u-i-v-h-a-a-a-t-m"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-4-2-2 S01 T0000095 W161 >8x8-FIN-s-t-o-u-i-j-o-k-e-i-a-s-r-e-k-o-t-e-b-a-p-u-s-r-u-h-a-t-e-t-a-p-r-d-i-a-i-h-d-i-t-o-d-a-s-o-k-o-t-u-s-s-t-j-k-r-a-r-i-i-ä-ä-v-e"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-3-4-1 S01 T0000016 W165 >8x8-FIN-o-t-u-e-l-n-e-n-y-h-e-n-s-u-t-i-l-i-e-n-k-k-u-a-r-v-o-t-u-a-s-k-a-t-v-o-a-h-a-i-p-e-r-n-l-j-y-p-u-m-a-v-i-e-l-s-p-p-k-a-l-l-e-u"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-3-2-3-2 S01 T0000032 W166 >8x8-FIN-r-i-k-p-i-i-r-n-i-k-o-i-o-s-i-ä-ä-k-ö-t-v-e-l-k-h-k-i-t-s-a-i-i-o-o-r-a-t-i-r-j-e-r-t-a-o-u-u-ä-i-i-t-a-i-h-k-k-v-a-a-t-t-u-a-n"},
+    {info: "INFO: F01.0 W11(05.8) R02000-08000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000028 W170 >8x8-FIN-a-v-a-v-e-i-u-d-l-a-n-r-a-j-p-o-a-o-n-i-a-l-p-t-k-u-t-i-l-r-u-a-n-o-v-e-l-e-k-s-k-o-h-j-a-t-a-y-i-p-ö-t-i-o-m-ä-p-u-y-s-n-n-h-u"},
+    {info: "INFO: F01.0 W11(05.8) R02000-06000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000067 W172 >8x8-FIN-y-y-ö-t-n-i-r-y-s-v-y-k-o-v-i-p-t-o-h-t-u-t-r-a-a-p-p-i-o-l-i-s-i-i-t-n-n-u-s-t-v-a-t-e-s-u-t-o-o-l-k-a-p-o-ä-e-k-a-k-s-v-i-i-l"},
+    {info: "INFO: F01.0 W11(05.8) R03000-08000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000056 W175 >8x8-FIN-o-s-i-k-k-n-e-p-v-n-u-v-o-s-r-u-u-e-l-i-t-e-u-e-a-s-i-a-a-v-k-l-u-i-v-h-i-m-e-a-l-i-p-t-r-i-p-r-e-n-n-o-i-i-r-i-i-m-a-s-a-t-o-k"},
+    {info: "INFO: F01.0 W11(05.8) R03000-08000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000105 W178 >8x8-FIN-s-i-a-r-e-r-e-t-i-t-a-s-i-r-i-n-a-t-u-s-u-j-i-a-s-t-i-i-s-u-j-m-e-u-r-a-u-r-y-s-v-a-a-j-a-m-m-i-y-a-k-e-t-o-r-s-h-j-t-i-e-d-ä-k"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-4-2-2 S01 T0000041 W181 >8x8-FIN-t-e-m-p-p-o-k-k-s-u-i-h-e-l-i-e-u-s-u-k-s-a-t-i-e-s-t-u-u-m-a-k-r-i-m-n-t-e-k-i-p-f-a-h-s-ä-r-e-u-u-i-t-p-a-k-v-s-i-o-i-v-r-e-ä"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-4-2-2 S01 T0000194 W205 >8x8-FIN-t-u-o-t-t-a-v-a-s-a-r-n-i-l-e-i-v-a-a-a-t-l-r-t-t-t-a-r-t-i-i-t-o-a-r-u-t-a-k-k-e-l-l-ä-a-i-l-a-t-n-s-t-i-u-o-j-y-ä-u-a-l-h-m-a"},
+    {info: "INFO: F01.0 W10(06.4) R02000-08000 P06.4 L0-0-0-0-2-3-4-1 S01 T0000067 W219 >8x8-FIN-k-u-k-r-a-a-s-t-o-p-i-a-j-n-a-a-i-s-s-t-t-r-a-m-u-t-t-o-u-s-t-m-a-a-a-n-r-i-i-a-u-s-l-k-t-u-k-r-o-s-i-a-t-a-s-a-a-i-p-k-a-t-o-f"},
+];
+
+
 const challengeSetENG = [
     {info: "INFO: F03.0 W05(09.6) R00000-02000 P03.2 L0-1-2-2-0-0-0-0 S01 T0000001 W015 >4x4-ENG-fes-sor-con-end-pro-con-str-fri-vat-ser-uct-ion-ive-age-ant-adv"},
     {info: "INFO: F02.1 W04(08.5) R00000-02000 P04.0 L0-1-1-0-1-1-0-0 S01 T0000001 W010 >4x4-ENG-on-ti-er-ad-un-ica-di-le-mm-ce-ff-mo-co-en-er-tor"},
@@ -145,6 +194,10 @@ function parseOptions() {
         case "FIN2":
             options.challenges = challengeSetFIN2;
             globals.storage    = strorageName + "-FIN2";
+            break;
+        case "FIN3":
+            options.challenges = challengeSetFIN3;
+            globals.storage    = strorageName + "-FIN3";
             break;
         case "SWE":
             options.challenges = challengeSetSWE;
