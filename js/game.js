@@ -136,7 +136,7 @@ class Board {
         if (this.dbName.startsWith("FIN")) {
 //            elements.title.innerHTML        = "VERBORIUM-FIN";
             elements.instructions.innerHTML = "Muodosta perusmuodossa olevia suomen kielen sanoja yhdistämällä sanafragmentit toisiinsa. "
-            + "Yhdistäminen on sallittu vain pysty- ja/tai vaakasuunnassa. Jokainen solu on käytettävä täsmälleen kerran. ";
+            + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen solu on käytettävä täsmälleen kerran. ";
         }
         if (this.dbName.startsWith("SWE")) {
 //            elements.title.innerHTML        = "VERBORIUM-SWE";
