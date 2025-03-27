@@ -186,6 +186,7 @@ class Game {
 
             word = word + this.board.fragments[X][Y];
         }
+        word = word.toUpperCase();
 
         /* Check word legality */
         if (this.board.wordSet.has(word) == false) {

@@ -13,8 +13,11 @@ async function dbReadFile(fileName) {
         /* Filter away empty strings */
         let filtered = trimmed.filter(line => line !== "");
 
+        /* Convert values to uppercase */
+        let uppered = filtered.map(str => str.toUpperCase());
+
         /* Convert array to set (faster) */
-        let stringSet = new Set(filtered);
+        let stringSet = new Set(uppered);
 
         return stringSet;
     } catch (error) {
