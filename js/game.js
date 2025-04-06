@@ -133,19 +133,20 @@ class Board {
         }
 
         /* Set title */
-        if (this.dbName.startsWith("FIN")) {
+        const language = this.dbName.slice(0, 3);
+        if (language == "FIN") {
 //            elements.title.innerHTML        = "VERBORIUM-FIN";
             elements.instructions.innerHTML = "Muodosta perusmuodossa olevia suomen kielen sanoja yhdistämällä sanafragmentit toisiinsa. "
             + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen solu on käytettävä täsmälleen kerran. ";
         }
-        if (this.dbName.startsWith("SWE")) {
+        if (language =="SWE") {
 //            elements.title.innerHTML        = "VERBORIUM-SWE";
             elements.instructions.innerHTML = "Bilda svenska ord i grundform genom att förena orddelar med varandra vågrätt och/eller lodrätt. "
             + "Varje stavelse ska användas exakt en gång.";
         }
 
         /* Read word database to set structure */
-        this.wordSet = await dbReadFile("data/words_" + this.dbName + ".csv");
+        this.wordSet = await dbReadFile("data/words_" + this.dbName + ".csv", language);
     }
 }
 
