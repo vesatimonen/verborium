@@ -31,9 +31,9 @@ const challengeSetFIN = [
 ];
 
 const challengeSetFIN2 = [
-    {info: "INFO: F02.4 W05(07.8) R00000-02000 P03.2 L0-2-1-1-1-0-0-0-0-0-0-0-0-0-0-0 S01 T0001 W009 >4x4-FIN-utt-kul-fi-leh-aja-ja-los-ti-pu-ta-of-ia-ol-us-vap-aus"},
-    {info: "INFO: F01.4 W05(09.8) R01000-04000 P07.2 L0-0-0-0-1-1-1-0-0-0-1-1-0-0-0-0-0 S01 T0001 W030 >6x6-FIN-l-i-n-en-s-v-a-a-i-s-o-a-a-a-i-t-t-l-kk-l-l-ek-i-en-ii-ys-f-oi-rj-in-ut-an-t-t-ju-om"},
-    {info: "INFO: F01.0 W06(10.7) R03000-08000 P10.7 L0-0-0-0-0-0-0-1-0-3-0-1-0-1-0-0 S01 T0041 W161 >8x8-FIN-l-e-e-i-t-n-a-u-l-k-r-k-v-a-r-t-i-i-i-r-a-u-a-t-n-k-o-i-a-h-o-i-e-n-p-u-a-i-o-k-a-a-t-t-t-t-h-t-o-s-k-e-t-o-l-a-k-a-v-a-t-k-a-s"},
+    {info: "INFO: F01.4 W03(07.3) R04000-16000 P05.3 L0-0-1-0-1-0-0-1-0-0-0-0-0-0-0-0 S01 T0001 W016 >4x4-FIN-jä-i-r-r-y-t-a-oud-mi-n-i-i-lbu-a-e-s"},
+    {info: "INFO: F01.2 W06(07.3) R05000-19000 P06.0 L0-0-0-2-0-1-2-1-0-0-0-0-0-0-0-0 S01 T0007 W034 >6x6-FIN-i-a-r-e-pi-a-n-r-e-t-hl-aj-a-a-u-h-aa-v-s-l-ka-ök-k-i-s-y-i-py-h-a-tu-p-k-n-o-m"},
+    {info: "INFO: F01.0 W09(07.1) R11000-36000 P07.1 L0-0-0-2-2-0-0-2-1-1-1-0-0-0-0-0 S01 T0014 W185 >8x8-FIN-r-v-k-i-m-u-e-m-a-i-a-w-i-s-a-i-k-m-i-n-e-t-k-l-n-a-i-k-n-i-k-u-g-o-r-o-o-k-k-l-i-n-p-a-s-i-a-o-h-i-i-t-n-e-l-u-i-l-l-a-e-m-k-p"},
 ];
 
 
