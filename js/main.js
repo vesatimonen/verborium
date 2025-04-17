@@ -205,6 +205,12 @@ const challengeSetSWE = [
     {info: "INFO: F01.8 W16(07.0) R04000-15000 P04.0 L0-3-3-4-4-1-1-0 T596051 >8x8-SWE-m-uni-cera-grån-a-ö-str-rat-kom-are-r-d-l-a-gk-am-nam-t-bä-ka-oc-l-p-a-es-e-i-od-ig-b-ho-ing-a-s-v-ug-l-l-in-astn-m-f-tip-sa-v-äx-g-bel-n-u-u-p-d-eläg-a-re-d-s-l-im-tra-t-i-fn"},
 ];
 
+const challengeSetSWE2 = [
+    {info: "INFO: F02.3 W05(07.4) R00000-01000 P03.2 L0-2-1-1-1-0-0-0-0-0-0-0-0-0-0-0 S01 T0001 W012 >4x4-SWE-ppo-ra-ng-poä-rt-og-be-te-ll-sk-mar-sa-ne-io-dit-tra"},
+    {info: "INFO: F01.2 W06(07.5) R00000-02000 P06.0 L0-0-0-3-1-0-0-1-0-0-1-0-0-0-0-0 S01 T0007 W062 >6x6-SWE-a-r-ff-i-å-t-d-l-si-n-t-ps-me-e-ms-s-e-up-r-p-k-k-l-l-i-p-a-ä-l-ek-va-t-ll-e-u-t"},
+    {info: "INFO: F01.0 W07(09.1) R01000-04000 P09.1 L0-0-0-0-1-1-1-0-0-1-1-1-1-0-0-0 S01 T0074 W171 >8x8-SWE-k-g-e-r-t-t-u-d-s-i-t-a-s-s-n-e-u-e-l-l-t-k-t-i-t-k-e-o-i-u-r-n-a-i-l-n-r-ä-t-s-n-n-l-n-k-t-s-g-r-t-e-i-f-ö-r-g-ä-j-h-n-g-s-n-y"},
+];
+
 
 const challengeSetFRA = [
     {info: "INFO: F03.0 W05(09.6) R00000-02000 P03.2 L0-0-1-2-2-0-0-0-0-0-0-0-0-0-0-0-0 S01 T0001 W013 >4x4-FRA-BER-TOM-LIO-BIB-ION-SAT-THÈ-CER-CON-VER-QUE-PLA-ÈRE-NDP-GRA-REM"},
@@ -263,6 +269,10 @@ function parseOptions() {
         case "SWE":
             options.challenges = challengeSetSWE;
             globals.storage    = strorageName + "-SWE";
+            break;
+        case "SWE2":
+            options.challenges = challengeSetSWE2;
+            globals.storage    = strorageName + "-SWE2";
             break;
         case "ENG":
             options.challenges = challengeSetENG;
