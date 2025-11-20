@@ -136,8 +136,9 @@ class Board {
         const language = this.dbName.slice(0, 3);
         if (language == "FIN") {
 //            elements.title.innerHTML        = "VERBORIUM-FIN";
-            elements.instructions.innerHTML = "Muodosta perusmuodossa olevia suomen kielen sanoja yhdistämällä sanafragmentit toisiinsa. "
-            + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen solu on käytettävä täsmälleen kerran. ";
+            elements.instructions.innerHTML = "Muodosta perusmuodossa olevia suomen kielen sanoja yhdistämällä kirjaimet toisiinsa. "
+                                            + "Yhdistäminen on sallittu vain pysty- ja vaakasuunnassa. Jokainen kirjain on käytettävä täsmälleen kerran. "
+                                            + "Muodosta sanoja vetämällä ensimmäisestä kirjaimesta alkaen. Kun kaikki kirjaimet on käytetty, peli päättyy.";
         }
         if (language =="SWE") {
 //            elements.title.innerHTML        = "VERBORIUM-SWE";
