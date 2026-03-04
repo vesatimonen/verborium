@@ -60,10 +60,10 @@ const challengeSetFIN3 = [
 
 
 const challengeSetENG = [
-    {info: "INFO: F02.0 W15(08.5) R02000-08000 P04.3 L0-0-3-5-7-0-0-0 S01 T0000001 W048 >8x8-ENG-ed-bl-es-ry-da-co-ns-cy-oy-pl-si-ng-un-bo-pi-ra-un-em-nt-me-in-ta-va-si-at-cr-mi-dd-re-at-in-on-re-au-ve-ay-lu-ct-er-nd-bu-et-lv-te-re-an-al-te-ll-ce-ex-co-nc-ce-tu-en-en-ce-pr-op-ag-an-da-ev"},
-    {info: "INFO: F01.4 W11(08.1) R02000-08000 P05.8 L0-0-0-2-4-1-2-2 S01 T0000001 W067 >8x8-ENG-ier-c-o-re-u-as-i-tt-m-e-l-on-i-re-ng-cu-p-r-n-r-c-t-a-ul-ol-coh-jo-u-ger-ia-t-c-a-l-ad-m-a-l-io-ir-f-i-e-a-n-p-n-c-i-m-d-c-o-e-t-ts-d-o-e-enc-inn-f-o-o"},
-    {info: "INFO: F01.3 W11(07.5) R01000-08000 P05.8 L0-0-0-4-1-2-1-3 S01 T0000007 W071 >8x8-ENG-g-n-di-un-t-p-da-a-s-u-r-ro-a-n-h-to-s-e-d-e-ti-o-c-u-s-r-te-ba-y-a-l-os-i-st-gy-o-s-m-c-u-d-i-n-ol-i-i-t-re-m-s-i-ge-d-c-s-a-f-e-m-ch-wi-nd-sa-dr"},
-    {info: "INFO: F01.0 W11(05.8) R01000-08000 P05.8 L0-0-0-1-4-3-2-1 S01 T0000044 W116 >8x8-ENG-e-l-p-e-g-r-t-e-o-p-m-r-t-e-a-r-i-s-a-k-c-o-u-u-w-e-s-a-p-l-n-c-o-n-o-i-p-l-a-c-r-r-y-t-c-d-u-a-g-e-t-f-i-s-w-t-r-e-e-m-o-d-e-a"},
+    {info: "INFO: F01.0 W03(05.3) R00000-01000 P05.3 L0-0-0-0-2-1-0-0-0-0-0-0-0-0-0-0 S01 T0004 W020 >4x4-ENG-p-e-o-e-h-i-p-l-t-n-k-a-t-u-o-b=3-00rrdru-32dlll-02urdr"},
+    {info: "INFO: F01.0 W05(05.0) R00000-01000 P05.0 L0-0-0-1-3-1-0-0-0-0-0-0-0-0-0-0 S01 T0016 W056 >5x5-ENG-b-p-e-r-c-r-o-w-t-a-i-n-g-n-l-e-c-c-e-l-p-t-a-v-e=5-00ddrr-24ulldr-10drur-44luuu-40ddd"},
+    {info: "INFO: F01.0 W06(06.0) R00000-01000 P06.0 L0-0-0-2-0-1-2-1-0-0-0-0-0-0-0-0 S01 T0015 W055 >6x6-ENG-f-i-s-h-r-y-d-u-i-d-a-r-i-m-e-e-i-b-v-i-v-m-l-t-n-s-a-u-g-h-o-i-s-o-h-t=6-43urulur-00rrr-01ddrddlu-33uulld-25uuu-55llurru"},
+    {info: "INFO: F01.0 W07(07.0) R00000-04000 P07.0 L0-0-0-1-0-1-2-2-1-0-0-0-0-0-0-0 S01 T0031 W135 >7x7-ENG-p-r-e-c-n-a-n-g-i-v-e-g-e-i-a-l-i-l-d-i-f-r-f-g-e-c-s-t-a-l-u-r-o-u-n-n-c-h-a-r-m-a-e-r-f-i-l-i-f=7-00rdrdrurr-62uullll-13ulu-34uldllu-26llurr-66uldllur-42rdldrru"},
 ];
 
 
