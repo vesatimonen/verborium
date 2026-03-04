@@ -26,6 +26,9 @@ class Board {
         this.dbName    = undefined;
         this.fragments = [[undefined]];
 
+        /* Word status */
+        this.wordStatus = "";
+
         /* Word database (set) */
         this.wordSet   = undefined;
 
@@ -103,6 +106,17 @@ class Board {
 
         return false;
     }
+
+    statusClear() {
+        if (this.wordStatus.length > 0) {
+            this.wordStatus = "";
+        }
+    }
+
+    getWordStatus() {
+        return this.wordStatus;
+    }
+
 
     /* Initialize game */
     async init(info) {
@@ -197,8 +211,11 @@ class Game {
 
         /* Check word legality */
         if (this.board.wordSet.has(word) == false) {
+            this.board.wordStatus = "WORD NOT FOUND";
             return;
         }
+
+// this.wordStatus = "WORD FOUND BUT NOT MEANT";
 
         /* Make move */
         this.board.paths.push(wordPath);
