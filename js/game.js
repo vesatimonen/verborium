@@ -106,9 +106,14 @@ class Board {
 
     /* Initialize game */
     async init(info) {
-        /* Parse board configuration (verborum) */
-        const infoStr    = info.replaceAll('"', '');
-        let boardInfo    = infoStr.split('>')[1];
+        /* Parse board configuration (verborium) */
+        let infoStr                   = info.replaceAll('"', '');
+        let challengeStr              = infoStr.split('>')[1];
+        let [boardInfo, solutionInfo] = challengeStr.split('=');
+
+// ??? Handle solutionInfo == undefined
+//console.log(boardInfo);
+//console.log(solutionInfo);
 
         /* Handle double dash (--) */
         boardInfo        = boardInfo.replaceAll('--', '*-');
