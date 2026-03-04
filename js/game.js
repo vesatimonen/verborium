@@ -124,27 +124,23 @@ class Board {
     /* Initialize game */
     async init(info) {
         /* Parse board configuration (verborium) */
-        let infoStr                   = info.replaceAll('"', '');
-        let challengeStr              = infoStr.split('>')[1];
-        let [boardInfo, solutionInfo] = challengeStr.split('=');
-
-// ??? Handle solutionInfo == undefined
-//console.log(boardInfo);
-//console.log(solutionInfo);
+        let infoStr                 = info.replaceAll('"', '');
+        let challengeStr            = infoStr.split('>')[1];
+        let [boardStr, solutionStr] = challengeStr.split('=');
 
         /* Handle double dash (--) */
-        boardInfo        = boardInfo.replaceAll('--', '*-');
-        boardInfo        = boardInfo.replaceAll('-', ',');
-        boardInfo        = boardInfo.replaceAll('*', '-');
+        boardStr = boardStr.replaceAll('--', '*-');
+        boardStr = boardStr.replaceAll('-', ',');
+        boardStr = boardStr.replaceAll('*', '-');
 
-        let infoValues   = boardInfo.split(',');
-
-        this.width      = parseInt(infoValues[0].substr(0,1));
-        this.height     = parseInt(infoValues[0].substr(2,1));
-        this.dbName     = infoValues[1];
+        let infoValues   = boardStr.split(',');
+        this.width       = parseInt(infoValues[0].substr(0,1));
+        this.height      = parseInt(infoValues[0].substr(2,1));
+        this.dbName      = infoValues[1];
 
         this.paths       = [];
 
+        /* Add fragments into the board */
         this.fragments  = array2D(this.width, this.height, 0);
         this.cells   = array2D(this.width, this.height, 0);
         for (let x = 0; x < this.width; x++) {
@@ -153,6 +149,24 @@ class Board {
                 this.cells[x][y]     = {status: false};
             }
         }
+
+        /* Parse solution string */
+        if (solutionStr != undefined) {
+            let pathStrs = solutionStr.split('-');
+            let pathCount = pathStrs[0];
+
+            /* Add paths into solution */
+            for (let pathIndex = 0; pathIndex < pathCount; pathIndex++) {
+                console.log(pathStrs[pathIndex + 1]);
+
+                let cell = {};
+                cell.X = Number(pathStrs[pathIndex + 1][0]);
+                cell.Y = Number(pathStrs[pathIndex + 1][1]);
+
+                console.log(cell);
+            }
+        }
+
 
         /* Set title */
         const language = this.dbName.slice(0, 3);
