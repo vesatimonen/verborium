@@ -39,7 +39,7 @@ class Board {
         this.cells = [[undefined]];
 
         /* Solution words */
-        this.solutions = [[undefined]];
+        this.solutions = [];
     }
 
     filledCount() {
@@ -156,18 +156,29 @@ class Board {
             let pathCount = pathStrs[0];
 
             /* Add paths into solution */
+            this.solutions = [];
             for (let pathIndex = 0; pathIndex < pathCount; pathIndex++) {
                 const pathStr = pathStrs[pathIndex + 1];
 
                 console.log(pathStr);
 
+                /* Create cell */
                 let cell = {};
                 cell.X = Number(pathStr[0]);
                 cell.Y = Number(pathStr[1]);
 
+                /* Add path and first cell into it */
+                this.solutions.push([]);
+                this.solutions[pathIndex].push({X: cell.X, Y: cell.Y});
 
-                console.log(cell);
+                /* Add remaining cells into the path */
+                for (let cellIndex = 2; cellIndex < pathStr.length; cellIndex++) {
+                    cell.X = cellIndex;
+                    this.solutions[pathIndex].push({X: cell.X, Y: cell.Y});
+
+                }
             }
+            console.log(this.solutions);
         }
 
 
