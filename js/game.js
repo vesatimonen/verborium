@@ -157,11 +157,13 @@ class Board {
 
             /* Add paths into solution */
             for (let pathIndex = 0; pathIndex < pathCount; pathIndex++) {
-                console.log(pathStrs[pathIndex + 1]);
+                const pathStr = pathStrs[pathIndex + 1];
+
+                console.log(pathStr);
 
                 let cell = {};
-                cell.X = Number(pathStrs[pathIndex + 1][0]);
-                cell.Y = Number(pathStrs[pathIndex + 1][1]);
+                cell.X = Number(pathStr[0]);
+                cell.Y = Number(pathStr[1]);
 
 
                 console.log(cell);
