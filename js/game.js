@@ -257,19 +257,40 @@ class Game {
 
         /* Check word legality */
         if (this.board.wordSet.has(word) == false) {
-            this.board.wordStatus = "WORD NOT FOUND";
+            this.board.wordStatus = "WORD NOT VALID";
             return;
         }
 
-// this.wordStatus = "WORD FOUND BUT NOT MEANT";
-
-        console.log("--");
-        console.log(wordPath);
-        console.log("++");
-        console.log(this.board.solutionPaths);
-
         /* Go through solution paths */
-//        for (let pathIndex = 0; pathIndex < this.board.solutionPaths
+        let wordMatch = false;
+        for (let pathIndex = 0; pathIndex < this.board.solutionPaths.length; pathIndex++) {
+            let solutionPath = this.board.solutionPaths[pathIndex];
+
+            if (solutionPath.length != wordPath.length) {
+                continue;
+            }
+
+            let cellMatch = true;
+            for (let cellIndex = 0; cellIndex < solutionPath.length; cellIndex++) {
+                if (solutionPath[cellIndex].X != wordPath[cellIndex].X
+                 || solutionPath[cellIndex].Y != wordPath[cellIndex].Y) {
+                    cellMatch = false;
+                    break;
+                }
+            }
+
+            if (cellMatch == false) {
+                continue;
+            }
+
+            wordMatch = true;
+            break;
+        }
+
+        if (wordMatch == false) {
+            this.board.wordStatus = "VALID WORD, BUT NOT IN THE SOLUTION";
+            return;
+        }
 
 
         /* Make move */
