@@ -4,7 +4,8 @@ const strorageName = "verborium/game-level";
  * Game challenges (levels)
  *****************************************************************************/
 const challengeSetFIN = [
-    {info: "INFO: F03.0 W05(09.6) R00000-02000 P03.2 L0-1-2-2-0-0-0-0 S01 T0000001 W010 >4x4-FIN-tio-raa-ope-uus-nti-noi-val-lis-mar-kki-tur-teä-taa-jas-pal-läh"},
+    {info: "INFO: F01.0 W05(07.2) R01000-04000 P07.2 L0-0-0-0-2-1-0-0-0-2-0-0-0-0-0-0 S01 T0026 W103 >6x6-FIN-a-v-a-h-k-a-s-e-l-o-u-l-t-i-l-k-k-l-o-i-l-o-t-e-u-v-i-n-o-o-k-p-i-i-d-r=5-05urul-30lddllurul-15ruurrruuu-40ddlu-45rulld"},
+//    {info: "INFO: F03.0 W05(09.6) R00000-02000 P03.2 L0-1-2-2-0-0-0-0 S01 T0000001 W010 >4x4-FIN-tio-raa-ope-uus-nti-noi-val-lis-mar-kki-tur-teä-taa-jas-pal-läh"},
     {info: "INFO: F02.3 W04(09.2) R00000-02000 P04.0 L0-1-1-0-1-1-0-0 S01 T0000001 W010 >4x4-FIN-lo-ude-ll-in-ta-ty-öl-en-itt-käs-li-sy-ely-ano-pi-ys"},
     {info: "INFO: F02.0 W05(06.4) R00000-02000 P03.2 L0-2-1-1-1-0-0-0 S01 T0000001 W016 >4x4-FIN-ka-ki-sa-ha-lk-pa-ri-pa-ju-lk-so-pr-en-in-es-of"},
     {info: "INFO: F01.6 W05(05.0) R00000-02000 P03.2 L0-1-2-2-0-0-0-0 S01 T0000003 W014 >4x4-FIN-aa-t-an-e-it-o-il-m-aa-h-il-m-ja-kaa-s-ä"},
