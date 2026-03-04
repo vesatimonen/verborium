@@ -39,7 +39,7 @@ class Board {
         this.cells = [[undefined]];
 
         /* Solution paths */
-        this.solutionPaths = [];
+        this.solutionPaths = undefined;
     }
 
     filledCount() {
@@ -262,36 +262,37 @@ class Game {
         }
 
         /* Go through solution paths */
-        let wordMatch = false;
-        for (let pathIndex = 0; pathIndex < this.board.solutionPaths.length; pathIndex++) {
-            let solutionPath = this.board.solutionPaths[pathIndex];
+        if (this.board.solutionPaths != undefined) {
+            let wordMatch = false;
+            for (let pathIndex = 0; pathIndex < this.board.solutionPaths.length; pathIndex++) {
+                let solutionPath = this.board.solutionPaths[pathIndex];
 
-            if (solutionPath.length != wordPath.length) {
-                continue;
-            }
-
-            let cellMatch = true;
-            for (let cellIndex = 0; cellIndex < solutionPath.length; cellIndex++) {
-                if (solutionPath[cellIndex].X != wordPath[cellIndex].X
-                 || solutionPath[cellIndex].Y != wordPath[cellIndex].Y) {
-                    cellMatch = false;
-                    break;
+                if (solutionPath.length != wordPath.length) {
+                    continue;
                 }
+
+                let cellMatch = true;
+                for (let cellIndex = 0; cellIndex < solutionPath.length; cellIndex++) {
+                    if (solutionPath[cellIndex].X != wordPath[cellIndex].X
+                     || solutionPath[cellIndex].Y != wordPath[cellIndex].Y) {
+                        cellMatch = false;
+                        break;
+                    }
+                }
+
+                if (cellMatch == false) {
+                    continue;
+                }
+
+                wordMatch = true;
+                break;
             }
 
-            if (cellMatch == false) {
-                continue;
+            if (wordMatch == false) {
+                this.board.wordStatus = "VALID WORD, BUT NOT IN THE SOLUTION";
+                return;
             }
-
-            wordMatch = true;
-            break;
         }
-
-        if (wordMatch == false) {
-            this.board.wordStatus = "VALID WORD, BUT NOT IN THE SOLUTION";
-            return;
-        }
-
 
         /* Make move */
         this.board.paths.push(wordPath);
