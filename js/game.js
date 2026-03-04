@@ -37,6 +37,9 @@ class Board {
 
         /* Cells status */
         this.cells = [[undefined]];
+
+        /* Solution words */
+        this.solutions = [[undefined]];
     }
 
     filledCount() {
