@@ -35,6 +35,13 @@ function uiInfoRedraw(game) {
 }
 
 /*****************************************************************************
+ * Redraw status
+ *****************************************************************************/
+function uiStatusRedraw(board) {
+    elements.wordStatus.innerHTML = board.getWordStatus();
+}
+
+/*****************************************************************************
  * Redraw board
  *****************************************************************************/
 function uiBoardRedraw(board) {
@@ -244,6 +251,7 @@ console.log("gamma: " + angle_gamma * 360 / (Math.PI * 2));
  *****************************************************************************/
 function uiRedraw() {
     /* Redraw board */
+    uiStatusRedraw(globals.game.board);
     uiBoardRedraw(globals.game.board);
 
     /* Redraw word paths */

@@ -195,6 +195,10 @@ class Game {
     }
 
     addPath(wordPath, track) {
+        if (wordPath.length == 1) {
+            return;
+        }
+
         /* Check path legality */
         let word = "";
         for (let i = 0; i < wordPath.length; i++) {

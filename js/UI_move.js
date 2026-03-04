@@ -145,6 +145,10 @@ function uiMouseDown(event) {
     event.preventDefault();
 
     /* Get event position */
+    if (globals.game.board.getWordStatus().length > 0) {
+        globals.game.board.statusClear();
+    }
+
     position = uiEventPosition(event);
 
     /* Check position legality */
