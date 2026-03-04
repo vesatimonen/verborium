@@ -163,6 +163,7 @@ class Board {
                 cell.X = Number(pathStrs[pathIndex + 1][0]);
                 cell.Y = Number(pathStrs[pathIndex + 1][1]);
 
+
                 console.log(cell);
             }
         }
