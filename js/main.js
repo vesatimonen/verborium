@@ -4,37 +4,10 @@ const strorageName = "verborium/game-level";
  * Game challenges (levels)
  *****************************************************************************/
 const challengeSetFIN = [
-    {info: "INFO: F01.0 W05(07.2) R01000-04000 P07.2 L0-0-0-0-2-1-0-0-0-2-0-0-0-0-0-0 S01 T0026 W103 >6x6-FIN-a-v-a-h-k-a-s-e-l-o-u-l-t-i-l-k-k-l-o-i-l-o-t-e-u-v-i-n-o-o-k-p-i-i-d-r=5-05urul-30lddllurul-15ruurrruuu-40ddlu-45rulld"},
-//    {info: "INFO: F03.0 W05(09.6) R00000-02000 P03.2 L0-1-2-2-0-0-0-0 S01 T0000001 W010 >4x4-FIN-tio-raa-ope-uus-nti-noi-val-lis-mar-kki-tur-teä-taa-jas-pal-läh"},
-    {info: "INFO: F02.3 W04(09.2) R00000-02000 P04.0 L0-1-1-0-1-1-0-0 S01 T0000001 W010 >4x4-FIN-lo-ude-ll-in-ta-ty-öl-en-itt-käs-li-sy-ely-ano-pi-ys"},
-    {info: "INFO: F02.0 W05(06.4) R00000-02000 P03.2 L0-2-1-1-1-0-0-0 S01 T0000001 W016 >4x4-FIN-ka-ki-sa-ha-lk-pa-ri-pa-ju-lk-so-pr-en-in-es-of"},
-    {info: "INFO: F01.6 W05(05.0) R00000-02000 P03.2 L0-1-2-2-0-0-0-0 S01 T0000003 W014 >4x4-FIN-aa-t-an-e-it-o-il-m-aa-h-il-m-ja-kaa-s-ä"},
-
-    {info: "INFO: F02.2 W06(09.2) R00000-02000 P04.2 L0-0-2-2-1-1-0-0 S01 T0000001 W016 >5x5-FIN-att-om-hu-lu-rai-ava-si-tt-ää-vie-ti-kä-ma-ks-aa-nt-pre-en-sa-ot-de-si-in-la-ru"},
-    {info: "INFO: F02.0 W06(08.3) R00000-02000 P04.2 L0-0-2-2-1-1-0-0 S01 T0000005 W017 >5x5-FIN-us-aa-st-en-in-ut-av-ka-ra-ll-pe-sa-ll-it-no-la-ta-ha-se-on-eä-lk-se-va-lu"},
-    {info: "INFO: F01.6 W05(07.8) R00000-02000 P05.0 L0-0-1-0-3-0-1-0 S01 T0000001 W012 >5x5-FIN-a-i-nen-a-j-st-ja-ai-si-si-r-pan-il-s-ose-to-ä-ä-t-r-l-äh-e-t-p"},
-    {info: "INFO: F01.3 W05(06.6) R00000-02000 P05.0 L0-0-2-0-1-1-0-1 S01 T0000036 W036 >5x5-FIN-au-tt-v-a-e-om-aa-a-a-l-hu-e-n-j-är-i-n-a-to-vi-a-h-l-u-a"},
-
-    {info: "INFO: F02.3 W09(09.1) R01000-04000 P04.0 L0-0-4-2-2-1-0-0 S01 T0000001 W027 >6x6-FIN-nen-va-to-eh-ki-ti-vi-ki-ka-ko-ns-ert-ne-on-rt-ter-art-ikk-tto-en-io-vei-en-eli-mu-in-ll-set-in-st-us-vi-ho-ko-mmu-ni"},
-    {info: "INFO: F02.0 W08(09.0) R01000-03000 P04.5 L0-0-1-3-3-1-0-0 S01 T0000001 W018 >6x6-FIN-ti-nt-mo-re-tu-va-en-in-kk-it-it-lu-im-mä-ar-eh-os-ut-lk-jä-ri-ti-su-ta-li-ai-ip-pu-sa-no-ja-rk-vi-vu-us-ma"},
-    {info: "INFO: F01.9 W08(08.5) R01000-04000 P04.5 L0-0-2-3-2-0-0-1 S01 T0000009 W039 >6x6-FIN-aja-en-n-lli-eri-est-ent-rak-h-u-sur-rk-ai-k-a-ll-i-o-va-t-ine-n-t-s-s-a-ala-a-lus-ij-sau-vii-s-va-ta-a"},
-    {info: "INFO: F01.4 W08(06.5) R01000-04000 P04.5 L0-0-3-2-1-1-0-1 S01 T0000006 W038 >6x6-FIN-l-k-ti-hu-o-mi-ii-ka-ä-a-hj-o-t-t-ä-jä-po-sä-aa-o-n-ä-lt-ve-at-kk-tä-t-ö-y-ka-a-ä-y-d-h"},
-
-    {info: "INFO: F02.0 W12(08.2) R01000-04000 P04.1 L0-0-4-5-2-0-1-0 S01 T0000003 W032 >7x7-FIN-nt-me-tt-aa-en-in-ma-ää-il-tu-bj-su-ll-nn-uv-ne-is-ek-ra-ja-er-os-to-is-ti-pe-lä-tä-ma-va-oi-sä-en-in-kä-ht-at-on-og-ol-ym-yt-aa-im-at-ia-te-yt-tä"},
-    {info: "INFO: F01.6 W10(07.6) R01000-04000 P04.9 L0-0-3-2-1-2-1-1 S01 T0000001 W044 >7x7-FIN-a-k-u-a-lu-re-o-s-ui-ul-sa-o-te-tu-i-vi-j-ak-ava-tt-k-va-sä-ne-i-kl-a-omp-me-t-n-u-s-s-ro-t-en-o-t-ik-ko-m-ää-pid-m-i-si-s-i"},
-    {info: "INFO: F01.4 W10(07.1) R01000-04000 P04.9 L0-0-2-1-5-1-0-1 S01 T0000004 W046 >7x7-FIN-a-mi-l-so-t-s-i-a-k-k-u-e-r-a-e-k-a-as-a-i-m-r-äs-s-e-ja-t-t-in-il-tt-ll-ys-u-el-s-ri-he-pe-t-rä-er-in-öö-lä-ha-ll-i-ki"},
-    {info: "INFO: F01.0 W09(05.4) R01000-04000 P05.4 L0-0-0-3-2-2-1-1 S01 T0000085 W100 >7x7-FIN-k-k-u-a-a-t-a-o-m-a-ä-k-t-a-i-l-i-ä-t-t-i-a-k-t-ä-t-k-i-s-i-r-i-k-r-u-v-a-u-p-a-s-h-i-s-a-a-n-i-t"},
-
-    {info: "INFO: F02.0 W15(08.5) R02000-08000 P04.3 L0-0-2-8-4-1-0-0 S01 T0000003 W038 >8x8-FIN-ni-st-in-us-ul-ka-so-ve-yn-pa-ki-no-it-si-ja-ll-kä-ka-jä-ut-pe-ia-us-ut-ot-un-li-ua-so-op-in-ar-ar-kä-ve-vä-tä-ut-na-is-ku-va-il-la-yt-ad-la-ke-ke-rt-ka-st-nä-uk-us-ka-na-aa-ra-et-tu-as-st-la"},
-    {info: "INFO: F01.5 W11(08.7) R03000-08000 P05.8 L0-0-0-1-5-1-3-1 S01 T0000005 W075 >8x8-FIN-ääk-j-k-a-a-t-lit-n-i-ek-o-o-k-p-u-ne-nen-koi-lu-m-k-ok-ru-li-lli-l-u-n-l-al-a-l-tee-ti-s-i-ko-jum-al-a-ris-m-e-k-a-ä-y-p-ko-s-nny-iu-s-f-r-i-t-ä-s-l-i-g-an-hä"},
-    {info: "INFO: F01.3 W12(07.1) R02000-08000 P05.3 L0-0-1-4-1-3-2-1 S01 T0000005 W061 >8x8-FIN-a-tk-li-a-tu-t-t-ta-m-ia-l-jä-oh-y-i-n-it-t-a-ä-j-y-m-u-i-i-ah-t-s-vy-u-rj-n-ui-m-k-p-äi-h-o-t-ra-i-on-k-us-ra-t-k-a-s-rs-u-a-t-da-oa-t-n-u-t-r-p-an"},
-    {info: "INFO: F01.0 W11(05.8) R03000-08000 P05.8 L0-0-0-2-2-4-2-1 S01 T0000049 W138 >8x8-FIN-e-k-t-a-i-n-k-a-ö-ö-j-j-ä-ä-t-s-m-i-l-k-n-u-r-i-k-i-r-e-a-p-e-e-s-e-v-m-i-t-i-v-t-t-i-t-s-t-r-i-i-u-k-i-ä-ä-ä-v-j-a-n-o-e-r-ä-j"},
-];
-
-const challengeSetFIN2 = [
-    {info: "INFO: F01.4 W03(07.3) R04000-16000 P05.3 L0-0-1-0-1-0-0-1-0-0-0-0-0-0-0-0 S01 T0001 W016 >4x4-FIN-jä-i-r-r-y-t-a-oud-mi-n-i-i-lbu-a-e-s"},
-    {info: "INFO: F01.2 W06(07.3) R05000-19000 P06.0 L0-0-0-2-0-1-2-1-0-0-0-0-0-0-0-0 S01 T0007 W034 >6x6-FIN-i-a-r-e-pi-a-n-r-e-t-hl-aj-a-a-u-h-aa-v-s-l-ka-ök-k-i-s-y-i-py-h-a-tu-p-k-n-o-m"},
-    {info: "INFO: F01.0 W09(07.1) R11000-36000 P07.1 L0-0-0-2-2-0-0-2-1-1-1-0-0-0-0-0 S01 T0014 W185 >8x8-FIN-r-v-k-i-m-u-e-m-a-i-a-w-i-s-a-i-k-m-i-n-e-t-k-l-n-a-i-k-n-i-k-u-g-o-r-o-o-k-k-l-i-n-p-a-s-i-a-o-h-i-i-t-n-e-l-u-i-l-l-a-e-m-k-p"},
+    {info: "INFO: F01.0 W03(05.3) R00000-01000 P05.3 L0-0-0-0-2-1-0-0-0-0-0-0-0-0-0-0 S01 T0007 W018 >4x4-FIN-p-i-t-ä-i-n-m-ä-o-e-u-s-t-n-a-t=3-00rrrd-03uurdd-21drdl"},
+    {info: "INFO: F01.0 W05(05.0) R00000-01000 P05.0 L0-0-0-1-3-1-0-0-0-0-0-0-0-0-0-0 S01 T0001 W026 >5x5-FIN-t-k-a-t-a-a-m-v-o-p-y-a-m-i-a-h-t-e-y-s-a-d-o-u-l=5-02drrrr-44llll-21rdll-30rdd-11lurr"},
+    {info: "INFO: F01.0 W07(05.1) R00000-01000 P05.1 L0-0-0-2-3-1-1-0-0-0-0-0-0-0-0-0 S01 T0020 W069 >6x6-FIN-o-p-u-ä-o-n-s-r-u-m-h-e-t-e-v-t-y-m-a-l-a-t-a-a-i-a-i-t-l-y-m-e-k-t-y-h=7-01urr-11rdlld-25llur-13rdrurr-44rdll-32rulu-52uul"},
+    {info: "INFO: F01.0 W06(08.2) R01000-04000 P08.2 L0-0-0-1-0-0-1-1-0-3-0-0-0-0-0-0 S01 T0019 W095 >7x7-FIN-n-ä-e-t-ä-t-i-y-ä-n-h-y-s-v-k-i-n-e-n-e-l-i-i-a-r-t-a-l-t-l-h-m-t-a-h-o-i-k-o-u-k-i-k-o-r-n-i-k-k=6-51druull-02uur-41luldldrrr-25dlluuurdd-24urdddrruu-66uuulldd"},
 ];
 
 
@@ -87,26 +60,6 @@ const challengeSetFIN3 = [
 
 
 const challengeSetENG = [
-    {info: "INFO: F03.0 W05(09.6) R00000-02000 P03.2 L0-1-2-2-0-0-0-0 S01 T0000001 W015 >4x4-ENG-fes-sor-con-end-pro-con-str-fri-vat-ser-uct-ion-ive-age-ant-adv"},
-    {info: "INFO: F02.1 W04(08.5) R00000-02000 P04.0 L0-1-1-0-1-1-0-0 S01 T0000001 W010 >4x4-ENG-on-ti-er-ad-un-ica-di-le-mm-ce-ff-mo-co-en-er-tor"},
-    {info: "INFO: F02.0 W04(08.0) R00000-02000 P04.0 L0-1-0-2-0-1-0-0 S01 T0000003 W014 >4x4-ENG-st-ra-nt-co-gn-si-te-da-if-ic-re-ic-ce-an-pu-bl"},
-    {info: "INFO: F01.9 W04(07.5) R00000-02000 P04.0 L0-1-1-1-0-0-1-0 S01 T0000001 W007 >4x4-ENG-tio-u-b-tri-n-e-hin-is-ll-p-mac-d-ba-o-vel-de"},
-
-    {info: "INFO: F02.3 W06(09.5) R00000-02000 P04.2 L0-0-2-2-1-1-0-0 S01 T0000004 W016 >5x5-ENG-on-pe-rs-on-al-ti-bu-ri-nt-co-on-de-rt-ake-inf-ati-un-ch-ar-lue-tig-es-inv-se-nce"},
-    {info: "INFO: F02.0 W06(08.3) R00000-02000 P04.2 L0-0-1-4-0-1-0-0 S01 T0000003 W022 >5x5-ENG-rn-he-re-ns-tr-an-ut-me-co-uc-al-so-mb-er-ti-ys-er-sf-ur-on-is-tr-an-lo-co"},
-    {info: "INFO: F01.7 W05(08.4) R00000-02000 P05.0 L0-0-1-1-1-1-1-0 S01 T0000006 W026 >5x5-ENG-ge-gua-lan-a-s-p-r-ov-ia-soc-de-a-ide-t-ion-m-ac-a-r-g-ic-t-n-e-um"},
-    {info: "INFO: F01.4 W05(06.8) R00000-02000 P05.0 L0-0-2-0-1-1-0-1 S01 T0000022 W037 >5x5-ENG-ce-r-e-t-s-ri-p-i-n-i-c-ch-m-y-v-o-ar-ge-or-i-ns-id-er-t-c"},
-
-    {info: "INFO: F02.3 W08(10.5) R01000-04000 P04.5 L0-0-1-3-3-1-0-0 S01 T0000001 W024 >6x6-ENG-on-ti-rep-lac-yme-nt-st-ra-ent-em-plo-em-mon-nt-un-ne-ce-un-de-le-va-fo-ssa-ry-ive-nct-ui-un-dat-ion-di-sti-eq-mo-de-st"},
-    {info: "INFO: F02.0 W09(08.0) R00000-04000 P04.0 L0-0-3-4-1-1-0-0 S01 T0000003 W030 >6x6-ENG-cy-ra-cu-se-ni-or-nc-fu-ac-de-ta-il-ti-on-ty-il-gu-ed-op-ra-st-ce-in-ce-po-ti-lu-co-nv-an-se-on-il-im-po-rt"},
-    {info: "INFO: F01.4 W08(06.1) R00000-04000 P04.5 L0-0-1-5-1-0-0-1 S01 T0000004 W048 >6x6-ENG-h-c-s-di-ma-ri-t-o-h-r-ry-p-c-l-c-i-s-ti-e-nd-iri-tua-l-a-x-te-sp-c-o-n-r-e-rd-o-o-k"},
-    {info: "INFO: F01.2 W07(06.4) R00000-04000 P05.1 L0-0-3-0-0-2-1-1 S01 T0000026 W075 >6x6-ENG-si-st-e-r-e-c-as-t-n-o-i-n-lt-d-e-n-g-e-su-i-ev-ie-y-s-re-l-i-ld-e-b-d-e-c-a-t-a"},
-
-    {info: "INFO: F02.0 W11(08.9) R00000-04000 P04.5 L0-0-0-7-3-1-0-0 S01 T0000005 W037 >7x7-ENG-bl-pu-pe-rc-ep-ti-se-ic-re-re-ti-si-on-er-nd-te-pu-ve-po-un-iv-en-ti-ta-in-st-in-so-cy-on-ce-en-va-ct-lu-on-si-es-er-lu-ab-ti-al-pr-of-ef-pr-le-on"},
-    {info: "INFO: F01.5 W10(07.5) R00000-04000 P04.9 L0-0-1-4-2-2-0-1 S01 T0000001 W049 >7x7-ENG-od-dho-l-i-tre-a-he-t-ate-od-h-c-n-t-r-o-omm-c-e-a-l-i-p-acc-y-t-mys-g-c-b-li-r-e-r-or-a-u-c-ify-h-pe-em-l-p-qua-l-ea-din-g"},
-    {info: "INFO: F01.4 W09(07.4) R01000-04000 P05.4 L0-0-0-2-3-3-0-1 S01 T0000001 W067 >7x7-ENG-gy-ce-su-rv-iv-ar-in-lo-n-a-l-al-s-em-o-ra-st-ba-c-q-u-e-t-u-fr-h-e-e-id-i-o-n-s-a-ns-b-e-p-o-c-r-f-u-i-ld-e-r-t-er"},
-    {info: "INFO: F01.0 W09(05.4) R00000-04000 P05.4 L0-0-0-2-4-1-1-1 S01 T0000063 W105 >7x7-ENG-h-o-e-g-n-a-r-p-n-e-s-c-a-r-l-b-e-p-o-a-n-e-a-n-d-t-s-g-u-n-e-i-y-e-e-o-l-p-n-c-r-r-u-d-s-g-n-a-f"},
-
     {info: "INFO: F02.0 W15(08.5) R02000-08000 P04.3 L0-0-3-5-7-0-0-0 S01 T0000001 W048 >8x8-ENG-ed-bl-es-ry-da-co-ns-cy-oy-pl-si-ng-un-bo-pi-ra-un-em-nt-me-in-ta-va-si-at-cr-mi-dd-re-at-in-on-re-au-ve-ay-lu-ct-er-nd-bu-et-lv-te-re-an-al-te-ll-ce-ex-co-nc-ce-tu-en-en-ce-pr-op-ag-an-da-ev"},
     {info: "INFO: F01.4 W11(08.1) R02000-08000 P05.8 L0-0-0-2-4-1-2-2 S01 T0000001 W067 >8x8-ENG-ier-c-o-re-u-as-i-tt-m-e-l-on-i-re-ng-cu-p-r-n-r-c-t-a-ul-ol-coh-jo-u-ger-ia-t-c-a-l-ad-m-a-l-io-ir-f-i-e-a-n-p-n-c-i-m-d-c-o-e-t-ts-d-o-e-enc-inn-f-o-o"},
     {info: "INFO: F01.3 W11(07.5) R01000-08000 P05.8 L0-0-0-4-1-2-1-3 S01 T0000007 W071 >8x8-ENG-g-n-di-un-t-p-da-a-s-u-r-ro-a-n-h-to-s-e-d-e-ti-o-c-u-s-r-te-ba-y-a-l-os-i-st-gy-o-s-m-c-u-d-i-n-ol-i-i-t-re-m-s-i-ge-d-c-s-a-f-e-m-ch-wi-nd-sa-dr"},
@@ -258,10 +211,6 @@ function parseOptions() {
         case "FIN":
             options.challenges = challengeSetFIN;
             globals.storage    = strorageName + "-FIN";
-            break;
-        case "FIN2":
-            options.challenges = challengeSetFIN2;
-            globals.storage    = strorageName + "-FIN2";
             break;
         case "FIN3":
             options.challenges = challengeSetFIN3;
