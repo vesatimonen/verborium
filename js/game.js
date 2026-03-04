@@ -160,8 +160,6 @@ class Board {
             for (let pathIndex = 0; pathIndex < pathCount; pathIndex++) {
                 const pathStr = pathStrs[pathIndex + 1];
 
-                console.log(pathStr);
-
                 /* Create cell */
                 let cell = {};
                 cell.X = Number(pathStr[0]);
@@ -173,12 +171,25 @@ class Board {
 
                 /* Add remaining cells into the path */
                 for (let cellIndex = 2; cellIndex < pathStr.length; cellIndex++) {
-                    cell.X = cellIndex;
+                    switch (pathStr[cellIndex]) {
+                        case 'u':
+                            cell.Y--;
+                            break;
+                        case 'r':
+                            cell.X++;
+                            break;
+                        case 'd':
+                            cell.Y++;
+                            break;
+                        case 'l':
+                            cell.X--;
+                            break;
+                    }
                     this.solutions[pathIndex].push({X: cell.X, Y: cell.Y});
 
                 }
             }
-            console.log(this.solutions);
+//            console.log(this.solutions);
         }
 
 
