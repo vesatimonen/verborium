@@ -28,6 +28,7 @@ const elements = {
     gameOver:       document.getElementById("game-over-modal"),
 
     title:          document.getElementById("game-title"),
+    wordStatus:     document.getElementById("word-status"),
     instructions:   document.getElementById("game-instructions"),
 
     buttonRestart:  document.getElementById("button-restart"),
