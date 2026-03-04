@@ -38,8 +38,8 @@ class Board {
         /* Cells status */
         this.cells = [[undefined]];
 
-        /* Solution words */
-        this.solutions = [];
+        /* Solution paths */
+        this.solutionPaths = [];
     }
 
     filledCount() {
@@ -156,7 +156,7 @@ class Board {
             let pathCount = pathStrs[0];
 
             /* Add paths into solution */
-            this.solutions = [];
+            this.solutionPaths = [];
             for (let pathIndex = 0; pathIndex < pathCount; pathIndex++) {
                 const pathStr = pathStrs[pathIndex + 1];
 
@@ -166,8 +166,8 @@ class Board {
                 cell.Y = Number(pathStr[1]);
 
                 /* Add path and first cell into it */
-                this.solutions.push([]);
-                this.solutions[pathIndex].push({X: cell.X, Y: cell.Y});
+                this.solutionPaths.push([]);
+                this.solutionPaths[pathIndex].push({X: cell.X, Y: cell.Y});
 
                 /* Add remaining cells into the path */
                 for (let cellIndex = 2; cellIndex < pathStr.length; cellIndex++) {
@@ -185,11 +185,11 @@ class Board {
                             cell.X--;
                             break;
                     }
-                    this.solutions[pathIndex].push({X: cell.X, Y: cell.Y});
+                    this.solutionPaths[pathIndex].push({X: cell.X, Y: cell.Y});
 
                 }
             }
-//            console.log(this.solutions);
+//            console.log(this.solutionPaths);
         }
 
 
@@ -262,6 +262,15 @@ class Game {
         }
 
 // this.wordStatus = "WORD FOUND BUT NOT MEANT";
+
+        console.log("--");
+        console.log(wordPath);
+        console.log("++");
+        console.log(this.board.solutionPaths);
+
+        /* Go through solution paths */
+//        for (let pathIndex = 0; pathIndex < this.board.solutionPaths
+
 
         /* Make move */
         this.board.paths.push(wordPath);
